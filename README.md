@@ -1,1 +1,2 @@
 # ergatis-ceiling-test
+SDK 1.54 check: facebook/react is a monorepo housing the core React library — a JavaScript library for building user interfaces — along with its renderers, compiler tooling, and related packages managed via Yarn workspaces.
