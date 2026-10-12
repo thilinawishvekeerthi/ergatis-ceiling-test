@@ -1,1 +1,2 @@
 # ergatis-ceiling-test
+React is a JavaScript library for building user interfaces, designed to create interactive UIs with a declarative, component-based approach, and capable of rendering across various platforms.
