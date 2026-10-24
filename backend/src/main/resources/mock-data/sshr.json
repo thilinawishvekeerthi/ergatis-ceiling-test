@@ -1,0 +1,2067 @@
+{
+ "QUALIFICATION": [
+  {
+   "id": "Q-E0001-1",
+   "employeeRef": "E0001",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2005
+  },
+  {
+   "id": "Q-E0001-2",
+   "employeeRef": "E0001",
+   "type": "PROFESSIONAL",
+   "title": "Chartered Director",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2010
+  },
+  {
+   "id": "Q-E0001-3",
+   "employeeRef": "E0001",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0002-1",
+   "employeeRef": "E0002",
+   "type": "DEGREE",
+   "title": "BA Human Resource Management",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2006
+  },
+  {
+   "id": "Q-E0002-2",
+   "employeeRef": "E0002",
+   "type": "PROFESSIONAL",
+   "title": "CIPM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2011
+  },
+  {
+   "id": "Q-E0002-3",
+   "employeeRef": "E0002",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2017
+  },
+  {
+   "id": "Q-E0003-1",
+   "employeeRef": "E0003",
+   "type": "DEGREE",
+   "title": "BA Human Resource Management",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2007
+  },
+  {
+   "id": "Q-E0003-2",
+   "employeeRef": "E0003",
+   "type": "PROFESSIONAL",
+   "title": "CIPM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2012
+  },
+  {
+   "id": "Q-E0003-3",
+   "employeeRef": "E0003",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2018
+  },
+  {
+   "id": "Q-E0004-1",
+   "employeeRef": "E0004",
+   "type": "DEGREE",
+   "title": "BCom",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2008
+  },
+  {
+   "id": "Q-E0004-2",
+   "employeeRef": "E0004",
+   "type": "PROFESSIONAL",
+   "title": "CIPM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2013
+  },
+  {
+   "id": "Q-E0005-1",
+   "employeeRef": "E0005",
+   "type": "DEGREE",
+   "title": "BA Human Resource Management",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2009
+  },
+  {
+   "id": "Q-E0005-2",
+   "employeeRef": "E0005",
+   "type": "PROFESSIONAL",
+   "title": "CIPM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2014
+  },
+  {
+   "id": "Q-E0005-3",
+   "employeeRef": "E0005",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2020
+  },
+  {
+   "id": "Q-E0006-1",
+   "employeeRef": "E0006",
+   "type": "DEGREE",
+   "title": "BCom",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2010
+  },
+  {
+   "id": "Q-E0006-2",
+   "employeeRef": "E0006",
+   "type": "PROFESSIONAL",
+   "title": "CIPM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2015
+  },
+  {
+   "id": "Q-E0007-1",
+   "employeeRef": "E0007",
+   "type": "DEGREE",
+   "title": "BSc Accounting",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2011
+  },
+  {
+   "id": "Q-E0007-2",
+   "employeeRef": "E0007",
+   "type": "PROFESSIONAL",
+   "title": "CA Sri Lanka",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0007-3",
+   "employeeRef": "E0007",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2022
+  },
+  {
+   "id": "Q-E0008-1",
+   "employeeRef": "E0008",
+   "type": "DEGREE",
+   "title": "BSc Accounting",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2012
+  },
+  {
+   "id": "Q-E0008-2",
+   "employeeRef": "E0008",
+   "type": "PROFESSIONAL",
+   "title": "CA Sri Lanka",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2017
+  },
+  {
+   "id": "Q-E0008-3",
+   "employeeRef": "E0008",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2023
+  },
+  {
+   "id": "Q-E0009-1",
+   "employeeRef": "E0009",
+   "type": "DEGREE",
+   "title": "BSc Accounting",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2013
+  },
+  {
+   "id": "Q-E0009-2",
+   "employeeRef": "E0009",
+   "type": "PROFESSIONAL",
+   "title": "CA Sri Lanka",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2018
+  },
+  {
+   "id": "Q-E0009-3",
+   "employeeRef": "E0009",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0010-1",
+   "employeeRef": "E0010",
+   "type": "DEGREE",
+   "title": "BSc Accounting",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2014
+  },
+  {
+   "id": "Q-E0010-2",
+   "employeeRef": "E0010",
+   "type": "PROFESSIONAL",
+   "title": "CA Sri Lanka",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2019
+  },
+  {
+   "id": "Q-E0011-1",
+   "employeeRef": "E0011",
+   "type": "DEGREE",
+   "title": "BSc Accounting",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2015
+  },
+  {
+   "id": "Q-E0011-2",
+   "employeeRef": "E0011",
+   "type": "PROFESSIONAL",
+   "title": "CA Sri Lanka",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2020
+  },
+  {
+   "id": "Q-E0012-1",
+   "employeeRef": "E0012",
+   "type": "DEGREE",
+   "title": "BSc Accounting",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0012-2",
+   "employeeRef": "E0012",
+   "type": "PROFESSIONAL",
+   "title": "CA Sri Lanka",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2021
+  },
+  {
+   "id": "Q-E0013-1",
+   "employeeRef": "E0013",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2017
+  },
+  {
+   "id": "Q-E0013-2",
+   "employeeRef": "E0013",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2010
+  },
+  {
+   "id": "Q-E0013-3",
+   "employeeRef": "E0013",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2020
+  },
+  {
+   "id": "Q-E0014-1",
+   "employeeRef": "E0014",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2018
+  },
+  {
+   "id": "Q-E0014-2",
+   "employeeRef": "E0014",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2011
+  },
+  {
+   "id": "Q-E0014-3",
+   "employeeRef": "E0014",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2021
+  },
+  {
+   "id": "Q-E0015-1",
+   "employeeRef": "E0015",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2019
+  },
+  {
+   "id": "Q-E0015-2",
+   "employeeRef": "E0015",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2012
+  },
+  {
+   "id": "Q-E0015-3",
+   "employeeRef": "E0015",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2022
+  },
+  {
+   "id": "Q-E0016-1",
+   "employeeRef": "E0016",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2005
+  },
+  {
+   "id": "Q-E0016-2",
+   "employeeRef": "E0016",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2013
+  },
+  {
+   "id": "Q-E0016-3",
+   "employeeRef": "E0016",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2023
+  },
+  {
+   "id": "Q-E0017-1",
+   "employeeRef": "E0017",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2006
+  },
+  {
+   "id": "Q-E0017-2",
+   "employeeRef": "E0017",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2014
+  },
+  {
+   "id": "Q-E0017-3",
+   "employeeRef": "E0017",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0018-1",
+   "employeeRef": "E0018",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2007
+  },
+  {
+   "id": "Q-E0018-2",
+   "employeeRef": "E0018",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2015
+  },
+  {
+   "id": "Q-E0019-1",
+   "employeeRef": "E0019",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2008
+  },
+  {
+   "id": "Q-E0019-2",
+   "employeeRef": "E0019",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0020-1",
+   "employeeRef": "E0020",
+   "type": "DEGREE",
+   "title": "BSc Computer Science",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2009
+  },
+  {
+   "id": "Q-E0020-2",
+   "employeeRef": "E0020",
+   "type": "PROFESSIONAL",
+   "title": "AWS Solutions Architect",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2017
+  },
+  {
+   "id": "Q-E0021-1",
+   "employeeRef": "E0021",
+   "type": "DEGREE",
+   "title": "BSc Engineering",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2010
+  },
+  {
+   "id": "Q-E0021-2",
+   "employeeRef": "E0021",
+   "type": "PROFESSIONAL",
+   "title": "Six Sigma Green Belt",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2018
+  },
+  {
+   "id": "Q-E0021-3",
+   "employeeRef": "E0021",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2020
+  },
+  {
+   "id": "Q-E0022-1",
+   "employeeRef": "E0022",
+   "type": "DEGREE",
+   "title": "BSc Engineering",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2011
+  },
+  {
+   "id": "Q-E0022-2",
+   "employeeRef": "E0022",
+   "type": "PROFESSIONAL",
+   "title": "Six Sigma Green Belt",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2019
+  },
+  {
+   "id": "Q-E0022-3",
+   "employeeRef": "E0022",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2021
+  },
+  {
+   "id": "Q-E0023-1",
+   "employeeRef": "E0023",
+   "type": "DEGREE",
+   "title": "BSc Engineering",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2012
+  },
+  {
+   "id": "Q-E0023-2",
+   "employeeRef": "E0023",
+   "type": "PROFESSIONAL",
+   "title": "Six Sigma Green Belt",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2020
+  },
+  {
+   "id": "Q-E0023-3",
+   "employeeRef": "E0023",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2022
+  },
+  {
+   "id": "Q-E0024-1",
+   "employeeRef": "E0024",
+   "type": "DEGREE",
+   "title": "BSc Engineering",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2013
+  },
+  {
+   "id": "Q-E0024-2",
+   "employeeRef": "E0024",
+   "type": "PROFESSIONAL",
+   "title": "Six Sigma Green Belt",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2021
+  },
+  {
+   "id": "Q-E0025-1",
+   "employeeRef": "E0025",
+   "type": "DEGREE",
+   "title": "BSc Engineering",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2014
+  },
+  {
+   "id": "Q-E0025-2",
+   "employeeRef": "E0025",
+   "type": "PROFESSIONAL",
+   "title": "Six Sigma Green Belt",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2010
+  },
+  {
+   "id": "Q-E0025-3",
+   "employeeRef": "E0025",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0026-1",
+   "employeeRef": "E0026",
+   "type": "DEGREE",
+   "title": "BSc Engineering",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2015
+  },
+  {
+   "id": "Q-E0026-2",
+   "employeeRef": "E0026",
+   "type": "PROFESSIONAL",
+   "title": "Six Sigma Green Belt",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2011
+  },
+  {
+   "id": "Q-E0027-1",
+   "employeeRef": "E0027",
+   "type": "DEGREE",
+   "title": "BBA Marketing",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0027-2",
+   "employeeRef": "E0027",
+   "type": "PROFESSIONAL",
+   "title": "CIM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2012
+  },
+  {
+   "id": "Q-E0027-3",
+   "employeeRef": "E0027",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2018
+  },
+  {
+   "id": "Q-E0028-1",
+   "employeeRef": "E0028",
+   "type": "DEGREE",
+   "title": "BBA Marketing",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2017
+  },
+  {
+   "id": "Q-E0028-2",
+   "employeeRef": "E0028",
+   "type": "PROFESSIONAL",
+   "title": "CIM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2013
+  },
+  {
+   "id": "Q-E0028-3",
+   "employeeRef": "E0028",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2019
+  },
+  {
+   "id": "Q-E0029-1",
+   "employeeRef": "E0029",
+   "type": "DEGREE",
+   "title": "BBA Marketing",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2018
+  },
+  {
+   "id": "Q-E0029-2",
+   "employeeRef": "E0029",
+   "type": "PROFESSIONAL",
+   "title": "CIM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2014
+  },
+  {
+   "id": "Q-E0029-3",
+   "employeeRef": "E0029",
+   "type": "DEGREE",
+   "title": "MBA",
+   "institution": "PIM Sri Jayewardenepura",
+   "level": 4,
+   "yearCompleted": 2020
+  },
+  {
+   "id": "Q-E0030-1",
+   "employeeRef": "E0030",
+   "type": "DEGREE",
+   "title": "BBA Marketing",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2019
+  },
+  {
+   "id": "Q-E0030-2",
+   "employeeRef": "E0030",
+   "type": "PROFESSIONAL",
+   "title": "CIM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2015
+  },
+  {
+   "id": "Q-E0031-1",
+   "employeeRef": "E0031",
+   "type": "DEGREE",
+   "title": "BBA Marketing",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2005
+  },
+  {
+   "id": "Q-E0031-2",
+   "employeeRef": "E0031",
+   "type": "PROFESSIONAL",
+   "title": "CIM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2016
+  },
+  {
+   "id": "Q-E0032-1",
+   "employeeRef": "E0032",
+   "type": "DEGREE",
+   "title": "BBA Marketing",
+   "institution": "University of Colombo",
+   "level": 3,
+   "yearCompleted": 2006
+  },
+  {
+   "id": "Q-E0032-2",
+   "employeeRef": "E0032",
+   "type": "PROFESSIONAL",
+   "title": "CIM",
+   "institution": "Professional body",
+   "level": 2,
+   "yearCompleted": 2017
+  }
+ ],
+ "EXPERIENCE": [
+  {
+   "id": "X-E0001-1",
+   "employeeRef": "E0001",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Officer",
+   "jobCode": null,
+   "startDate": "2022-01-01",
+   "endDate": "2023-01-01",
+   "internal": false
+  },
+  {
+   "id": "X-E0001-2",
+   "employeeRef": "E0001",
+   "employer": "Ceylon Holdings",
+   "title": "Chief Executive Officer",
+   "jobCode": "CEO",
+   "startDate": "2023-01-01",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0002-1",
+   "employeeRef": "E0002",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee HR",
+   "jobCode": null,
+   "startDate": "2016-01-01",
+   "endDate": "2018-02-02",
+   "internal": false
+  },
+  {
+   "id": "X-E0002-2",
+   "employeeRef": "E0002",
+   "employer": "Ceylon Holdings",
+   "title": "Head of HR",
+   "jobCode": "HR-HOD",
+   "startDate": "2018-02-02",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0003-1",
+   "employeeRef": "E0003",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2010-01-01",
+   "endDate": "2013-03-03",
+   "internal": false
+  },
+  {
+   "id": "X-E0003-2",
+   "employeeRef": "E0003",
+   "employer": "Ceylon Holdings",
+   "title": "HR Manager",
+   "jobCode": "HR-MGR",
+   "startDate": "2013-03-03",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0004-1",
+   "employeeRef": "E0004",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Payroll",
+   "jobCode": null,
+   "startDate": "2004-01-01",
+   "endDate": "2008-04-04",
+   "internal": false
+  },
+  {
+   "id": "X-E0004-2",
+   "employeeRef": "E0004",
+   "employer": "Ceylon Holdings",
+   "title": "HRO Payroll",
+   "jobCode": "HR-PAYO",
+   "startDate": "2008-04-04",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0005-1",
+   "employeeRef": "E0005",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2015-01-01",
+   "endDate": "2020-05-05",
+   "internal": false
+  },
+  {
+   "id": "X-E0005-2",
+   "employeeRef": "E0005",
+   "employer": "Ceylon Holdings",
+   "title": "HR Executive",
+   "jobCode": "HR-EXE",
+   "startDate": "2020-05-05",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0006-1",
+   "employeeRef": "E0006",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2009-01-01",
+   "endDate": "2015-06-06",
+   "internal": false
+  },
+  {
+   "id": "X-E0006-2",
+   "employeeRef": "E0006",
+   "employer": "Ceylon Holdings",
+   "title": "HR Executive",
+   "jobCode": "HR-EXE",
+   "startDate": "2015-06-06",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0007-1",
+   "employeeRef": "E0007",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Finance",
+   "jobCode": null,
+   "startDate": "2009-01-01",
+   "endDate": "2010-07-07",
+   "internal": false
+  },
+  {
+   "id": "X-E0007-2",
+   "employeeRef": "E0007",
+   "employer": "Ceylon Holdings",
+   "title": "Head of Finance",
+   "jobCode": "FIN-HOD",
+   "startDate": "2010-07-07",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0008-1",
+   "employeeRef": "E0008",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2020-01-01",
+   "endDate": "2022-08-08",
+   "internal": false
+  },
+  {
+   "id": "X-E0008-2",
+   "employeeRef": "E0008",
+   "employer": "Ceylon Holdings",
+   "title": "Finance Manager",
+   "jobCode": "FIN-MGR",
+   "startDate": "2022-08-08",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0009-1",
+   "employeeRef": "E0009",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2014-01-01",
+   "endDate": "2017-09-09",
+   "internal": false
+  },
+  {
+   "id": "X-E0009-2",
+   "employeeRef": "E0009",
+   "employer": "Ceylon Holdings",
+   "title": "Senior Finance Executive",
+   "jobCode": "FIN-SEXE",
+   "startDate": "2017-09-09",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0010-1",
+   "employeeRef": "E0010",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2008-01-01",
+   "endDate": "2012-10-10",
+   "internal": false
+  },
+  {
+   "id": "X-E0010-2",
+   "employeeRef": "E0010",
+   "employer": "Ceylon Holdings",
+   "title": "Senior Finance Executive",
+   "jobCode": "FIN-SEXE",
+   "startDate": "2012-10-10",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0011-1",
+   "employeeRef": "E0011",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2002-01-01",
+   "endDate": "2007-11-11",
+   "internal": false
+  },
+  {
+   "id": "X-E0011-2",
+   "employeeRef": "E0011",
+   "employer": "Ceylon Holdings",
+   "title": "Finance Executive",
+   "jobCode": "FIN-EXE",
+   "startDate": "2007-11-11",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0012-1",
+   "employeeRef": "E0012",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2013-01-01",
+   "endDate": "2019-12-12",
+   "internal": false
+  },
+  {
+   "id": "X-E0012-2",
+   "employeeRef": "E0012",
+   "employer": "Ceylon Holdings",
+   "title": "Finance Executive",
+   "jobCode": "FIN-EXE",
+   "startDate": "2019-12-12",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0013-1",
+   "employeeRef": "E0013",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee IT",
+   "jobCode": null,
+   "startDate": "2013-01-01",
+   "endDate": "2014-01-13",
+   "internal": false
+  },
+  {
+   "id": "X-E0013-2",
+   "employeeRef": "E0013",
+   "employer": "Ceylon Holdings",
+   "title": "Head of IT",
+   "jobCode": "IT-HOD",
+   "startDate": "2014-01-13",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0014-1",
+   "employeeRef": "E0014",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2007-01-01",
+   "endDate": "2009-02-14",
+   "internal": false
+  },
+  {
+   "id": "X-E0014-2",
+   "employeeRef": "E0014",
+   "employer": "Ceylon Holdings",
+   "title": "IT Manager",
+   "jobCode": "IT-MGR",
+   "startDate": "2009-02-14",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0015-1",
+   "employeeRef": "E0015",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Lead",
+   "jobCode": null,
+   "startDate": "2018-01-01",
+   "endDate": "2021-03-15",
+   "internal": false
+  },
+  {
+   "id": "X-E0015-2",
+   "employeeRef": "E0015",
+   "employer": "Ceylon Holdings",
+   "title": "Technical Lead",
+   "jobCode": "IT-TL",
+   "startDate": "2021-03-15",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0016-1",
+   "employeeRef": "E0016",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Lead",
+   "jobCode": null,
+   "startDate": "2012-01-01",
+   "endDate": "2016-04-16",
+   "internal": false
+  },
+  {
+   "id": "X-E0016-2",
+   "employeeRef": "E0016",
+   "employer": "Ceylon Holdings",
+   "title": "Technical Lead",
+   "jobCode": "IT-TL",
+   "startDate": "2016-04-16",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0017-1",
+   "employeeRef": "E0017",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Engineer",
+   "jobCode": null,
+   "startDate": "2006-01-01",
+   "endDate": "2011-05-17",
+   "internal": false
+  },
+  {
+   "id": "X-E0017-2",
+   "employeeRef": "E0017",
+   "employer": "Ceylon Holdings",
+   "title": "Senior Software Engineer",
+   "jobCode": "IT-SSE",
+   "startDate": "2011-05-17",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0018-1",
+   "employeeRef": "E0018",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Engineer",
+   "jobCode": null,
+   "startDate": "2017-01-01",
+   "endDate": "2023-06-18",
+   "internal": false
+  },
+  {
+   "id": "X-E0018-2",
+   "employeeRef": "E0018",
+   "employer": "Ceylon Holdings",
+   "title": "Senior Software Engineer",
+   "jobCode": "IT-SSE",
+   "startDate": "2023-06-18",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0019-1",
+   "employeeRef": "E0019",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Engineer",
+   "jobCode": null,
+   "startDate": "2017-01-01",
+   "endDate": "2018-07-19",
+   "internal": false
+  },
+  {
+   "id": "X-E0019-2",
+   "employeeRef": "E0019",
+   "employer": "Ceylon Holdings",
+   "title": "Software Engineer",
+   "jobCode": "IT-SE",
+   "startDate": "2018-07-19",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0020-1",
+   "employeeRef": "E0020",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Engineer",
+   "jobCode": null,
+   "startDate": "2011-01-01",
+   "endDate": "2013-08-20",
+   "internal": false
+  },
+  {
+   "id": "X-E0020-2",
+   "employeeRef": "E0020",
+   "employer": "Ceylon Holdings",
+   "title": "Software Engineer",
+   "jobCode": "IT-SE",
+   "startDate": "2013-08-20",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0021-1",
+   "employeeRef": "E0021",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Operations",
+   "jobCode": null,
+   "startDate": "2005-01-01",
+   "endDate": "2008-09-21",
+   "internal": false
+  },
+  {
+   "id": "X-E0021-2",
+   "employeeRef": "E0021",
+   "employer": "Ceylon Holdings",
+   "title": "Head of Operations",
+   "jobCode": "OPS-HOD",
+   "startDate": "2008-09-21",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0022-1",
+   "employeeRef": "E0022",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2016-01-01",
+   "endDate": "2020-10-22",
+   "internal": false
+  },
+  {
+   "id": "X-E0022-2",
+   "employeeRef": "E0022",
+   "employer": "Ceylon Holdings",
+   "title": "Operations Manager",
+   "jobCode": "OPS-MGR",
+   "startDate": "2020-10-22",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0023-1",
+   "employeeRef": "E0023",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2010-01-01",
+   "endDate": "2015-11-23",
+   "internal": false
+  },
+  {
+   "id": "X-E0023-2",
+   "employeeRef": "E0023",
+   "employer": "Ceylon Holdings",
+   "title": "Operations Manager",
+   "jobCode": "OPS-MGR",
+   "startDate": "2015-11-23",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0024-1",
+   "employeeRef": "E0024",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2004-01-01",
+   "endDate": "2010-12-24",
+   "internal": false
+  },
+  {
+   "id": "X-E0024-2",
+   "employeeRef": "E0024",
+   "employer": "Ceylon Holdings",
+   "title": "Operations Executive",
+   "jobCode": "OPS-EXE",
+   "startDate": "2010-12-24",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0025-1",
+   "employeeRef": "E0025",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2021-01-01",
+   "endDate": "2022-01-25",
+   "internal": false
+  },
+  {
+   "id": "X-E0025-2",
+   "employeeRef": "E0025",
+   "employer": "Ceylon Holdings",
+   "title": "Operations Executive",
+   "jobCode": "OPS-EXE",
+   "startDate": "2022-01-25",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0026-1",
+   "employeeRef": "E0026",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2015-01-01",
+   "endDate": "2017-02-26",
+   "internal": false
+  },
+  {
+   "id": "X-E0026-2",
+   "employeeRef": "E0026",
+   "employer": "Ceylon Holdings",
+   "title": "Operations Executive",
+   "jobCode": "OPS-EXE",
+   "startDate": "2017-02-26",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0027-1",
+   "employeeRef": "E0027",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Sales",
+   "jobCode": null,
+   "startDate": "2009-01-01",
+   "endDate": "2012-03-27",
+   "internal": false
+  },
+  {
+   "id": "X-E0027-2",
+   "employeeRef": "E0027",
+   "employer": "Ceylon Holdings",
+   "title": "Head of Sales",
+   "jobCode": "SAL-HOD",
+   "startDate": "2012-03-27",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0028-1",
+   "employeeRef": "E0028",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2003-01-01",
+   "endDate": "2007-04-01",
+   "internal": false
+  },
+  {
+   "id": "X-E0028-2",
+   "employeeRef": "E0028",
+   "employer": "Ceylon Holdings",
+   "title": "Sales Manager",
+   "jobCode": "SAL-MGR",
+   "startDate": "2007-04-01",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0029-1",
+   "employeeRef": "E0029",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Manager",
+   "jobCode": null,
+   "startDate": "2014-01-01",
+   "endDate": "2019-05-02",
+   "internal": false
+  },
+  {
+   "id": "X-E0029-2",
+   "employeeRef": "E0029",
+   "employer": "Ceylon Holdings",
+   "title": "Sales Manager",
+   "jobCode": "SAL-MGR",
+   "startDate": "2019-05-02",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0030-1",
+   "employeeRef": "E0030",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2008-01-01",
+   "endDate": "2014-06-03",
+   "internal": false
+  },
+  {
+   "id": "X-E0030-2",
+   "employeeRef": "E0030",
+   "employer": "Ceylon Holdings",
+   "title": "Sales Executive",
+   "jobCode": "SAL-EXE",
+   "startDate": "2014-06-03",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0031-1",
+   "employeeRef": "E0031",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2008-01-01",
+   "endDate": "2009-07-04",
+   "internal": false
+  },
+  {
+   "id": "X-E0031-2",
+   "employeeRef": "E0031",
+   "employer": "Ceylon Holdings",
+   "title": "Sales Executive",
+   "jobCode": "SAL-EXE",
+   "startDate": "2009-07-04",
+   "endDate": null,
+   "internal": true
+  },
+  {
+   "id": "X-E0032-1",
+   "employeeRef": "E0032",
+   "employer": "Lanka Trading PLC",
+   "title": "Trainee Executive",
+   "jobCode": null,
+   "startDate": "2019-01-01",
+   "endDate": "2021-08-05",
+   "internal": false
+  },
+  {
+   "id": "X-E0032-2",
+   "employeeRef": "E0032",
+   "employer": "Ceylon Holdings",
+   "title": "Sales Executive",
+   "jobCode": "SAL-EXE",
+   "startDate": "2021-08-05",
+   "endDate": null,
+   "internal": true
+  }
+ ],
+ "EXPERTISE": [
+  {
+   "id": "S-E0001-0",
+   "employeeRef": "E0001",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0001-1",
+   "employeeRef": "E0001",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0001-2",
+   "employeeRef": "E0001",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0002-0",
+   "employeeRef": "E0002",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0002-1",
+   "employeeRef": "E0002",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0002-2",
+   "employeeRef": "E0002",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0003-0",
+   "employeeRef": "E0003",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0003-1",
+   "employeeRef": "E0003",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0003-2",
+   "employeeRef": "E0003",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0004-0",
+   "employeeRef": "E0004",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0004-1",
+   "employeeRef": "E0004",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0004-2",
+   "employeeRef": "E0004",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0005-0",
+   "employeeRef": "E0005",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0005-1",
+   "employeeRef": "E0005",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0005-2",
+   "employeeRef": "E0005",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0006-0",
+   "employeeRef": "E0006",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0006-1",
+   "employeeRef": "E0006",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0006-2",
+   "employeeRef": "E0006",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0007-0",
+   "employeeRef": "E0007",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0007-1",
+   "employeeRef": "E0007",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0007-2",
+   "employeeRef": "E0007",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0008-0",
+   "employeeRef": "E0008",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0008-1",
+   "employeeRef": "E0008",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0008-2",
+   "employeeRef": "E0008",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0009-0",
+   "employeeRef": "E0009",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0009-1",
+   "employeeRef": "E0009",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0009-2",
+   "employeeRef": "E0009",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0010-0",
+   "employeeRef": "E0010",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0010-1",
+   "employeeRef": "E0010",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0010-2",
+   "employeeRef": "E0010",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0011-0",
+   "employeeRef": "E0011",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0011-1",
+   "employeeRef": "E0011",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0011-2",
+   "employeeRef": "E0011",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0012-0",
+   "employeeRef": "E0012",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0012-1",
+   "employeeRef": "E0012",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0012-2",
+   "employeeRef": "E0012",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0013-0",
+   "employeeRef": "E0013",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0013-1",
+   "employeeRef": "E0013",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0013-2",
+   "employeeRef": "E0013",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0014-0",
+   "employeeRef": "E0014",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0014-1",
+   "employeeRef": "E0014",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0014-2",
+   "employeeRef": "E0014",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0015-0",
+   "employeeRef": "E0015",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0015-1",
+   "employeeRef": "E0015",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0015-2",
+   "employeeRef": "E0015",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0016-0",
+   "employeeRef": "E0016",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0016-1",
+   "employeeRef": "E0016",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0016-2",
+   "employeeRef": "E0016",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0017-0",
+   "employeeRef": "E0017",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0017-1",
+   "employeeRef": "E0017",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0017-2",
+   "employeeRef": "E0017",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0018-0",
+   "employeeRef": "E0018",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0018-1",
+   "employeeRef": "E0018",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0018-2",
+   "employeeRef": "E0018",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0019-0",
+   "employeeRef": "E0019",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0019-1",
+   "employeeRef": "E0019",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0019-2",
+   "employeeRef": "E0019",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0020-0",
+   "employeeRef": "E0020",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0020-1",
+   "employeeRef": "E0020",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0020-2",
+   "employeeRef": "E0020",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0021-0",
+   "employeeRef": "E0021",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0021-1",
+   "employeeRef": "E0021",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0021-2",
+   "employeeRef": "E0021",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0022-0",
+   "employeeRef": "E0022",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0022-1",
+   "employeeRef": "E0022",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0022-2",
+   "employeeRef": "E0022",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0023-0",
+   "employeeRef": "E0023",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0023-1",
+   "employeeRef": "E0023",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0023-2",
+   "employeeRef": "E0023",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0024-0",
+   "employeeRef": "E0024",
+   "area": "Customer Focus",
+   "competencyCode": "CUST",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0024-1",
+   "employeeRef": "E0024",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0024-2",
+   "employeeRef": "E0024",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0025-0",
+   "employeeRef": "E0025",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0025-1",
+   "employeeRef": "E0025",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0025-2",
+   "employeeRef": "E0025",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0026-0",
+   "employeeRef": "E0026",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0026-1",
+   "employeeRef": "E0026",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0026-2",
+   "employeeRef": "E0026",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0027-0",
+   "employeeRef": "E0027",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0027-1",
+   "employeeRef": "E0027",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0027-2",
+   "employeeRef": "E0027",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0028-0",
+   "employeeRef": "E0028",
+   "area": "Strategic Thinking",
+   "competencyCode": "STRAT",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0028-1",
+   "employeeRef": "E0028",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0028-2",
+   "employeeRef": "E0028",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0029-0",
+   "employeeRef": "E0029",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0029-1",
+   "employeeRef": "E0029",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0029-2",
+   "employeeRef": "E0029",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0030-0",
+   "employeeRef": "E0030",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0030-1",
+   "employeeRef": "E0030",
+   "area": "Communication",
+   "competencyCode": "COMM",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0030-2",
+   "employeeRef": "E0030",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0031-0",
+   "employeeRef": "E0031",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0031-1",
+   "employeeRef": "E0031",
+   "area": "Leadership",
+   "competencyCode": "LEAD",
+   "proficiency": 3
+  },
+  {
+   "id": "S-E0031-2",
+   "employeeRef": "E0031",
+   "area": "Technical Expertise",
+   "competencyCode": "TECH",
+   "proficiency": 2
+  },
+  {
+   "id": "S-E0032-0",
+   "employeeRef": "E0032",
+   "area": "Developing People",
+   "competencyCode": "PEOPLE",
+   "proficiency": 4
+  },
+  {
+   "id": "S-E0032-1",
+   "employeeRef": "E0032",
+   "area": "Financial Acumen",
+   "competencyCode": "FINAN",
+   "proficiency": 5
+  },
+  {
+   "id": "S-E0032-2",
+   "employeeRef": "E0032",
+   "area": "Delivering Results",
+   "competencyCode": "DELIV",
+   "proficiency": 4
+  }
+ ]
+}

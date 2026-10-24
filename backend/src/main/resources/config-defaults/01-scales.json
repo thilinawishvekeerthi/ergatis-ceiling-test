@@ -1,0 +1,268 @@
+[
+ {
+  "type": "SCALE",
+  "code": "PERFORMANCE",
+  "name": "Performance rating",
+  "description": "Final appraisal score from the Performance module (assumption 4)",
+  "payload": {
+   "description": "Final appraisal score from the Performance module (assumption 4)",
+   "levels": [
+    {
+     "value": 1,
+     "code": "P1",
+     "label": "Below expectations",
+     "colour": "#d32f2f",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 2,
+     "code": "P2",
+     "label": "Partly meets",
+     "colour": "#f57c00",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 3,
+     "code": "P3",
+     "label": "Meets expectations",
+     "colour": "#fbc02d",
+     "reportingBand": "MEDIUM"
+    },
+    {
+     "value": 4,
+     "code": "P4",
+     "label": "Exceeds expectations",
+     "colour": "#7cb342",
+     "reportingBand": "HIGH"
+    },
+    {
+     "value": 5,
+     "code": "P5",
+     "label": "Outstanding",
+     "colour": "#2e7d32",
+     "reportingBand": "HIGH"
+    }
+   ]
+  }
+ },
+ {
+  "type": "SCALE",
+  "code": "POTENTIAL",
+  "name": "Potential",
+  "description": "Reviewer's view of the employee's potential to grow",
+  "payload": {
+   "description": "Reviewer's view of the employee's potential to grow",
+   "levels": [
+    {
+     "value": 1,
+     "code": "LOW",
+     "label": "Low potential",
+     "colour": "#9e9e9e",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 2,
+     "code": "MODERATE",
+     "label": "Moderate potential",
+     "colour": "#42a5f5",
+     "reportingBand": "MEDIUM"
+    },
+    {
+     "value": 3,
+     "code": "HIGH",
+     "label": "High potential",
+     "colour": "#1565c0",
+     "reportingBand": "HIGH"
+    }
+   ]
+  }
+ },
+ {
+  "type": "SCALE",
+  "code": "READINESS",
+  "name": "Successor readiness",
+  "description": "Assumption 3: Ready Now / 1\u20132 years / 3+ years",
+  "payload": {
+   "description": "Assumption 3: Ready Now / 1\u20132 years / 3+ years",
+   "levels": [
+    {
+     "value": 1,
+     "code": "READY_NOW",
+     "label": "Ready now",
+     "colour": "#2e7d32",
+     "reportingBand": "READY_NOW"
+    },
+    {
+     "value": 2,
+     "code": "READY_1_2Y",
+     "label": "Ready in 1\u20132 years",
+     "colour": "#fbc02d",
+     "reportingBand": "READY_SOON"
+    },
+    {
+     "value": 3,
+     "code": "READY_3PLUS",
+     "label": "Ready in 3+ years",
+     "colour": "#f57c00",
+     "reportingBand": "READY_LATER"
+    }
+   ]
+  }
+ },
+ {
+  "type": "SCALE",
+  "code": "RISK_OF_LOSS",
+  "name": "Risk of loss",
+  "description": "How likely the incumbent is to leave",
+  "payload": {
+   "description": "How likely the incumbent is to leave",
+   "levels": [
+    {
+     "value": 1,
+     "code": "LOW",
+     "label": "Low",
+     "colour": "#2e7d32",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 2,
+     "code": "MEDIUM",
+     "label": "Medium",
+     "colour": "#fbc02d",
+     "reportingBand": "MEDIUM"
+    },
+    {
+     "value": 3,
+     "code": "HIGH",
+     "label": "High",
+     "colour": "#d32f2f",
+     "reportingBand": "HIGH"
+    }
+   ]
+  }
+ },
+ {
+  "type": "SCALE",
+  "code": "IMPACT_OF_LOSS",
+  "name": "Impact of loss",
+  "description": "Business impact if the incumbent leaves",
+  "payload": {
+   "description": "Business impact if the incumbent leaves",
+   "levels": [
+    {
+     "value": 1,
+     "code": "LOW",
+     "label": "Low",
+     "colour": "#2e7d32",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 2,
+     "code": "MEDIUM",
+     "label": "Medium",
+     "colour": "#fbc02d",
+     "reportingBand": "MEDIUM"
+    },
+    {
+     "value": 3,
+     "code": "HIGH",
+     "label": "High",
+     "colour": "#d32f2f",
+     "reportingBand": "HIGH"
+    }
+   ]
+  }
+ },
+ {
+  "type": "SCALE",
+  "code": "IDP_RATING",
+  "name": "IDP overall rating",
+  "description": "Reviewer's overall rating of development plan progress",
+  "payload": {
+   "description": "Reviewer's overall rating of development plan progress",
+   "levels": [
+    {
+     "value": 1,
+     "code": "R1",
+     "label": "Not started",
+     "colour": "#d32f2f",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 2,
+     "code": "R2",
+     "label": "Behind plan",
+     "colour": "#f57c00",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 3,
+     "code": "R3",
+     "label": "On track",
+     "colour": "#fbc02d",
+     "reportingBand": "MEDIUM"
+    },
+    {
+     "value": 4,
+     "code": "R4",
+     "label": "Ahead of plan",
+     "colour": "#7cb342",
+     "reportingBand": "HIGH"
+    },
+    {
+     "value": 5,
+     "code": "R5",
+     "label": "Fully achieved",
+     "colour": "#2e7d32",
+     "reportingBand": "HIGH"
+    }
+   ]
+  }
+ },
+ {
+  "type": "SCALE",
+  "code": "PROFICIENCY",
+  "name": "Competency proficiency",
+  "description": "Proficiency level used for competency ratings and job requirements",
+  "payload": {
+   "description": "Proficiency level used for competency ratings and job requirements",
+   "levels": [
+    {
+     "value": 1,
+     "code": "BASIC",
+     "label": "Basic",
+     "colour": "#e0e0e0",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 2,
+     "code": "DEVELOPING",
+     "label": "Developing",
+     "colour": "#90caf9",
+     "reportingBand": "LOW"
+    },
+    {
+     "value": 3,
+     "code": "PROFICIENT",
+     "label": "Proficient",
+     "colour": "#42a5f5",
+     "reportingBand": "MEDIUM"
+    },
+    {
+     "value": 4,
+     "code": "ADVANCED",
+     "label": "Advanced",
+     "colour": "#1e88e5",
+     "reportingBand": "HIGH"
+    },
+    {
+     "value": 5,
+     "code": "EXPERT",
+     "label": "Expert",
+     "colour": "#0d47a1",
+     "reportingBand": "HIGH"
+    }
+   ]
+  }
+ }
+]

@@ -1,0 +1,384 @@
+[
+ {
+  "type": "WORKFLOW",
+  "code": "TALENT_ASSESSMENT",
+  "name": "Talent assessment",
+  "description": "Blueprint pp.10\u201311 plus return paths (G-T4) and board calibration (G-T5)",
+  "payload": {
+   "description": "Reviewer \u2192 approver \u2192 review board",
+   "initialState": "DRAFT",
+   "states": [
+    {
+     "code": "DRAFT",
+     "label": "Reviewer assessment",
+     "actor": "CYCLE_ASSIGNMENT(REVIEWER)",
+     "slaDays": 21,
+     "terminal": false
+    },
+    {
+     "code": "SUBMITTED",
+     "label": "Awaiting approval",
+     "actor": "CYCLE_ASSIGNMENT(APPROVER)",
+     "slaDays": 7,
+     "terminal": false
+    },
+    {
+     "code": "APPROVED",
+     "label": "Board review",
+     "actor": "CYCLE_ASSIGNMENT(BOARD_HEAD)",
+     "slaDays": 14,
+     "terminal": false
+    },
+    {
+     "code": "CALIBRATED",
+     "label": "Calibrated, awaiting publication",
+     "actor": "NONE",
+     "slaDays": null,
+     "terminal": false
+    },
+    {
+     "code": "FINAL",
+     "label": "Final",
+     "actor": null,
+     "slaDays": null,
+     "terminal": true
+    },
+    {
+     "code": "WITHDRAWN",
+     "label": "Withdrawn",
+     "actor": null,
+     "slaDays": null,
+     "terminal": true
+    }
+   ],
+   "transitions": [
+    {
+     "from": "DRAFT",
+     "action": "SUBMIT",
+     "to": "SUBMITTED",
+     "label": "Submit",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "APPROVE",
+     "to": "APPROVED",
+     "label": "Approve",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "RETURN",
+     "to": "DRAFT",
+     "label": "Return to reviewer",
+     "commentRequired": true,
+     "system": false
+    },
+    {
+     "from": "APPROVED",
+     "action": "CALIBRATE",
+     "to": "CALIBRATED",
+     "label": "Confirm board decision",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "APPROVED",
+     "action": "RETURN",
+     "to": "DRAFT",
+     "label": "Send back to reviewer",
+     "commentRequired": true,
+     "system": false
+    },
+    {
+     "from": "CALIBRATED",
+     "action": "REOPEN",
+     "to": "APPROVED",
+     "label": "Reopen board review",
+     "commentRequired": true,
+     "system": true
+    },
+    {
+     "from": "CALIBRATED",
+     "action": "PUBLISH",
+     "to": "FINAL",
+     "label": "Publish",
+     "commentRequired": false,
+     "system": true
+    },
+    {
+     "from": "DRAFT",
+     "action": "WITHDRAW",
+     "to": "WITHDRAWN",
+     "label": "Withdraw",
+     "commentRequired": true,
+     "system": true
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "WITHDRAW",
+     "to": "WITHDRAWN",
+     "label": "Withdraw",
+     "commentRequired": true,
+     "system": true
+    },
+    {
+     "from": "APPROVED",
+     "action": "WITHDRAW",
+     "to": "WITHDRAWN",
+     "label": "Withdraw",
+     "commentRequired": true,
+     "system": true
+    }
+   ]
+  }
+ },
+ {
+  "type": "WORKFLOW",
+  "code": "IDP",
+  "name": "Individual development plan",
+  "description": "Blueprint pp.14\u201315 plus employee acknowledgement (G-D1) and HR return (G-D5)",
+  "payload": {
+   "description": "Supervisor \u2192 employee acknowledges \u2192 HR approver",
+   "initialState": "DRAFT",
+   "states": [
+    {
+     "code": "DRAFT",
+     "label": "Supervisor drafting",
+     "actor": "DIRECT_SUPERVISOR",
+     "slaDays": 14,
+     "terminal": false
+    },
+    {
+     "code": "PENDING_ACK",
+     "label": "Employee acknowledgement",
+     "actor": "SUBJECT",
+     "slaDays": 7,
+     "terminal": false
+    },
+    {
+     "code": "SUBMITTED",
+     "label": "HR approval",
+     "actor": "ROLE(HR_APPROVER)",
+     "slaDays": 7,
+     "terminal": false
+    },
+    {
+     "code": "IN_PROGRESS",
+     "label": "In progress",
+     "actor": "DIRECT_SUPERVISOR",
+     "slaDays": null,
+     "terminal": false
+    },
+    {
+     "code": "COMPLETED",
+     "label": "Completed",
+     "actor": null,
+     "slaDays": null,
+     "terminal": true
+    },
+    {
+     "code": "CANCELLED",
+     "label": "Cancelled",
+     "actor": null,
+     "slaDays": null,
+     "terminal": true
+    }
+   ],
+   "transitions": [
+    {
+     "from": "DRAFT",
+     "action": "SUBMIT",
+     "to": "PENDING_ACK",
+     "label": "Send to employee",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "PENDING_ACK",
+     "action": "ACKNOWLEDGE",
+     "to": "SUBMITTED",
+     "label": "Acknowledge",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "PENDING_ACK",
+     "action": "REQUEST_CHANGES",
+     "to": "DRAFT",
+     "label": "Ask for changes",
+     "commentRequired": true,
+     "system": false
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "APPROVE",
+     "to": "IN_PROGRESS",
+     "label": "Approve",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "RETURN",
+     "to": "DRAFT",
+     "label": "Return to supervisor",
+     "commentRequired": true,
+     "system": false
+    },
+    {
+     "from": "IN_PROGRESS",
+     "action": "REVISE",
+     "to": "DRAFT",
+     "label": "Revise plan",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "IN_PROGRESS",
+     "action": "COMPLETE",
+     "to": "COMPLETED",
+     "label": "Mark completed",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "DRAFT",
+     "action": "CANCEL",
+     "to": "CANCELLED",
+     "label": "Cancel",
+     "commentRequired": true,
+     "system": true
+    },
+    {
+     "from": "IN_PROGRESS",
+     "action": "CANCEL",
+     "to": "CANCELLED",
+     "label": "Cancel",
+     "commentRequired": true,
+     "system": true
+    }
+   ]
+  }
+ },
+ {
+  "type": "WORKFLOW",
+  "code": "SUCCESSION_PLAN",
+  "name": "Succession plan approval",
+  "description": "G-S6: HR Admin prepares, HR Approver approves",
+  "payload": {
+   "description": "HR Admin \u2192 HR Approver",
+   "initialState": "DRAFT",
+   "states": [
+    {
+     "code": "DRAFT",
+     "label": "Draft",
+     "actor": "ROLE(HR_ADMIN)",
+     "slaDays": null,
+     "terminal": false
+    },
+    {
+     "code": "SUBMITTED",
+     "label": "Awaiting approval",
+     "actor": "ROLE(HR_APPROVER)",
+     "slaDays": 10,
+     "terminal": false
+    },
+    {
+     "code": "ACTIVE",
+     "label": "Active",
+     "actor": "ROLE(HR_ADMIN)",
+     "slaDays": null,
+     "terminal": false
+    },
+    {
+     "code": "ARCHIVED",
+     "label": "Archived",
+     "actor": null,
+     "slaDays": null,
+     "terminal": true
+    }
+   ],
+   "transitions": [
+    {
+     "from": "DRAFT",
+     "action": "SUBMIT",
+     "to": "SUBMITTED",
+     "label": "Submit for approval",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "APPROVE",
+     "to": "ACTIVE",
+     "label": "Approve",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "SUBMITTED",
+     "action": "RETURN",
+     "to": "DRAFT",
+     "label": "Return",
+     "commentRequired": true,
+     "system": false
+    },
+    {
+     "from": "ACTIVE",
+     "action": "REVISE",
+     "to": "DRAFT",
+     "label": "Revise",
+     "commentRequired": false,
+     "system": false
+    },
+    {
+     "from": "ACTIVE",
+     "action": "ARCHIVE",
+     "to": "ARCHIVED",
+     "label": "Archive",
+     "commentRequired": true,
+     "system": false
+    }
+   ]
+  }
+ },
+ {
+  "type": "WORKFLOW",
+  "code": "CAREER_ASPIRATION",
+  "name": "Career aspiration review",
+  "description": "C5 / alert #1: optional submit of career preferences to the reviewer",
+  "payload": {
+   "description": "Employee submits, supervisor reviews",
+   "initialState": "SUBMITTED",
+   "states": [
+    {
+     "code": "SUBMITTED",
+     "label": "Awaiting supervisor review",
+     "actor": "DIRECT_SUPERVISOR",
+     "slaDays": 14,
+     "terminal": false
+    },
+    {
+     "code": "REVIEWED",
+     "label": "Reviewed",
+     "actor": null,
+     "slaDays": null,
+     "terminal": true
+    }
+   ],
+   "transitions": [
+    {
+     "from": "SUBMITTED",
+     "action": "REVIEW",
+     "to": "REVIEWED",
+     "label": "Mark reviewed",
+     "commentRequired": false,
+     "system": false
+    }
+   ]
+  }
+ }
+]
