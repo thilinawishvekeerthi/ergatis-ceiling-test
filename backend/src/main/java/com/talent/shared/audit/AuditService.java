@@ -34,7 +34,7 @@ public class AuditService {
     }
 
     /** Same as {@link #record} but opens its own transaction; use for read-only operations such as exports. */
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void recordStandalone(String action, String objectType, Object objectId, Long subjectEmployeeId, Object detail) {
         repository.save(new AuditEntry(clock.instant(), CurrentUser.idOrNull(), action, objectType,
                 objectId == null ? null : objectId.toString(), subjectEmployeeId, null, Json.write(detail), null));

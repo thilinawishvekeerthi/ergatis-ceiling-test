@@ -148,7 +148,7 @@ class ConfigServiceImpl implements ConfigService {
         validate(v.definition.type, v.definition.code, payload);
         String before = v.payloadJson;
         v.payloadJson = Json.write(payload);
-        audit.record("CONFIG_DRAFT_UPDATED", "CONFIG", v.id, null, before, v.payloadJson, null);
+        audit.record("CONFIG_DRAFT_UPDATED", "CONFIG", v.id, null, readTree(before), readTree(v.payloadJson), null);
         return view(v);
     }
 

@@ -1,6 +1,8 @@
 package com.talent.config.internal;
 
+import java.util.EnumSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,15 +40,26 @@ class ConfigController {
         this.access = access;
     }
 
-    /** Effective version of one config. Readable by every signed-in user (screens need scale labels). */
+    /** Types every signed-in user may read, because screens need scale and grid labels. */
+    private static final Set<ConfigType> DISPLAY_TYPES = EnumSet.of(ConfigType.SCALE, ConfigType.GRID);
+
+    /** Effective version of one config. Scales and grids are open to all users; other types need CONFIG VIEW. */
     @GetMapping("/active/{type}/{code}")
     ConfigVersionView active(@PathVariable ConfigType type, @PathVariable String code) {
+        requireReadable(type);
         return config.active(type, code);
     }
 
     @GetMapping("/active/{type}")
     List<ConfigVersionView> activeOfType(@PathVariable ConfigType type) {
+        requireReadable(type);
         return config.activeOfType(type);
+    }
+
+    private void requireReadable(ConfigType type) {
+        if (!DISPLAY_TYPES.contains(type)) {
+            access.require(Action.VIEW, ObjectType.CONFIG, null);
+        }
     }
 
     @GetMapping("/definitions")

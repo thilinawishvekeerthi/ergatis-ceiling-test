@@ -48,13 +48,13 @@ public class ConfidentialMaskingModule extends SimpleModule {
 
         @Override
         public void serializeAsField(Object bean, JsonGenerator gen, SerializerProvider prov) throws Exception {
-            if (bean instanceof HasSubject hs && CurrentUser.orNull() != null
-                    && !guard.getObject().canViewConfidential(object, hs.subjectEmployeeId())) {
+            if (!(bean instanceof HasSubject hs)) {
+                throw new IllegalStateException(bean.getClass().getSimpleName() + " has @Confidential fields but does not implement HasSubject");
+            }
+            // Deny by default: with no signed-in user there is no grant, so the field is masked.
+            if (CurrentUser.orNull() == null || !guard.getObject().canViewConfidential(object, hs.subjectEmployeeId())) {
                 gen.writeNullField(getName());
                 return;
-            }
-            if (!(bean instanceof HasSubject)) {
-                throw new IllegalStateException(bean.getClass().getSimpleName() + " has @Confidential fields but does not implement HasSubject");
             }
             super.serializeAsField(bean, gen, prov);
         }

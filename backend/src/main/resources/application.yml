@@ -1,0 +1,90 @@
+spring:
+  application:
+    name: talent-management
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/talent}
+    username: ${DB_USER:talent}
+    password: ${DB_PASSWORD:talent}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+  modulith:
+    events:
+      republish-outstanding-events-on-restart: true
+  mail:
+    host: ${SMTP_HOST:}
+    port: ${SMTP_PORT:25}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OIDC_ISSUER_URI:}
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    default-property-inclusion: always
+
+server:
+  port: ${PORT:8080}
+  error:
+    include-message: always
+
+management:
+  health:
+    mail:
+      enabled: ${SMTP_HEALTH_CHECK:false}
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+talent:
+  database:
+    embedded: ${DB_EMBEDDED:false}
+    embedded-dir: ${DB_EMBEDDED_DIR:}
+  security:
+    mode: ${AUTH_MODE:oidc}
+    dev-secret: ${DEV_JWT_SECRET:}
+    roles-claim: ${OIDC_ROLES_CLAIM:roles}
+    login-claim: ${OIDC_LOGIN_CLAIM:preferred_username}
+  integration:
+    mode: ${INTEGRATION_MODE:mock}
+    sync-cron: ${SYNC_CRON:0 0 1 * * *}
+    sync-on-startup: ${SYNC_ON_STARTUP:false}
+  workflow:
+    sla-cron: "0 0 * * * *"
+    reminder-days-before-due: 2
+
+---
+# Local development and demos: embedded PostgreSQL, mock source systems, dev sign-in.
+spring:
+  config:
+    activate:
+      on-profile: dev
+talent:
+  database:
+    embedded: true
+    embedded-dir: ${DB_EMBEDDED_DIR:./.data/pg}
+  security:
+    mode: dev
+    dev-secret: ${DEV_JWT_SECRET:dev-only-secret-change-me-0123456789abcdef}
+  integration:
+    mode: mock
+    sync-on-startup: true
+  access:
+    seed-roles:
+      E0002: [HR_ADMIN]
+      E0003: [HR_APPROVER]

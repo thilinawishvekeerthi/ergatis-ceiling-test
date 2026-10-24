@@ -1,0 +1,36 @@
+# Local full stack: PostgreSQL 16 + the app with mock source systems and dev sign-in.
+# For a client environment, set AUTH_MODE=oidc, OIDC_ISSUER_URI, INTEGRATION_MODE=rest and the SMTP settings.
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: talent
+      POSTGRES_USER: talent
+      POSTGRES_PASSWORD: talent
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U talent"]
+      interval: 5s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/talent
+      DB_USER: talent
+      DB_PASSWORD: talent
+      AUTH_MODE: dev
+      DEV_JWT_SECRET: change-me-local-only-0123456789abcdefghij
+      INTEGRATION_MODE: mock
+      SYNC_ON_STARTUP: "true"
+      TALENT_ACCESS_SEED_ROLES_E0002_0: HR_ADMIN
+      TALENT_ACCESS_SEED_ROLES_E0003_0: HR_APPROVER
+
+volumes:
+  pgdata:
