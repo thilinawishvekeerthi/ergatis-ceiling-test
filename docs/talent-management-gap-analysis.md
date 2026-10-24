@@ -62,6 +62,34 @@ These must be resolved because they change how the system is built.
 | C8 | Step 7 says the assessment is "Talent Profile **and Nine Box Grid**". Step 10 says the board does the nine-box placement. | p.5 | Does the reviewer propose a placement and the board confirm it? Can the board override it? |
 | C9 | The IDP flow (p.14) asks "Update Development Plan?". Nothing explains how an IDP is **first created**. | p.14–15 | Is the IDP created automatically from talent review results, by the supervisor, or by the employee? |
 
+### 3.1 Does configurable role assignment solve these conflicts?
+
+**Proposal:** HR Admin assigns, in each cycle, which users are Reviewers, Approvers, Board Heads, Board Members and HR Approvers. Nothing is hard-coded to "Supervisor" or "HOD".
+
+**Answer: it solves about half.** It answers "**who** does the task". It does not answer "**what** the process does" or "**what** each role is allowed to do".
+
+| # | Solved by configurable roles? | What is still needed from the client |
+|---|---|---|
+| C1 Reviewer | **Yes, mostly** | A **default rule** for bulk setup (e.g. default = direct supervisor, admin can override). Is more than 1 reviewer allowed? |
+| C4 HR Approver | **Yes** | Confirm HR Approver is a separate role from HR Admin |
+| C6 Board Head vs Board | **Partly** | Who enters decisions: head only, or all members? Is a vote or quorum needed? |
+| C7 Approver | **Partly** | How many approval levels? Is it per department or org-wide? |
+| C3 Succession owner | **Partly** | Who edits, and is there an approval step at all? |
+| C2 Meeting timing | **No** | Date rule: board meeting after the reviewer cut-off |
+| C5 Career Centre submit | **No** | Is a submit/review step needed? |
+| C8 Board override | **No** | Can the board change the reviewer's nine-box? |
+| C9 IDP creation | **No** | What creates the first IDP? |
+
+**Rules we must still define, even with configurable roles:**
+
+1. **Default assignment** for bulk setup (e.g. from the org hierarchy), so admin does not assign thousands of users by hand.
+2. **Permissions per role**: which screens, actions and fields each role can use (see §5.4).
+3. **Data scope per role**: own record, team, department or whole organisation.
+4. **Conflict of interest**: a user cannot review, approve or calibrate themselves. They also cannot sit on a board that reviews them.
+5. **Changes mid-cycle**: what happens to open tasks when a reviewer leaves, transfers or goes on long leave (reassign, or delegate).
+6. **Delegation**: can a user hand tasks to a deputy for a period?
+7. **Role source**: maintained in the Talent module, or synced from Core HR / Active Directory groups?
+
 ---
 
 ## 4. Gap analysis by functional area
@@ -195,6 +223,73 @@ Priority: **H** = blocks design or build. **M** = needed before UAT. **L** = nic
 | G-Y4 | **Go-live approach**: big-bang or phased by sub-module? Pilot department? | M |
 | G-Y5 | **Hypercare and support** period and SLA | M |
 | G-Y6 | **Deadlines for client dependencies** (templates, APIs, alert text). Without them, delays shift to the vendor. | H |
+
+### 4.12 Integration specifications (none in the blueprint)
+
+The blueprint mentions only the LMS APIs. A complete system has at least **11 interfaces**. Each one needs a signed **Interface Specification** before build.
+
+#### 4.12.1 Interface catalogue
+
+| ID | Interface | Direction | Data | Pri |
+|---|---|---|---|---|
+| I-01 | **Core HR: employee master** | In | Employee ID, name, picture, grade, job, position, supervisor, status (active / resigned / on leave), join date | H |
+| I-02 | **Core HR: org structure** | In | Company, department, cost centre, location, work station, country, position hierarchy | H |
+| I-03 | **SSHR: resume data** | In | Qualifications, work experience, expertise profile (Career Centre p.8) | H |
+| I-04 | **Performance module** | In | Appraisal scores and bands per cycle, competency library, competency scores | H |
+| I-05 | **Training & Development module** | In / Out? | Training history, training requests created from IDP actions | H |
+| I-06 | **LMS API 1: courses per role / competency** | In | Course ID, title, link, mapped role or competency | H |
+| I-07 | **LMS API 2: employee course status** | In | Employee ID, course ID, assigned / ongoing / completed, dates, score | H |
+| I-08 | **SSO / identity** (AD, Entra ID, other) | In | Login, user groups, possibly role mapping | H |
+| I-09 | **Email / SMTP and in-app notifications** (SMS / Teams if needed) | Out | Alerts in §4.9 | M |
+| I-10 | **Calendar** (Outlook / Teams) for review meetings | Out | Meeting invites | L |
+| I-11 | **Reporting / BI tool** (if the client uses one, e.g. Power BI) | Out | Talent data for client dashboards | M |
+| I-12 | **Internal recruitment / vacancies** (if "preferred jobs" means open vacancies) | In | Open positions | L |
+| I-13 | **Document / file storage** | In / Out | Employee pictures, report exports, attachments | L |
+
+#### 4.12.2 What we need for each interface
+
+| # | Item needed | Example |
+|---|---|---|
+| 1 | **System owner** and technical contact | Name, email, availability |
+| 2 | **System and version** | e.g. "Moodle 4.3", "in-house .NET API v2" |
+| 3 | **Method** | REST, SOAP, database view, file (CSV/SFTP), message queue |
+| 4 | **Endpoints and API documentation** | OpenAPI / Swagger file, WSDL, or a file layout |
+| 5 | **Authentication** | OAuth2 client credentials, API key, certificate, basic auth |
+| 6 | **Network access** | IP allow-list, VPN, firewall ports, internal or public URL |
+| 7 | **Payload and field mapping** | Each field: name, type, length, mandatory, allowed values |
+| 8 | **Common keys** | Which employee ID, role ID and competency ID match across systems |
+| 9 | **Frequency and timing** | Real-time, every hour, nightly at 01:00 |
+| 10 | **Full or delta load** | Full each time, or only changes since last run |
+| 11 | **Volumes and limits** | Number of records, max page size, rate limits |
+| 12 | **Error handling** | Error codes, retry rules, who is alerted on failure |
+| 13 | **Environments** | Test / UAT / Production URLs and test credentials |
+| 14 | **Sample data** | Real-shape samples, with personal data masked |
+| 15 | **SLA** | Uptime of the source system, support hours |
+| 16 | **Change process** | How the client tells us about API changes or new versions |
+
+### 4.13 Technical platform and environment
+
+| ID | Missing information | Pri |
+|---|---|---|
+| G-E1 | **Hosting**: on-premise, client cloud, or our cloud? Who owns infrastructure? | H |
+| G-E2 | **Base platform and version** of the HRIS product the Talent module runs on. Is Core HR on the same version? | H |
+| G-E3 | **Environments**: how many (DEV, SIT, UAT, PROD, Training)? Who provides and maintains them? | H |
+| G-E4 | **Database and server standards** set by the client (DB engine, OS, licences) | M |
+| G-E5 | **Client IT security policies**: password, encryption at rest and in transit, pen test needed before go-live? | H |
+| G-E6 | **Backup, DR and monitoring**: who does it, and what targets (RPO/RTO)? | M |
+| G-E7 | **Deployment and release process**: client change board, release windows, approvals | M |
+| G-E8 | **Remote access** for our team to client environments (VPN, jump host) | H |
+
+### 4.14 Project governance and client people
+
+| ID | Missing information | Pri |
+|---|---|---|
+| G-G1 | **Named client owners**: business owner, module owner, IT owner, data owner, integration owner for each system | H |
+| G-G2 | **Decision maker** for open questions, and the time to answer (e.g. 3 working days) | H |
+| G-G3 | **Change request process** after sign-off | H |
+| G-G4 | **Third-party vendors** the client must bring in (e.g. LMS vendor) and who manages them | H |
+| G-G5 | **Policy documents**: talent policy, succession policy, promotion policy. The system rules must match them. | M |
+| G-G6 | **Legal / compliance**: data protection law, employee consent, works council or union approval for talent ratings | M |
 
 ---
 
@@ -336,6 +431,11 @@ AuditLog, Notification
 | 7 | Job families, jobs and job requirements (in a data template) | Setup / match-up | Before SIT |
 | 8 | Leadership candidate selection criteria | Design | Clarification workshop |
 | 9 | Legacy data for migration (if any) | Migration | Before SIT |
+| 10 | Interface specifications for I-01 to I-13, using the checklist in §4.12.2 | Integration design | Before design sign-off |
+| 11 | Test environments, credentials and network access for every source system | Integration build | Before build starts |
+| 12 | Hosting, platform version and environment details (§4.13) | Technical design | Before design sign-off |
+| 13 | Named client owners and decision maker (§4.14) | Governance | Project kick-off |
+| 14 | Role assignment defaults and conflict-of-interest rules (§3.1) | Workflow design | Clarification workshop |
 
 > **Recommendation:** Add this rule to the blueprint. If a dependency arrives late, the timeline moves by the same amount. If the content changes after it is received, the change goes through change control.
 
@@ -377,8 +477,9 @@ If the client does not answer a question, we deliver against these:
 1. **Internal review** of this document (Architecture, BA, PM). 1–2 days.
 2. **Clarification workshop** with the client (HR Head, Module Owner). Go through §3 and every **H** item in §4.
 3. **Blueprint v1.1**: fix §2, resolve §3, add Business Rules, Roles Matrix, Out of Scope, Assumptions (§7) and Dependencies with dates (§6).
-4. **Solution Design Document**: data model, integration spec (LMS, Performance, SSHR), match-up formula, report specs, NFRs.
-5. Re-estimate effort after v1.1, then go to **sign-off**.
+4. **Send the integration request pack** (§4.12) to each system owner. Hold 1 technical workshop per interface.
+5. **Solution Design Document**: data model, signed interface specs (I-01 to I-13), match-up formula, report specs, NFRs, environment design.
+6. Re-estimate effort after v1.1, then go to **sign-off**.
 
 ---
 
@@ -414,3 +515,18 @@ If the client does not answer a question, we deliver against these:
 | Q26 | Is calendar integration needed for review meetings? | G-T6 | M |
 | Q27 | Maximum successors per position? Can one employee be a successor for several positions? | G-S5 | M |
 | Q28 | Go-live approach and pilot department? | G-Y4 | M |
+| Q29 | Please provide interface specs for Core HR employee and org data (I-01, I-02), using the §4.12.2 checklist. | §4.12 | H |
+| Q30 | Is SSHR resume data read from the same database, or through an API (I-03)? | §4.12 | H |
+| Q31 | How do we read appraisal and competency data from the Performance module (I-04)? | §4.12 | H |
+| Q32 | Which system and version is the LMS? Who is the vendor contact (I-06, I-07)? | §4.12 | H |
+| Q33 | What is the Training & Development interface, and in which direction (I-05)? | §4.12 | H |
+| Q34 | Which identity provider is used for SSO? Are roles synced from AD groups (I-08)? | §4.12, §3.1 | H |
+| Q35 | Which SMTP / notification service do we use (I-09)? | §4.12 | M |
+| Q36 | Does the client use a BI tool that needs talent data (I-11)? | §4.12 | M |
+| Q37 | Hosting, platform version and number of environments? Who provides them? | §4.13 | H |
+| Q38 | Client IT security policies. Is a pen test needed before go-live? | §4.13 | H |
+| Q39 | How does our team get remote access to client environments? | §4.13 | H |
+| Q40 | Who are the named owners (business, IT, data, each integration)? Who makes final decisions? | §4.14 | H |
+| Q41 | What should the default role assignment be? Are delegation and mid-cycle reassignment needed? | §3.1 | H |
+| Q42 | Please share talent, succession and promotion policy documents. | §4.14 | M |
+| Q43 | Are there legal or union rules on rating employees or storing talent data? | §4.14 | M |
