@@ -142,6 +142,30 @@ TalentReviewCycle (…, pinned_versions_json)
 - **Access:** row-level security from ADR-07 applies inside the reporting schema.
 - **Templates:** client templates are built on the platform's standard report tool. If the client has a BI tool (Power BI or similar), we expose the reporting schema to it as governed views.
 
+### ADR-12: Technology stack
+
+- **Rule 1: if Talent is a module of our existing HRIS product, use that product's stack.** The blueprint mentions SSHR and a Performance module, which suggests it is. A second stack inside 1 product doubles the cost of hiring, deployment and support. Confirm this first (B7).
+- **Rule 2: for a new build, or a standalone "plug into any HRIS" product, use the stack below.**
+
+| Layer | Recommendation | Why | Alternative |
+|---|---|---|---|
+| Backend | **Java 21 + Spring Boot 3 + Spring Modulith** | Mature for enterprise. Spring Modulith enforces module boundaries (ADR-01). Strong libraries for workflow, jobs and security. | **C# / .NET 8+ (ASP.NET Core)**, equally good. Choose by team skill. |
+| Database | **PostgreSQL 16+** | Relational data fits. JSONB suits config payloads (ADR-02). Built-in row-level security (ADR-07). No licence cost. | SQL Server or Oracle, if the client mandates one. Both support JSON and row-level security. |
+| Frontend | **React + TypeScript**, with an enterprise component library (MUI or Ant Design) | Largest hiring pool. Rich data grids. The nine-box is a custom component either way. | Angular, if the team prefers its structured form handling |
+| Workflow | **Flowable** (open-source BPMN), or a small in-house state machine | Versioned process definitions, returns, timers (ADR-05) | Platform engine, if it passes the week-1 spike |
+| Auth | **OpenID Connect** to the client's identity provider (Entra ID / AD FS). Keycloak if a broker is needed. | Standard SSO. No passwords stored by us. | — |
+| Background jobs | **Quartz** (Java) or **Hangfire** (.NET), backed by the database | Sync, snapshots, SLA timers, outbox relay | — |
+| Events | **In-process events + outbox table** | Enough for 1 deployable unit (ADR-10) | A message broker only if modules are split out later |
+| Reporting | Platform report tool, or **JasperReports**. Power BI on the read model if the client has it. | Pixel-exact client templates (B9) | — |
+| Cache | Redis, **only if** load tests show a need | Avoids an extra moving part | — |
+| Runtime | **Docker containers**. Kubernetes only if the client already runs it. | Same image runs in every environment | VMs or a managed app service |
+| Quality | OpenAPI contracts, Testcontainers, Playwright end-to-end tests, OWASP ZAP and dependency scanning in CI | Matches the NFR and security targets in §5 | — |
+
+- **Deliberately not chosen:**
+  - **Microservices**: too much overhead for this team and scope (ADR-01).
+  - **MongoDB or another document DB as the main store**: talent data is highly relational (employee → cycle → assessment → successor → IDP).
+  - **Kafka**: no event volume that needs it.
+
 ---
 
 ## 4. Logical component view
