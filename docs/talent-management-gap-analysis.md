@@ -14,6 +14,8 @@
 
 ## 0. Blockers summary
 
+> **Update:** [talent-solution-architecture.md](talent-solution-architecture.md) removes B1–B5 as design blockers through configurable, versioned engines. They become configuration data needed before UAT.
+
 Out of all the gaps, **12 blockers** stop the project from moving forward. Only the client can close them. Every other gap can go ahead using the assumptions in §7.
 
 ### A. Blocks functional design (business decisions)
