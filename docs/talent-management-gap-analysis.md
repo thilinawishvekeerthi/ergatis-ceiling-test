@@ -12,6 +12,46 @@
 
 ---
 
+## 0. Blockers summary
+
+Out of all the gaps, **12 blockers** stop the project from moving forward. Only the client can close them. Every other gap can go ahead using the assumptions in §7.
+
+### A. Blocks functional design (business decisions)
+
+| # | Blocker | Refs | Blocks |
+|---|---|---|---|
+| B1 | **Rating scales and nine-box definition** (performance, potential, readiness, risk, impact) | G-A1, G-A2, G-S4 | Assessment, nine-box, succession, all reports |
+| B2 | **Leadership candidate criteria** and which appraisal data to use | G-T1, G-P1, G-P2 | Start of every talent cycle |
+| B3 | **Workflow rules**: approval levels, reject paths, board override, succession approval, how the first IDP is created, default role assignment | C2, C3, C7, C8, C9, G-T4, G-D5, §3.1 | All approval workflows |
+| B4 | **Calculation formulas**: % match, bench strength, IDP progress % | G-C1, G-S3, G-D4 | Career Centre, succession, IDP |
+| B5 | **Data visibility**: who can see talent, nine-box and successor data | G-T7, G-S9, G-X2 | Security design (RBAC) |
+
+### B. Blocks technical design and build
+
+| # | Blocker | Refs | Blocks |
+|---|---|---|---|
+| B6 | **Interface specs and test access** for Core HR, SSHR, Performance, LMS ×2, SSO | I-01 to I-08 | All integrations, and most screens that show employee data |
+| B7 | **Hosting, platform version, environments, remote access** | G-E1–E3, G-E8 | Environment setup, start of build |
+| B8 | **Scope boundaries**: is the Training & Development module ours? Is SSHR live? | G-L6, G-C2 | Effort estimate, integration design |
+
+### C. Blocks estimate and sign-off
+
+| # | Blocker | Refs | Blocks |
+|---|---|---|---|
+| B9 | **Report templates** (readiness, trend, role-wise) | G-R1 | Report scope and effort |
+| B10 | **Volumes**: employees, users, critical positions | G-X4 | Sizing, performance targets |
+| B11 | **Legacy data** to migrate: yes or no, and in what format | G-Y1 | Migration scope and effort |
+| B12 | **Named client owners and a decision maker** with an answer time | G-G1, G-G2 | Closing every blocker above |
+
+### What can start now, without waiting
+
+- **Data model and admin setup screens** (job families, career paths, critical positions) built as generic configuration.
+- **Integration layer** built against mock APIs, then switched to the real ones later.
+- **RBAC framework** with configurable roles (§3.1). The exact permission values come later.
+- **Workflow engine setup** with configurable states. The exact rules come with B3.
+
+---
+
 ## 1. What the blueprint covers today
 
 | Area | Covered in blueprint | Detail level |
