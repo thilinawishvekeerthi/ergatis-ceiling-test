@@ -2,6 +2,7 @@ using Talent.Config;
 using Talent.Security;
 using Talent.Integration;
 using Talent.Shared;
+using Talent.Workflow;
 
 namespace Talent.Host;
 
@@ -9,10 +10,10 @@ internal static class TalentModules
 {
     /// <summary>Registers every module. The same call can load Talent inside another host later.</summary>
     public static IServiceCollection AddTalentModules(this IServiceCollection services, IConfiguration configuration) =>
-        services.AddTalentShared(configuration).AddConfigModule(configuration).AddSecurityModule(configuration).AddIntegrationModule(configuration);
+        services.AddTalentShared(configuration).AddConfigModule(configuration).AddSecurityModule(configuration).AddIntegrationModule(configuration).AddWorkflowModule(configuration);
 
     public static IEndpointRouteBuilder MapTalentEndpoints(this IEndpointRouteBuilder app) =>
-        app.MapSecurityEndpoints().MapConfigEndpoints().MapIntegrationEndpoints();
+        app.MapSecurityEndpoints().MapConfigEndpoints().MapIntegrationEndpoints().MapWorkflowEndpoints();
 }
 
 internal static class TalentStartup
@@ -29,5 +30,6 @@ internal static class TalentStartup
         await app.Services.InitializeConfigAsync(app.Lifetime.ApplicationStopping);
         await app.Services.InitializeSecurityAsync(app.Lifetime.ApplicationStopping);
         await app.Services.InitializeIntegrationAsync(app.Lifetime.ApplicationStopping);
+        await app.Services.InitializeWorkflowAsync(app.Lifetime.ApplicationStopping);
     }
 }
