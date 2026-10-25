@@ -13,5 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Talent.Shared\Talent.Shared.csproj" />
     <ProjectReference Include="..\Modules\Config\Talent.Config\Talent.Config.csproj" />
+    <ProjectReference Include="..\Modules\Integration\Talent.Integration\Talent.Integration.csproj" />
   </ItemGroup>
 </Project>
