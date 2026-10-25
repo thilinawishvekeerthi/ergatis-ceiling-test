@@ -61,7 +61,7 @@ internal static class ConfigDefaultsSeeder
         await EnsureAsync(db, admin, ConfigType.Grid, NineBoxCode, "Nine-box (3 x 3)", NineBox(performanceId, potentialId), cancellationToken);
     }
 
-    private static async Task<Guid> EnsureAsync(
+    internal static async Task<Guid> EnsureAsync(
         ConfigDbContext db, ConfigAdminService admin, ConfigType type, string code, string name, string payload, CancellationToken cancellationToken)
     {
         var existing = await (

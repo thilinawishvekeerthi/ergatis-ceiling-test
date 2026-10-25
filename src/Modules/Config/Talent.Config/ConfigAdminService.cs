@@ -11,7 +11,8 @@ using Talent.Shared.Security;
 namespace Talent.Config;
 
 /// <summary>Admin operations on versioned config: create, edit a draft, publish (ADR-02). Every change is audited.</summary>
-internal sealed class ConfigAdminService(ConfigDbContext db, ICurrentUser user, TimeProvider clock)
+internal sealed class ConfigAdminService(
+    ConfigDbContext db, ICurrentUser user, TimeProvider clock, IEnumerable<IConfigPayloadValidator>? validators = null)
 {
     public async Task<Guid> CreateDefinitionAsync(ConfigType type, string code, string name, CancellationToken cancellationToken)
     {
@@ -115,6 +116,18 @@ internal sealed class ConfigAdminService(ConfigDbContext db, ICurrentUser user, 
         await SaveAsync(cancellationToken);
     }
 
+    /// <summary>Locks a published version by hand. The system also locks on first use (see <see cref="ConfigVersionReader"/>).</summary>
+    public async Task LockAsync(Guid versionId, CancellationToken cancellationToken)
+    {
+        var version = await FindVersionAsync(versionId, cancellationToken);
+        var before = version.Status.ToString();
+        version.Lock();
+        db.AddAudit(user, clock, "Lock", nameof(ConfigVersion), versionId.ToString(),
+            beforeJson: PayloadJson.Write(new { status = before }),
+            afterJson: """{"status":"Locked"}""");
+        await SaveAsync(cancellationToken);
+    }
+
     private async Task ValidateAsync(ConfigType type, string payloadJson, CancellationToken cancellationToken)
     {
         switch (type)
@@ -129,6 +142,12 @@ internal sealed class ConfigAdminService(ConfigDbContext db, ICurrentUser user, 
                 // Other types get their own validators when their modules arrive. For now the payload must be a JSON object.
                 _ = PayloadJson.Read<System.Text.Json.Nodes.JsonObject>(payloadJson);
                 break;
+        }
+
+        var errors = (validators ?? []).Where(v => v.Type == type).SelectMany(v => v.Validate(payloadJson)).ToList();
+        if (errors.Count > 0)
+        {
+            throw new InvalidConfigPayloadException(string.Join(" ", errors));
         }
     }
 

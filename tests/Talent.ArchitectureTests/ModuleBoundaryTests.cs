@@ -1,12 +1,13 @@
 using System.Reflection;
 using NetArchTest.Rules;
 using Talent.Config.Versions;
+using Talent.Security;
 
 namespace Talent.ArchitectureTests;
 
 public sealed class ModuleBoundaryTests
 {
-    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly];
+    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly, typeof(SecurityModule).Assembly];
 
     [Fact]
     public void Modules_ReferenceOnlyContractsOfOtherModules()
@@ -49,5 +50,30 @@ public sealed class ModuleBoundaryTests
             .GetResult();
 
         result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void SecurityImplementation_IsInternal()
+    {
+        var result = Types.InAssembly(typeof(SecurityModule).Assembly)
+            .That().AreClasses()
+            .And().DoNotHaveNameEndingWith("Module")
+            .And().DoNotResideInNamespaceContaining("Migrations")
+            .And().DoNotHaveName("Program")
+            .And().AreNotNested()
+            .Should().NotBePublic()
+            .GetResult();
+
+        (result.FailingTypeNames ?? []).ShouldBeEmpty();
+    }
+
+    [Fact]
+    public void ConfigApi_DoesNotReachIntoSecurityImplementation()
+    {
+        var result = Types.InAssembly(typeof(ConfigVersion).Assembly)
+            .ShouldNot().HaveDependencyOn("Talent.Security.Access")
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue();
     }
 }

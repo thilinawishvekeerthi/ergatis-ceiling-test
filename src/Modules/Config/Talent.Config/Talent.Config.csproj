@@ -3,13 +3,20 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FluentValidation" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Using Include="Microsoft.AspNetCore.Builder" />
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.AspNetCore.Routing" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Talent.Config.Contracts\Talent.Config.Contracts.csproj" />
+    <ProjectReference Include="..\..\Security\Talent.Security.Contracts\Talent.Security.Contracts.csproj" />
     <ProjectReference Include="..\..\..\Talent.Shared\Talent.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>

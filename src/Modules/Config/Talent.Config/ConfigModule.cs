@@ -1,7 +1,9 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Talent.Config.Api;
 using Talent.Config.Contracts;
 using Talent.Config.Defaults;
 using Talent.Config.Persistence;
@@ -27,6 +29,11 @@ public static class ConfigModule
             o.AddInterceptors(sp.GetRequiredService<OutboxSaveChangesInterceptor>());
         });
         services.AddScoped<ConfigAdminService>();
+        services.AddScoped<IConfigDefaultPublisher, ConfigDefaultPublisher>();
+        services.AddScoped<ConfigApiService>();
+        services.AddScoped<IValidator<ConfigRoute>, ConfigRouteValidator>();
+        services.AddScoped<IValidator<CreateDraftRequest>, CreateDraftRequestValidator>();
+        services.AddScoped<IValidator<UpdatePayloadRequest>, UpdatePayloadRequestValidator>();
         services.AddScoped<ConfigVersionReader>();
         services.AddScoped<IConfigVersionReader>(sp => sp.GetRequiredService<ConfigVersionReader>());
         services.AddScoped<IConfigVersionLocker>(sp => sp.GetRequiredService<ConfigVersionReader>());
@@ -46,6 +53,7 @@ public static class ConfigModule
     public static IEndpointRouteBuilder MapConfigEndpoints(this IEndpointRouteBuilder app)
     {
         ArgumentNullException.ThrowIfNull(app);
+        ConfigEndpoints.Map(app);
         return app;
     }
 }
