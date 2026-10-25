@@ -57,6 +57,16 @@ public sealed class WorkflowDefinitionModelTests
         Should.Throw<InvalidWorkflowDefinitionException>(() => WorkflowDefinitionModel.Parse(With("{\"code\":\"Back\"}", "{\"code\":\"Back\"},{\"code\":\"Orphan\"}")));
 
     [Fact]
+    public void Parse_WhenReachableStateCannotReachAFinalState_Throws()
+    {
+        // Back only loops to itself, so an instance that rejects would sit there forever.
+        var ex = Should.Throw<InvalidWorkflowDefinitionException>(() => WorkflowDefinitionModel.Parse(
+            With("\"action\":\"Resubmit\",\"to\":\"Pending\"", "\"action\":\"Resubmit\",\"to\":\"Back\"")));
+
+        ex.Message.ShouldContain("Back");
+    }
+
+    [Fact]
     public void Parse_WhenNoFinalState_Throws() =>
         Should.Throw<InvalidWorkflowDefinitionException>(() => WorkflowDefinitionModel.Parse(With("\"isFinal\":true", "\"isFinal\":false")));
 

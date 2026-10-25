@@ -16,7 +16,10 @@ public sealed class IntegrationDatabaseFixture : IAsyncLifetime
 {
     private readonly PostgresFixture _postgres = new();
 
-    public FakeTimeProvider Clock { get; } = new(new DateTimeOffset(2026, 3, 1, 1, 0, 0, TimeSpan.Zero));
+    private static readonly DateTimeOffset ClockStart = new(2026, 3, 1, 1, 0, 0, TimeSpan.Zero);
+
+    /// <summary>Replaced by <see cref="ResetAsync"/>, so every test starts at the same time whatever ran before it.</summary>
+    public FakeTimeProvider Clock { get; private set; } = new(ClockStart);
 
     public string ConnectionString => _postgres.ConnectionString;
 
@@ -31,7 +34,11 @@ public sealed class IntegrationDatabaseFixture : IAsyncLifetime
             await integration.Database.MigrateAsync();
         });
 
-    public Task ResetAsync() => _postgres.ResetAsync();
+    public async Task ResetAsync()
+    {
+        await _postgres.ResetAsync();
+        Clock = new FakeTimeProvider(ClockStart);
+    }
 
     public ValueTask DisposeAsync() => _postgres.DisposeAsync();
 

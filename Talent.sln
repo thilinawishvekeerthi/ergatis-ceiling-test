@@ -57,6 +57,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Talent.Integration.IntegrationTests", "Talent.Integration.IntegrationTests", "{D6BBA71F-8E7B-F841-E8A8-40F19C7708D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent.Integration.IntegrationTests", "tests\Talent.Integration.IntegrationTests\Talent.Integration.IntegrationTests.csproj", "{29CD071F-DD4B-4C64-B6DF-2EA71241E927}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflow", "Workflow", "{4AE10D05-DD3E-F48E-F17B-B26EA748633E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent.Workflow.Contracts", "src\Modules\Workflow\Talent.Workflow.Contracts\Talent.Workflow.Contracts.csproj", "{B3F096E1-86B5-4180-98BE-25862AD3FFE2}"

@@ -5,10 +5,31 @@ export interface ApiClientOptions {
   baseUrl?: string;
   /** Called on 401 so the host can redirect to /bff/login. */
   onUnauthenticated?: () => void;
-  getAntiForgeryToken?: () => string | undefined;
+  getAntiForgeryToken?: () => string | undefined | Promise<string | undefined>;
 }
 
 type Json = Record<string, unknown> | unknown[];
+
+/**
+ * Fetches the anti-forgery token from the BFF once and reuses it. The BFF rejects state-changing calls without it.
+ * A failed fetch is not cached, so the next write tries again.
+ */
+export function createAntiForgeryTokenSource(baseUrl = ''): () => Promise<string | undefined> {
+  let pending: Promise<string | undefined> | undefined;
+  return () => {
+    pending ??= fetch(`${baseUrl}/bff/antiforgery`, { credentials: 'same-origin', headers: { Accept: 'application/json' } })
+      .then(async (response) => (response.ok ? ((await response.json()) as { requestToken?: string }).requestToken : undefined))
+      .then((token) => {
+        if (token === undefined) pending = undefined;
+        return token;
+      })
+      .catch(() => {
+        pending = undefined;
+        return undefined;
+      });
+    return pending;
+  };
+}
 
 /** Typed client for the same-origin BFF. Cookies carry the session; no tokens in JS. */
 export function createApiClient(options: ApiClientOptions = {}) {
@@ -18,7 +39,7 @@ export function createApiClient(options: ApiClientOptions = {}) {
     const headers: Record<string, string> = { Accept: 'application/json' };
     if (body !== undefined) headers['Content-Type'] = 'application/json';
     if (method !== 'GET') {
-      const token = options.getAntiForgeryToken?.();
+      const token = await options.getAntiForgeryToken?.();
       if (token) headers['X-XSRF-TOKEN'] = token;
     }
     const response = await fetch(`${base}${path}`, {

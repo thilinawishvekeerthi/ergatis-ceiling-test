@@ -59,6 +59,12 @@ internal sealed partial class PermissionMatrix
         for (var i = 0; i < grants.Count; i++)
         {
             var g = grants[i];
+            if (g is null)
+            {
+                problems.Add($"Grant {i + 1} is empty.");
+                continue;
+            }
+
             var before = problems.Count;
             if (g.Role is null || !RolePattern().IsMatch(g.Role))
             {

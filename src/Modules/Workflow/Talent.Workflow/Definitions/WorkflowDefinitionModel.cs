@@ -185,5 +185,22 @@ internal sealed record WorkflowDefinitionModel(
         {
             throw new InvalidWorkflowDefinitionException($"State {unreachable[0]} cannot be reached from the initial state.");
         }
+
+        // Walk the transitions backwards from the final states: any state left over is a dead end where an instance would stay forever.
+        var canFinish = new HashSet<string>(States.Where(s => s.IsFinal).Select(s => s.Code));
+        var backQueue = new Queue<string>(canFinish);
+        while (backQueue.TryDequeue(out var current))
+        {
+            foreach (var t in Transitions.Where(t => t.To == current && canFinish.Add(t.From)))
+            {
+                backQueue.Enqueue(t.From);
+            }
+        }
+
+        var stuck = States.Select(s => s.Code).Except(canFinish).ToList();
+        if (stuck.Count > 0)
+        {
+            throw new InvalidWorkflowDefinitionException($"State {stuck[0]} has no path to a final state.");
+        }
     }
 }

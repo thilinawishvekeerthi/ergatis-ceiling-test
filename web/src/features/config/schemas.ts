@@ -59,8 +59,17 @@ export const gridSchema = z
       }),
     ),
   })
-  .refine((g) => g.cells.length === g.columnBounds.length * g.rowBounds.length, {
-    message: 'Every cell needs a definition',
-    path: ['cells'],
-  });
+  .refine(
+    (g) => {
+      // Each (column, row) position must be defined exactly once; a duplicate plus a gap is not enough.
+      const positions = new Set(g.cells.map((c) => `${c.column}:${c.row}`));
+      return (
+        g.cells.length === g.columnBounds.length * g.rowBounds.length &&
+        positions.size === g.cells.length &&
+        g.cells.every((c) => Number.isInteger(c.column) && c.column >= 0 && c.column < g.columnBounds.length &&
+          Number.isInteger(c.row) && c.row >= 0 && c.row < g.rowBounds.length)
+      );
+    },
+    { message: 'Every cell needs a definition', path: ['cells'] },
+  );
 export type GridForm = z.infer<typeof gridSchema>;

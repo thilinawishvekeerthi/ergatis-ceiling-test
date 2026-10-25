@@ -33,7 +33,8 @@ public static class IntegrationModule
         });
 
         services.AddOptions<SyncOptions>().Bind(configuration.GetSection(SyncOptions.Section)).ValidateDataAnnotations().ValidateOnStart();
-        services.AddOptions<SourceSystemOptions>().Bind(configuration.GetSection("Integration:CORE_HR"));
+        services.AddOptions<SourceSystemOptions>().Bind(configuration.GetSection("Integration:CORE_HR")).ValidateOnStart();
+        services.AddSingleton<IValidateOptions<SourceSystemOptions>, SourceSystemOptionsValidator>();
 
         AddCoreHrAdapters(services, configuration.GetSection("Integration:CORE_HR").Get<SourceSystemOptions>() ?? new());
 
@@ -61,7 +62,13 @@ public static class IntegrationModule
 
     private static void AddCoreHrAdapters(IServiceCollection services, SourceSystemOptions options)
     {
-        if (!string.Equals(options.Mode, "Mock", StringComparison.OrdinalIgnoreCase))
+        if (string.IsNullOrWhiteSpace(options.Mode))
+        {
+            throw new InvalidOperationException(
+                "Integration:CORE_HR:Mode is not set. Choose the source explicitly (Mock is available in Development only).");
+        }
+
+        if (!string.Equals(options.Mode, SourceSystemOptions.MockMode, StringComparison.OrdinalIgnoreCase))
         {
             throw new InvalidOperationException(
                 $"Integration:CORE_HR:Mode '{options.Mode}' is not available yet. Supported: Mock.");

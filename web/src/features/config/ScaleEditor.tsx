@@ -16,10 +16,13 @@ export function ScaleEditor() {
   const qc = useQueryClient();
   const form = useForm<ScaleForm>({ resolver: zodResolver(scaleSchema), defaultValues: { levels: [] } });
   const { fields, append, remove } = useFieldArray({ control: form.control, name: 'levels' });
-  const { errors } = form.formState;
+  const { errors, isDirty } = form.formState;
 
   useEffect(() => {
+    // A background refetch must not throw away edits the user has not saved yet.
+    if (isDirty) return;
     if (query.data) form.reset({ levels: query.data.levels.map(({ label, minScore, band }) => ({ label, minScore, band })) });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- isDirty is read on purpose, not a trigger
   }, [query.data, form]);
 
   if (query.isLoading) return <CircularProgress aria-label={labels.loading} />;
@@ -27,7 +30,7 @@ export function ScaleEditor() {
   const editable = query.data.status === 'Draft';
 
   const submit = form.handleSubmit((values) =>
-    save.mutate(values.levels.map((l, i) => ({ ...l, level: i + 1 }))),
+    save.mutate(values.levels.map((l, i) => ({ ...l, level: i + 1 })), { onSuccess: () => form.reset(values) }),
   );
 
   return (

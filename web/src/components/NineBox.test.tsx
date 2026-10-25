@@ -43,8 +43,11 @@ describe('NineBox', () => {
     const onMove = vi.fn();
     const user = userEvent.setup();
     render(<NineBox grid={grid} placements={placements} onMove={onMove} />);
-    await user.click(screen.getByRole('button', { name: /move ada lovelace/i }));
-    await user.click(screen.getByRole('gridcell', { name: /core/i }));
+    // Arm the move with Enter on the button, then pick the destination cell with Enter.
+    screen.getByRole('button', { name: /move ada lovelace/i }).focus();
+    await user.keyboard('{Enter}');
+    screen.getByRole('gridcell', { name: /core/i }).focus();
+    await user.keyboard('{Enter}');
     expect(onMove).toHaveBeenCalledWith('e1', { column: 1, row: 0 });
   });
 });

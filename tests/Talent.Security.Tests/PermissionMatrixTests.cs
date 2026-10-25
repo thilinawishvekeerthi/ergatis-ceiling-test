@@ -32,6 +32,16 @@ public sealed class PermissionMatrixTests
     }
 
     [Fact]
+    public void TryParse_WhenAGrantIsNull_ReportsAProblemInsteadOfThrowing()
+    {
+        const string json = """{"grants":[null,{"role":"HR_ADMIN","resource":"*","actions":["Approve"],"scope":"All","fieldClass":"Internal"}]}""";
+
+        PermissionMatrix.TryParse(json, out _, out var errors).ShouldBeFalse();
+
+        errors.ShouldContain(e => e.Contains("Grant 1 is empty", StringComparison.Ordinal));
+    }
+
+    [Fact]
     public void Evaluate_WhenNoRoleMatches_DeniesByDefault() =>
         Parse(Basic).Evaluate(Roles("STRANGER"), "config:Scale", PermissionAction.View).ShouldBeNull();
 

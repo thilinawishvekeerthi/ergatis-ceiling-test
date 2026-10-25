@@ -3,7 +3,10 @@ using Hangfire.Storage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Talent.Integration.Contracts;
+using Talent.Integration.Sync;
 using Talent.Shared;
 
 namespace Talent.Integration.IntegrationTests;
@@ -16,16 +19,55 @@ public sealed class ModuleWiringTests(IntegrationDatabaseFixture db) : IAsyncLif
 
     public ValueTask DisposeAsync() => ValueTask.CompletedTask;
 
-    private ServiceProvider Build(params (string Key, string Value)[] settings)
+    private ServiceProvider Build(params (string Key, string Value)[] settings) =>
+        BuildIn(Environments.Development, includeMode: true, settings);
+
+    private ServiceProvider BuildIn(string environment, bool includeMode, params (string Key, string Value)[] settings)
     {
-        var config = new ConfigurationBuilder()
-            .AddInMemoryCollection(settings.ToDictionary(s => s.Key, s => (string?)s.Value)
-                .Concat([new KeyValuePair<string, string?>("ConnectionStrings:Talent", db.ConnectionString)]))
-            .Build();
+        var values = new Dictionary<string, string?> { ["ConnectionStrings:Talent"] = db.ConnectionString };
+        if (includeMode)
+        {
+            values["Integration:CORE_HR:Mode"] = "Mock";
+        }
+
+        foreach (var (key, value) in settings)
+        {
+            values[key] = value;
+        }
+
+        var config = new ConfigurationBuilder().AddInMemoryCollection(values).Build();
         var services = new ServiceCollection();
         services.AddLogging();
+        services.AddSingleton<IHostEnvironment>(new TestEnvironment(environment));
         services.AddTalentShared(config).AddIntegrationModule(config);
         return services.BuildServiceProvider(validateScopes: true);
+    }
+
+    [Fact]
+    public void Build_WhenModeIsNotSet_FailsAtStartup()
+    {
+        var ex = Should.Throw<InvalidOperationException>(() => BuildIn(Environments.Development, includeMode: false));
+        ex.Message.ShouldContain("Integration:CORE_HR:Mode is not set");
+    }
+
+    [Fact]
+    public void Build_WhenMockModeRunsInProduction_FailsOptionsValidation()
+    {
+        using var provider = BuildIn(Environments.Production, includeMode: true);
+
+        var ex = Should.Throw<OptionsValidationException>(() => provider.GetRequiredService<IOptions<SourceSystemOptions>>().Value);
+        ex.Message.ShouldContain("only allowed in Development");
+    }
+
+    private sealed class TestEnvironment(string name) : IHostEnvironment
+    {
+        public string EnvironmentName { get; set; } = name;
+
+        public string ApplicationName { get; set; } = "Talent.Tests";
+
+        public string ContentRootPath { get; set; } = AppContext.BaseDirectory;
+
+        public Microsoft.Extensions.FileProviders.IFileProvider ContentRootFileProvider { get; set; } = new Microsoft.Extensions.FileProviders.NullFileProvider();
     }
 
     [Fact]

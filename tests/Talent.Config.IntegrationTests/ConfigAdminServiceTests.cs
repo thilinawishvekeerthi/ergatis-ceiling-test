@@ -235,13 +235,12 @@ public sealed class ConfigAdminServiceTests(ConfigDatabaseFixture db) : IAsyncLi
 
         await using var first = db.NewContext();
         await using var second = db.NewContext();
-        var loadedByFirst = await first.Versions.SingleAsync(v => v.Id == versionId, Ct);
-        var loadedBySecond = await second.Versions.SingleAsync(v => v.Id == versionId, Ct);
-        loadedByFirst.UpdatePayload(Payloads.Scale5.Replace("Poor", "Weak", StringComparison.Ordinal));
-        await first.SaveChangesAsync(Ct);
-        loadedBySecond.UpdatePayload(Payloads.Scale5.Replace("Poor", "Bad", StringComparison.Ordinal));
+        // The second user has already loaded the draft (and its xmin) when the first user saves.
+        await second.Versions.SingleAsync(v => v.Id == versionId, Ct);
+        await db.NewAdmin(first).UpdateDraftAsync(versionId, Payloads.Scale5.Replace("Poor", "Weak", StringComparison.Ordinal), Ct);
 
-        await Should.ThrowAsync<DbUpdateConcurrencyException>(() => second.SaveChangesAsync(Ct));
+        await Should.ThrowAsync<ConfigConflictException>(
+            () => db.NewAdmin(second).UpdateDraftAsync(versionId, Payloads.Scale5.Replace("Poor", "Bad", StringComparison.Ordinal), Ct));
     }
 
     internal static async Task<(Guid DefinitionId, Guid VersionId)> PublishedScaleAsync(ConfigAdminService admin, string code = "PERF_5")

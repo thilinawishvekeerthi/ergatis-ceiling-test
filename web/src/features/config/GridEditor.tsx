@@ -23,21 +23,25 @@ export function GridEditor() {
   const rows = useFieldArray({ control: form.control, name: 'rowBounds' });
   const cells = useFieldArray({ control: form.control, name: 'cells' });
   const watched = useWatch({ control: form.control });
-  const { errors } = form.formState;
+  const { errors, isDirty } = form.formState;
 
   useEffect(() => {
+    // A background refetch must not throw away edits the user has not saved yet.
+    if (isDirty) return;
     const g = query.data?.grid;
     if (g) form.reset({ columnBounds: g.columnBounds.map((value) => ({ value })), rowBounds: g.rowBounds.map((value) => ({ value })), cells: g.cells });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- isDirty is read on purpose, not a trigger
   }, [query.data, form]);
 
   if (query.isLoading) return <CircularProgress aria-label={labels.loading} />;
   if (query.isError || !query.data) return <Alert severity="error">{labels.loadFailed}</Alert>;
+  const grid = query.data.grid;
   const editable = query.data.status === 'Draft';
 
   const addColumn = () => {
     const n = cols.fields.length;
     cols.append({ value: (form.getValues('columnBounds').at(-1)?.value ?? 0) + 10 });
-    for (let r = 0; r < rows.fields.length; r++) cells.append(blank(n, r));
+    cells.append(Array.from({ length: rows.fields.length }, (_, r) => blank(n, r)));
   };
   const removeColumn = () => {
     const last = cols.fields.length - 1;
@@ -48,7 +52,7 @@ export function GridEditor() {
   const addRow = () => {
     const n = rows.fields.length;
     rows.append({ value: (form.getValues('rowBounds').at(-1)?.value ?? 0) + 10 });
-    for (let c = 0; c < cols.fields.length; c++) cells.append(blank(c, n));
+    cells.append(Array.from({ length: cols.fields.length }, (_, c) => blank(c, n)));
   };
   const removeRow = () => {
     const last = rows.fields.length - 1;
@@ -57,12 +61,15 @@ export function GridEditor() {
   };
 
   const submit = form.handleSubmit((v) =>
-    save.mutate({
-      ...query.data.grid,
-      columnBounds: v.columnBounds.map((b) => b.value),
-      rowBounds: v.rowBounds.map((b) => b.value),
-      cells: v.cells,
-    }),
+    save.mutate(
+      {
+        ...grid,
+        columnBounds: v.columnBounds.map((b) => b.value),
+        rowBounds: v.rowBounds.map((b) => b.value),
+        cells: v.cells,
+      },
+      { onSuccess: () => form.reset(v) },
+    ),
   );
 
   const preview = { columnBounds: [], rowBounds: [], cells: (watched.cells ?? []).filter((c): c is Cell => !!c && !!c.label && !!c.colour) };

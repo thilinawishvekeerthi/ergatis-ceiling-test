@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import * as echarts from 'echarts/core';
 import { BarChart } from 'echarts/charts';
 import { GridComponent, TooltipComponent } from 'echarts/components';
@@ -36,9 +36,10 @@ function Chart({ data }: { data: ScoreBreakdownData }) {
  * The table is the accessible source of truth; the chart is a visual aid.
  */
 export function ScoreBreakdown({ data }: { data: ScoreBreakdownData }) {
+  const titleId = useId();
   return (
-    <section aria-labelledby="breakdown-title">
-      <h3 id="breakdown-title">{data.title}</h3>
+    <section aria-labelledby={titleId}>
+      <h3 id={titleId}>{data.title}</h3>
       <p>
         <strong>{data.total}</strong> out of {data.max}
       </p>

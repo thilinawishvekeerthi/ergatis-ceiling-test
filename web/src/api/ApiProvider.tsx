@@ -1,6 +1,6 @@
 import { useMemo, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { createApiClient, type ApiClient } from './client';
+import { createAntiForgeryTokenSource, createApiClient, type ApiClient } from './client';
 import { ApiContext } from './context';
 
 export function ApiProvider({
@@ -13,7 +13,12 @@ export function ApiProvider({
   children: ReactNode;
 }) {
   const api = useMemo(
-    () => client ?? createApiClient({ onUnauthenticated: () => window.location.assign('/bff/login') }),
+    () =>
+      client ??
+      createApiClient({
+        onUnauthenticated: () => window.location.assign('/bff/login'),
+        getAntiForgeryToken: createAntiForgeryTokenSource(),
+      }),
     [client],
   );
   const qc = useMemo(

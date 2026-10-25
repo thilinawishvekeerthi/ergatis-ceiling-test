@@ -48,6 +48,18 @@ describe('gridSchema', () => {
     expect(gridSchema.safeParse(g).success).toBe(false);
   });
 
+  it('rejects a duplicated position even when the cell count is right', () => {
+    const g = grid([0, 50], [0, 50]);
+    g.cells[3] = { ...g.cells[0] };
+    expect(gridSchema.safeParse(g).success).toBe(false);
+  });
+
+  it('rejects a cell outside the grid', () => {
+    const g = grid([0, 50], [0, 50]);
+    g.cells[3] = { ...g.cells[3], column: 5 };
+    expect(gridSchema.safeParse(g).success).toBe(false);
+  });
+
   it('rejects a missing cell', () => {
     const g = grid([0, 50], [0, 50]);
     g.cells.pop();

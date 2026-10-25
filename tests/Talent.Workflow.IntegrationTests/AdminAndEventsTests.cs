@@ -108,15 +108,14 @@ public sealed class AdminAndEventsTests(WorkflowDatabaseFixture db)
     {
         await using var h = await WorkflowHarness.CreateAsync(db);
 
-        var numbers = await h.WithAsync<WorkflowAdminService, List<int>>(async admin =>
+        var copyId = await h.WithAsync<WorkflowAdminService, Guid>(async admin =>
         {
             var definition = await admin.CreateDefinitionAsync("COPY_FLOW", "Copy", CancellationToken.None);
             var v1 = await admin.CreateDraftAsync(definition, WorkflowTestData.SimpleIdp, CancellationToken.None);
             await admin.PublishAsync(v1, CancellationToken.None);
-            await admin.CreateDraftAsync(definition, null, CancellationToken.None);
-            return [];
+            return await admin.CreateDraftAsync(definition, null, CancellationToken.None);
         });
-        numbers.ShouldBeEmpty();
+        copyId.ShouldNotBe(Guid.Empty);
 
         var versionNos = await h.WithAsync<WorkflowDbContext, List<int>>(c =>
             c.Versions.Join(c.Definitions.Where(d => d.Code == "COPY_FLOW"), v => v.DefinitionId, d => d.Id, (v, _) => v.VersionNo)

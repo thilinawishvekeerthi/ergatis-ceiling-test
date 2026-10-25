@@ -19,13 +19,14 @@ public sealed class OutboxTests(DatabaseFixture db) : IAsyncLifetime
     {
         await using var context = db.NewWidgetContext();
         var widget = new Widget("a", _clock.GetUtcNow());
+        var raised = widget.DomainEvents.ShouldHaveSingleItem();
         context.Add(widget);
 
         await context.SaveChangesAsync(TestContext.Current.CancellationToken);
 
         await using var shared = db.NewSharedContext();
         var rows = await shared.OutboxMessages.ToListAsync(TestContext.Current.CancellationToken);
-        rows.ShouldHaveSingleItem().Id.ShouldBe(widget.DomainEvents.Count == 0 ? rows[0].Id : Guid.Empty);
+        rows.ShouldHaveSingleItem().Id.ShouldBe(raised.EventId);
         rows[0].ProcessedAt.ShouldBeNull();
         widget.DomainEvents.ShouldBeEmpty();
     }

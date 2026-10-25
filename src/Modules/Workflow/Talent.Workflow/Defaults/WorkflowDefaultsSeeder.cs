@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Talent.Config.Contracts;
 using Talent.Shared.Security;
 using Talent.Workflow.Contracts;
 using Talent.Workflow.Persistence;
@@ -68,13 +69,18 @@ internal static class WorkflowDefaultsSeeder
     private static async Task EnsureAsync(
         WorkflowDbContext db, WorkflowAdminService admin, string code, string name, string payload, CancellationToken cancellationToken)
     {
-        if (await db.Definitions.AnyAsync(d => d.Code == code, cancellationToken))
+        var definitionId = await db.Definitions.Where(d => d.Code == code).Select(d => (Guid?)d.Id).SingleOrDefaultAsync(cancellationToken);
+        definitionId ??= await admin.CreateDefinitionAsync(code, name, cancellationToken);
+
+        var versions = await db.Versions.Where(v => v.DefinitionId == definitionId).Select(v => new { v.Id, v.Status }).ToListAsync(cancellationToken);
+        if (versions.Any(v => v.Status is ConfigVersionStatus.Published or ConfigVersionStatus.Locked))
         {
             return;
         }
 
-        var definitionId = await admin.CreateDefinitionAsync(code, name, cancellationToken);
-        var versionId = await admin.CreateDraftAsync(definitionId, payload, cancellationToken);
+        // A crash between creating the definition and publishing it leaves no published version: finish that work.
+        var draft = versions.FirstOrDefault(v => v.Status == ConfigVersionStatus.Draft);
+        var versionId = draft?.Id ?? await admin.CreateDraftAsync(definitionId.Value, payload, cancellationToken);
         await admin.PublishAsync(versionId, cancellationToken);
     }
 }

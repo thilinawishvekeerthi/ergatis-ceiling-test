@@ -165,6 +165,9 @@ public sealed class DelegationAndSlaTests(WorkflowDatabaseFixture db)
         // No HR to escalate to: escalations count as used up, so both tasks are marked breached.
         (await h.RunSlaTickAsync()).ShouldBe(2);
         (await h.GetAsync(first)).OpenTask!.EscalationLevel.ShouldBe(0);
+
+        // Both tasks left the due set, so the next tick has nothing to retry.
+        (await h.RunSlaTickAsync()).ShouldBe(0);
     }
 
     [Fact]
