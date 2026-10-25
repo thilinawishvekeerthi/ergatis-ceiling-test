@@ -1,12 +1,14 @@
 using System.Reflection;
 using NetArchTest.Rules;
 using Talent.Config.Versions;
+using Talent.Workflow.Definitions;
+using Talent.Workflow.Instances;
 
 namespace Talent.ArchitectureTests;
 
 public sealed class ModuleBoundaryTests
 {
-    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly];
+    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly, typeof(WorkflowInstance).Assembly];
 
     [Fact]
     public void Modules_ReferenceOnlyContractsOfOtherModules()
@@ -46,6 +48,42 @@ public sealed class ModuleBoundaryTests
             .And().DoNotHaveNameEndingWith("Module")
             .And().DoNotResideInNamespaceContaining("Migrations")
             .Should().NotBePublic()
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void WorkflowDomain_DoesNotDependOnEntityFramework()
+    {
+        var result = Types.InAssembly(typeof(WorkflowInstance).Assembly)
+            .That().ResideInNamespace("Talent.Workflow.Definitions")
+            .Or().ResideInNamespace("Talent.Workflow.Instances")
+            .ShouldNot().HaveDependencyOn("Microsoft.EntityFrameworkCore")
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void WorkflowImplementation_IsInternal()
+    {
+        var result = Types.InAssembly(typeof(WorkflowInstance).Assembly)
+            .That().AreClasses()
+            .And().DoNotHaveNameEndingWith("Module")
+            .And().DoNotResideInNamespaceContaining("Migrations")
+            .Should().NotBePublic()
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void WorkflowDefinitionModel_DoesNotDependOnPersistence()
+    {
+        var result = Types.InAssembly(typeof(WorkflowDefinitionModel).Assembly)
+            .That().ResideInNamespace("Talent.Workflow.Definitions")
+            .ShouldNot().HaveDependencyOn("Talent.Workflow.Persistence")
             .GetResult();
 
         result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
