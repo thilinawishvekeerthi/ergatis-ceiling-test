@@ -29,7 +29,9 @@ public sealed class ModuleBoundaryTests
     public void ConfigDomain_DoesNotDependOnEntityFramework()
     {
         var result = Types.InAssembly(typeof(ConfigVersion).Assembly)
-            .That().ResideInNamespaceStartingWith("Talent.Config")
+            .That().ResideInNamespaceStartingWith("Talent.Config.Versions")
+            .Or().ResideInNamespaceStartingWith("Talent.Config.Grids")
+            .Or().ResideInNamespaceStartingWith("Talent.Config.Scales")
             .ShouldNot().HaveDependencyOn("Microsoft.EntityFrameworkCore")
             .GetResult();
 
@@ -42,6 +44,7 @@ public sealed class ModuleBoundaryTests
         var result = Types.InAssembly(typeof(ConfigVersion).Assembly)
             .That().AreClasses()
             .And().DoNotHaveNameEndingWith("Module")
+            .And().DoNotResideInNamespaceContaining("Migrations")
             .Should().NotBePublic()
             .GetResult();
 

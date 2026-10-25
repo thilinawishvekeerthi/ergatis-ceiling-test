@@ -18,3 +18,11 @@ public sealed class SystemCurrentUser : ICurrentUser
 
     public string UserId => Id;
 }
+
+/// <summary>The caller before login exists. Not authenticated, so nothing treats it as a real user.</summary>
+public sealed class AnonymousCurrentUser : ICurrentUser
+{
+    public bool IsAuthenticated => false;
+
+    public string UserId => "anonymous";
+}

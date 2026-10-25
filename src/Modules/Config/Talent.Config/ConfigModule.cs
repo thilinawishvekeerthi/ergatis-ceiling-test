@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Talent.Config.Contracts;
+using Talent.Config.Defaults;
 using Talent.Config.Persistence;
 using Talent.Shared;
 using Talent.Shared.Events;
@@ -30,6 +31,16 @@ public static class ConfigModule
         services.AddScoped<IConfigVersionReader>(sp => sp.GetRequiredService<ConfigVersionReader>());
         services.AddScoped<IConfigVersionLocker>(sp => sp.GetRequiredService<ConfigVersionReader>());
         return services;
+    }
+
+    /// <summary>Applies the Config migrations and publishes the default scales and nine-box.</summary>
+    public static async Task InitializeConfigAsync(this IServiceProvider services, CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNull(services);
+        await using var scope = services.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<ConfigDbContext>();
+        await db.Database.MigrateAsync(cancellationToken);
+        await ConfigDefaultsSeeder.EnsureAsync(db, scope.ServiceProvider.GetRequiredService<TimeProvider>(), cancellationToken);
     }
 
     public static IEndpointRouteBuilder MapConfigEndpoints(this IEndpointRouteBuilder app)

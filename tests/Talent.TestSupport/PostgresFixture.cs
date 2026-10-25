@@ -40,11 +40,11 @@ public sealed class PostgresFixture : IAsyncDisposable
         _respawner ??= await Respawner.CreateAsync(connection, new RespawnerOptions
         {
             DbAdapter = DbAdapter.Postgres,
-            SchemasToInclude = ["shared", "config"],
+            // Every module schema is reset, so new modules need no change here.
+            SchemasToExclude = ["pg_catalog", "information_schema", "hangfire"],
             TablesToIgnore =
             [
-                new Respawn.Graph.Table("shared", "__ef_migrations"),
-                new Respawn.Graph.Table("config", "__ef_migrations"),
+                new Respawn.Graph.Table("__ef_migrations"),
                 new Respawn.Graph.Table("shared", "audit_log"),
             ],
         });

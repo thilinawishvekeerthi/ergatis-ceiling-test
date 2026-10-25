@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Talent.Shared.Security;
 using Talent.Shared.Events;
 using Talent.Shared.Persistence;
-using Talent.Shared.Security;
 
 namespace Talent.Shared;
 
@@ -24,7 +24,23 @@ public static class SharedServiceCollectionExtensions
         services.AddDbContext<TalentSharedDbContext>(o =>
             o.UseNpgsql(connection, n => n.MigrationsHistoryTable("__ef_migrations", SharedModel.Schema)));
         services.AddScoped<OutboxDispatcher>();
+        services.AddScoped<ICurrentUser, AnonymousCurrentUser>();
         return services;
+    }
+
+    public static Task MigrateSharedAsync(this IServiceProvider services, CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNull(services);
+        var scope = services.CreateAsyncScope();
+        return MigrateAndDisposeAsync(scope, cancellationToken);
+    }
+
+    private static async Task MigrateAndDisposeAsync(AsyncServiceScope scope, CancellationToken cancellationToken)
+    {
+        await using (scope)
+        {
+            await scope.ServiceProvider.GetRequiredService<TalentSharedDbContext>().Database.MigrateAsync(cancellationToken);
+        }
     }
 
     private static void TryAddSingletonTimeProvider(this IServiceCollection services) =>
