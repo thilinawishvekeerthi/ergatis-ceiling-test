@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Talent.Config.Contracts\Talent.Config.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\Talent.Shared\Talent.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Talent.Config.Tests" />
+    <InternalsVisibleTo Include="Talent.Config.IntegrationTests" />
+    <InternalsVisibleTo Include="Talent.ArchitectureTests" />
+  </ItemGroup>
+</Project>

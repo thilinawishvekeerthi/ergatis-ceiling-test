@@ -1,0 +1,21 @@
+root = true
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+[*.cs]
+csharp_style_namespace_declarations = file_scoped:warning
+[*.{csproj,props,json}]
+indent_size = 2
+
+[*.cs]
+# The project name Talent.Shared is fixed by the dotnet-modular-backend skill, so CA1716 cannot be satisfied.
+dotnet_diagnostic.CA1716.severity = none
+# IDomainEventHandler is the established name for event handlers in the outbox pattern.
+dotnet_diagnostic.CA1711.severity = none
+
+[**/Migrations/*.cs]
+# EF Core generates these files, so style analyzers skip them.
+generated_code = true
