@@ -28,8 +28,9 @@ internal static class TalentStartup
 
         await app.Services.MigrateSharedAsync(app.Lifetime.ApplicationStopping);
         await app.Services.InitializeConfigAsync(app.Lifetime.ApplicationStopping);
-        await app.Services.InitializeSecurityAsync(app.Lifetime.ApplicationStopping);
+        // Integration before Security: development seed users are linked to synced employees by employee number.
         await app.Services.InitializeIntegrationAsync(app.Lifetime.ApplicationStopping);
+        await app.Services.InitializeSecurityAsync(app.Lifetime.ApplicationStopping);
         await app.Services.InitializeWorkflowAsync(app.Lifetime.ApplicationStopping);
     }
 }

@@ -8,6 +8,7 @@ import { keys, useSaveScale, useScale } from '../../api/hooks';
 import { labels } from '../../labels';
 import { SCALE_MAX, SCALE_MIN, scaleSchema, type ScaleForm } from './schemas';
 import { SaveStatus } from './SaveStatus';
+import { VersionActions } from './VersionActions';
 
 export function ScaleEditor() {
   const { id = '' } = useParams();
@@ -21,7 +22,7 @@ export function ScaleEditor() {
   useEffect(() => {
     // A background refetch must not throw away edits the user has not saved yet.
     if (isDirty) return;
-    if (query.data) form.reset({ levels: query.data.levels.map(({ label, minScore, band }) => ({ label, minScore, band })) });
+    if (query.data?.payload) form.reset({ levels: query.data.payload.levels.map(({ label, minScore, band }) => ({ label, minScore, band })) });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- isDirty is read on purpose, not a trigger
   }, [query.data, form]);
 
@@ -30,12 +31,12 @@ export function ScaleEditor() {
   const editable = query.data.status === 'Draft';
 
   const submit = form.handleSubmit((values) =>
-    save.mutate(values.levels.map((l, i) => ({ ...l, level: i + 1 })), { onSuccess: () => form.reset(values) }),
+    save.mutate({ levels: values.levels.map((l, i) => ({ ...l, level: i + 1 })) }, { onSuccess: () => form.reset(values) }),
   );
 
   return (
     <form onSubmit={submit} noValidate aria-labelledby="scale-title">
-      <h2 id="scale-title">{query.data.name} (version {query.data.versionNo}, {query.data.status})</h2>
+      <h2 id="scale-title">{query.data.code} (version {query.data.versionNo}, {query.data.status})</h2>
       {!editable && <Alert severity="info">Only drafts can be edited. Create a new version to change this scale.</Alert>}
       <table>
         <thead>
@@ -81,7 +82,8 @@ export function ScaleEditor() {
         </p>
       )}
       <SaveStatus error={save.error} saved={save.isSuccess}
-        onReload={() => { save.reset(); void qc.invalidateQueries({ queryKey: keys.scale(id) }); }} />
+        onReload={() => { save.reset(); void qc.invalidateQueries({ queryKey: keys.version(id) }); }} />
+      <VersionActions type="Scale" version={query.data} basePath="/admin/scales" unsaved={isDirty} />
     </form>
   );
 }

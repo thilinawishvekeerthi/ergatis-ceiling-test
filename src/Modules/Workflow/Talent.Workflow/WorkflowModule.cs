@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Talent.Shared;
+using Talent.Workflow.Api;
 using Talent.Shared.Events;
 using Talent.Workflow.Contracts;
 using Talent.Workflow.Defaults;
@@ -36,14 +37,15 @@ public static class WorkflowModule
         services.AddScoped<IActorResolver, ManagerActorResolver>();
         services.AddScoped<IActorResolver, RoleActorResolver>();
         services.AddScoped<IActorResolver, UserActorResolver>();
-        // Integration and Security replace these with the real lookups.
-        services.TryAddScoped<IManagerLookup, EmptyManagerLookup>();
-        services.TryAddScoped<IRoleMemberLookup, EmptyRoleMemberLookup>();
+        // Managers come from the synced employee copy, people from Security. A host can register its own first.
+        services.TryAddScoped<IManagerLookup, DirectoryManagerLookup>();
+        services.TryAddScoped<IRoleMemberLookup, DirectoryRoleMemberLookup>();
 
         services.AddScoped<TaskPlanner>();
         services.AddScoped<TransitionExecutor>();
         services.AddScoped<WorkflowAdminService>();
         services.AddScoped<IWorkflowService, WorkflowService>();
+        services.AddScoped<WorkflowApi>();
         services.AddScoped<SlaProcessor>();
         services.AddSingleton<SlaTickRunner>();
 
@@ -68,6 +70,7 @@ public static class WorkflowModule
     public static IEndpointRouteBuilder MapWorkflowEndpoints(this IEndpointRouteBuilder app)
     {
         ArgumentNullException.ThrowIfNull(app);
+        WorkflowEndpoints.Map(app);
         return app;
     }
 }

@@ -1,10 +1,12 @@
 import { createContext, useContext } from 'react';
-import type { Role, Session } from '../api/types';
+import type { Session } from '../api/types';
 
 export interface SessionState {
-  session: Session;
-  /** Fake-session only: lets a developer try each portal. Replaced by BFF login. */
-  setRoles: (roles: Role[]) => void;
+  /** Null when nobody is signed in. */
+  session: Session | null;
+  /** Development sign-in through the BFF fake login. Production uses /bff/login. */
+  signIn: (subject: string) => Promise<void>;
+  signOut: () => Promise<void>;
 }
 
 export const SessionContext = createContext<SessionState | null>(null);

@@ -22,7 +22,19 @@ dotnet format Talent.sln --verify-no-changes
 | `src/Modules/Config` | Versioned config (ADR-02) and the N x M grid engine (ADR-03) |
 | `tests/` | Unit, host and architecture (module boundary) tests |
 
+## Run it locally
+
+```bash
+./scripts/pg-start.sh                                        # PostgreSQL 16 on 127.0.0.1:5433
+dotnet run --project src/Talent.Host --launch-profile http   # http://localhost:5000, migrates, syncs mock HR data, seeds dev users
+cd web && npm install && npm run dev                         # http://localhost:5173
+```
+
+Sign in on the landing page as `dev.admin`, `dev.manager` or `dev.employee`. `npm run e2e` in `web/` runs the whole flow in a browser.
+
 ## Status
 
-Done: Config module domain (version lifecycle, grid placement and override), module boundary tests, host skeleton.
-Not yet: PostgreSQL / EF Core and Testcontainers tests (Docker was not available), other 7 modules, login, workflow engine, React app.
+Done: Config (versioned scales and grids, N x M grid engine, admin API), Security (BFF cookie login, permission matrix, masking, audit),
+Integration (mock Core HR adapter, delta sync), Workflow (approval engine, SLA, delegation, HTTP API; managers from synced HR data, role members from Security),
+React app (config admin, development plan approval, approvals inbox).
+Not yet: Assessment, Succession, IDP content, Career, Notification modules; real OIDC provider and Core HR adapters.

@@ -1,9 +1,9 @@
-import { useScales } from '../../api/hooks';
+import { useConfigs } from '../../api/hooks';
 import { labels } from '../../labels';
 import { ConfigList } from './ConfigList';
 
 export function ScalesList() {
-  const q = useScales();
+  const q = useConfigs('Scale');
   return (
     <section>
       <h2>{labels.nav.scales}</h2>

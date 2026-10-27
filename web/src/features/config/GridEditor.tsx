@@ -9,6 +9,7 @@ import { NineBox } from '../../components/NineBox';
 import { labels } from '../../labels';
 import { GRID_MAX, GRID_MIN, gridSchema, type GridForm } from './schemas';
 import { SaveStatus } from './SaveStatus';
+import { VersionActions } from './VersionActions';
 
 type Cell = GridForm['cells'][number];
 const blank = (column: number, row: number): Cell => ({ column, row, label: `Cell ${column + 1}, ${row + 1}`, colour: '#dddddd', band: 'unassigned' });
@@ -28,14 +29,14 @@ export function GridEditor() {
   useEffect(() => {
     // A background refetch must not throw away edits the user has not saved yet.
     if (isDirty) return;
-    const g = query.data?.grid;
+    const g = query.data?.payload;
     if (g) form.reset({ columnBounds: g.columnBounds.map((value) => ({ value })), rowBounds: g.rowBounds.map((value) => ({ value })), cells: g.cells });
     // eslint-disable-next-line react-hooks/exhaustive-deps -- isDirty is read on purpose, not a trigger
   }, [query.data, form]);
 
   if (query.isLoading) return <CircularProgress aria-label={labels.loading} />;
-  if (query.isError || !query.data) return <Alert severity="error">{labels.loadFailed}</Alert>;
-  const grid = query.data.grid;
+  if (query.isError || !query.data?.payload) return <Alert severity="error">{labels.loadFailed}</Alert>;
+  const grid = query.data.payload;
   const editable = query.data.status === 'Draft';
 
   const addColumn = () => {
@@ -76,7 +77,7 @@ export function GridEditor() {
 
   return (
     <form onSubmit={submit} noValidate aria-labelledby="grid-title">
-      <h2 id="grid-title">{query.data.name} (version {query.data.versionNo}, {query.data.status})</h2>
+      <h2 id="grid-title">{query.data.code} (version {query.data.versionNo}, {query.data.status})</h2>
       {!editable && <Alert severity="info">Only drafts can be edited. Create a new version to change this grid.</Alert>}
 
       <fieldset disabled={!editable}>
@@ -124,7 +125,8 @@ export function GridEditor() {
       <NineBox grid={preview} placements={[]} label="Grid preview" />
       {editable && <Button type="submit" variant="contained" disabled={save.isPending}>{labels.save}</Button>}
       <SaveStatus error={save.error} saved={save.isSuccess}
-        onReload={() => { save.reset(); void qc.invalidateQueries({ queryKey: keys.grid(id) }); }} />
+        onReload={() => { save.reset(); void qc.invalidateQueries({ queryKey: keys.version(id) }); }} />
+      <VersionActions type="Grid" version={query.data} basePath="/admin/grids" unsaved={isDirty} />
     </form>
   );
 }

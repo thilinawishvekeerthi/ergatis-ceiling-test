@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Talent.Host;
 using Talent.Security;
 using Talent.Shared.Persistence;
@@ -5,6 +6,7 @@ using Talent.Shared.Persistence;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
+builder.Services.ConfigureHttpJsonOptions(o => o.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddHealthChecks()
     .AddDbContextCheck<TalentSharedDbContext>("database", tags: ["ready"]);
 builder.Services.AddTalentModules(builder.Configuration);

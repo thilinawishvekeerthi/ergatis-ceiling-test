@@ -56,3 +56,20 @@ internal sealed class AccountEmployeeResolver(SecurityDbContext db) : IEmployeeR
             .Select(a => (Guid?)a.EmployeeId)
             .FirstOrDefaultAsync(cancellationToken);
 }
+
+/// <summary>Reverse lookups over the Security tables: employee to login subject, role to login subjects.</summary>
+internal sealed class AccountUserDirectory(SecurityDbContext db) : IUserDirectory
+{
+    public async Task<string?> FindSubjectAsync(Guid employeeId, CancellationToken cancellationToken) =>
+        await db.Accounts.AsNoTracking()
+            .Where(a => a.EmployeeId == employeeId)
+            .Select(a => a.Subject)
+            .FirstOrDefaultAsync(cancellationToken);
+
+    public async Task<IReadOnlyList<string>> GetSubjectsInRoleAsync(string role, CancellationToken cancellationToken) =>
+        await db.RoleAssignments.AsNoTracking()
+            .Where(r => r.Role == role)
+            .OrderBy(r => r.Subject)
+            .Select(r => r.Subject)
+            .ToListAsync(cancellationToken);
+}

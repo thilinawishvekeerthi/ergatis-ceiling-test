@@ -24,6 +24,26 @@ internal sealed class ConfigApiService(
 {
     private static string Resource(ConfigType type) => $"config:{type}";
 
+    /// <summary>Every definition of one type with its newest version, so an admin can find drafts as well as published versions.</summary>
+    public async Task<IReadOnlyList<ConfigSummaryResponse>> ListAsync(string type, CancellationToken cancellationToken)
+    {
+        var configType = Enum.GetNames<ConfigType>().FirstOrDefault(n => string.Equals(n, type, StringComparison.OrdinalIgnoreCase)) is { } name
+            ? Enum.Parse<ConfigType>(name)
+            : throw Invalid("type", "Unknown config type.");
+        var grant = await guard.RequireAsync(Resource(configType), PermissionAction.View, null, cancellationToken);
+
+        var rows = await (
+            from d in db.Definitions.AsNoTracking()
+            where d.Type == configType
+            let latest = db.Versions.Where(v => v.DefinitionId == d.Id).OrderByDescending(v => v.VersionNo).FirstOrDefault()
+            where latest != null
+            orderby d.Code
+            select new { d.Id, d.Code, d.Name, VersionId = latest!.Id, latest.VersionNo, latest.Status }).ToListAsync(cancellationToken);
+
+        return [.. rows.Select(r => masker.Mask(
+            new ConfigSummaryResponse(r.Id, configType.ToString(), r.Code, r.Name, r.VersionId, r.VersionNo, r.Status.ToString()), grant))];
+    }
+
     public async Task<ConfigVersionResponse> GetVersionAsync(Guid versionId, CancellationToken cancellationToken)
     {
         var found = await FindAsync(versionId, cancellationToken);

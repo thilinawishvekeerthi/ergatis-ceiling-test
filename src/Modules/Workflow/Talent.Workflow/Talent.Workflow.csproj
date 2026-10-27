@@ -10,6 +10,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Config\Talent.Config.Contracts\Talent.Config.Contracts.csproj" />
+    <ProjectReference Include="..\..\Integration\Talent.Integration.Contracts\Talent.Integration.Contracts.csproj" />
+    <ProjectReference Include="..\..\Security\Talent.Security.Contracts\Talent.Security.Contracts.csproj" />
     <ProjectReference Include="..\Talent.Workflow.Contracts\Talent.Workflow.Contracts.csproj" />
     <ProjectReference Include="..\..\..\Talent.Shared\Talent.Shared.csproj" />
   </ItemGroup>

@@ -21,6 +21,7 @@ internal sealed class WorkflowService(
     TransitionExecutor executor) : IWorkflowService
 {
     private const int InboxLimit = 200;
+    private const int StartedLimit = 50;
 
     public async Task<Guid> StartAsync(StartWorkflowRequest request, CancellationToken cancellationToken)
     {
@@ -80,6 +81,26 @@ internal sealed class WorkflowService(
             .AsSplitQuery()
             .FirstOrDefaultAsync(cancellationToken);
         return instance is null ? null : await ToDtoAsync(instance, cancellationToken);
+    }
+
+    public async Task<IReadOnlyList<WorkflowInstanceDto>> ListStartedByMeAsync(CancellationToken cancellationToken)
+    {
+        var instances = await db.Instances.AsNoTracking()
+            .Include(i => i.History)
+            .Include(i => i.Tasks).ThenInclude(t => t.Assignees)
+            .Where(i => i.StartedBy == user.UserId)
+            .OrderByDescending(i => i.StartedAt).ThenBy(i => i.Id)
+            .Take(StartedLimit)
+            .AsSplitQuery()
+            .ToListAsync(cancellationToken);
+
+        var result = new List<WorkflowInstanceDto>(instances.Count);
+        foreach (var instance in instances)
+        {
+            result.Add(await ToDtoAsync(instance, cancellationToken));
+        }
+
+        return result;
     }
 
     public async Task<IReadOnlyList<ApprovalTaskDto>> GetInboxAsync(CancellationToken cancellationToken)
@@ -174,7 +195,8 @@ internal sealed class WorkflowService(
             instance.CurrentState, instance.Status, actions,
             open is null ? null : ToDto(open, open.Assignees.Select(a => a.UserId)),
             [.. instance.History.OrderBy(h => h.Sequence).Select(h =>
-                new WorkflowHistoryDto(h.Sequence, h.FromState, h.ToState, h.Action, h.Actor, h.Comment, h.OccurredAt))]);
+                new WorkflowHistoryDto(h.Sequence, h.FromState, h.ToState, h.Action, h.Actor, h.Comment, h.OccurredAt))],
+            instance.StartedBy, instance.StartedAt, instance.Context);
     }
 
     private static ApprovalTaskDto ToDto(ApprovalTask task, IEnumerable<string> assignees) =>

@@ -64,7 +64,10 @@ internal sealed class SeedUser
 {
     public string Subject { get; set; } = "";
 
-    public Guid EmployeeId { get; set; }
+    public Guid? EmployeeId { get; set; }
+
+    /// <summary>Used when <see cref="EmployeeId"/> is not set: looked up in the synced employee copy (Integration).</summary>
+    public string? EmployeeNumber { get; set; }
 
     public List<string> Roles { get; set; } = [];
 }

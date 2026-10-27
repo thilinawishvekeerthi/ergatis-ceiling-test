@@ -10,6 +10,9 @@ internal static class ConfigEndpoints
     {
         var group = app.MapGroup("/api/v1/config").RequireAuthorization();
 
+        group.MapGet("/{type}", async (string type, ConfigApiService api, CancellationToken ct) =>
+            Results.Ok(await api.ListAsync(type, ct)));
+
         group.MapGet("/versions/{versionId:guid}", async (Guid versionId, ConfigApiService api, CancellationToken ct) =>
             Results.Ok(await api.GetVersionAsync(versionId, ct)));
 

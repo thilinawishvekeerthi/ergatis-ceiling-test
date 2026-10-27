@@ -1,5 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom';
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 import type { Role } from '../api/types';
 import { labels } from '../labels';
 import { RequireRole } from '../session/RequireRole';
@@ -11,7 +11,8 @@ export interface PortalLink {
 }
 
 export function PortalLayout({ role, links }: { role: Role; links: PortalLink[] }) {
-  const { session } = useSession();
+  const { session, signOut } = useSession();
+  const navigate = useNavigate();
   return (
     <RequireRole role={role}>
       <AppBar position="static" color="default" elevation={0}>
@@ -23,7 +24,9 @@ export function PortalLayout({ role, links }: { role: Role; links: PortalLink[] 
             ))}
           </nav>
           <Box sx={{ flexGrow: 1 }} />
-          <Typography variant="body2">{labels.switchRole} {session.displayName}</Typography>
+          <Typography variant="body2">{labels.switchRole} {session?.displayName}</Typography>
+          <Button component={Link} to="/" sx={{ ml: 2 }}>{labels.portalsLink}</Button>
+          <Button onClick={() => void signOut().then(() => navigate('/'))}>{labels.signOut}</Button>
         </Toolbar>
       </AppBar>
       <Box component="main" sx={{ p: 3 }}><Outlet /></Box>

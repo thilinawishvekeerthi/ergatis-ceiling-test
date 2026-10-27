@@ -22,9 +22,9 @@ export function ConfigList({
   return (
     <List>
       {items.map((item) => (
-        <ListItem key={item.id} disablePadding secondaryAction={<Chip size="small" label={item.status} />}>
-          <ListItemButton component={RouterLink} to={`${basePath}/${item.id}`}>
-            <ListItemText primary={item.name} secondary={`Version ${item.versionNo}`} />
+        <ListItem key={item.definitionId} disablePadding secondaryAction={<Chip size="small" label={item.status} />}>
+          <ListItemButton component={RouterLink} to={`${basePath}/${item.latestVersionId}`}>
+            <ListItemText primary={item.name} secondary={`${item.code}, version ${item.versionNo}`} />
           </ListItemButton>
         </ListItem>
       ))}

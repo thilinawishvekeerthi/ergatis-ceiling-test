@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Talent.Integration.Contracts;
+using Talent.Security.Contracts;
 using Talent.Workflow.Contracts;
 using Talent.Workflow.Definitions;
 using Talent.Workflow.Instances;
@@ -46,16 +48,29 @@ internal sealed class UserActorResolver : IActorResolver
         Task.FromResult<IReadOnlyList<string>>([actor.Value!]);
 }
 
-/// <summary>Used until Integration and Security supply the real lookups. Nobody is found, so a Manager step fails loudly.</summary>
-internal sealed class EmptyManagerLookup : IManagerLookup
+/// <summary>
+/// The manager from the synced employee copy (Integration), turned into a login subject (Security).
+/// A manager without a login gives nobody, so the step fails loudly instead of routing to the wrong person.
+/// </summary>
+internal sealed class DirectoryManagerLookup(IEmployeeReader employees, IUserDirectory users) : IManagerLookup
 {
-    public Task<string?> GetManagerUserIdAsync(string employeeId, CancellationToken cancellationToken) => Task.FromResult<string?>(null);
+    public async Task<string?> GetManagerUserIdAsync(string employeeId, CancellationToken cancellationToken)
+    {
+        if (!Guid.TryParse(employeeId, out var id)
+            || await employees.GetAsync(id, cancellationToken) is not { ManagerId: { } managerId })
+        {
+            return null;
+        }
+
+        return await users.FindSubjectAsync(managerId, cancellationToken);
+    }
 }
 
-internal sealed class EmptyRoleMemberLookup : IRoleMemberLookup
+/// <summary>Role members from Security's role assignments.</summary>
+internal sealed class DirectoryRoleMemberLookup(IUserDirectory users) : IRoleMemberLookup
 {
     public Task<IReadOnlyList<string>> GetUserIdsAsync(string roleCode, CancellationToken cancellationToken) =>
-        Task.FromResult<IReadOnlyList<string>>([]);
+        users.GetSubjectsInRoleAsync(roleCode, cancellationToken);
 }
 
 /// <summary>Resolves an approver to people, adds standing delegates, and plans the approval task of a state.</summary>

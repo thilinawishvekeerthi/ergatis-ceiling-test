@@ -35,7 +35,10 @@ public sealed record WorkflowInstanceDto(
     WorkflowStatus Status,
     IReadOnlyList<string> AvailableActions,
     ApprovalTaskDto? OpenTask,
-    IReadOnlyList<WorkflowHistoryDto> History);
+    IReadOnlyList<WorkflowHistoryDto> History,
+    string StartedBy,
+    DateTimeOffset StartedAt,
+    IReadOnlyDictionary<string, string> Context);
 
 /// <summary>What other modules use to run approvals. The caller is the current user.</summary>
 public interface IWorkflowService
@@ -49,6 +52,9 @@ public interface IWorkflowService
     Task<WorkflowInstanceDto> GetAsync(Guid instanceId, CancellationToken cancellationToken);
 
     Task<WorkflowInstanceDto?> FindForSubjectAsync(string subjectType, string subjectId, CancellationToken cancellationToken);
+
+    /// <summary>Instances the current user started, newest first (at most 50).</summary>
+    Task<IReadOnlyList<WorkflowInstanceDto>> ListStartedByMeAsync(CancellationToken cancellationToken);
 
     /// <summary>Pending tasks the current user may act on, oldest due date first.</summary>
     Task<IReadOnlyList<ApprovalTaskDto>> GetInboxAsync(CancellationToken cancellationToken);

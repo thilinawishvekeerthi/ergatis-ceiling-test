@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Talent.Config.Contracts;
+using Talent.Integration.Contracts;
 using Talent.Security.Access;
 using Talent.Security.Contracts;
 using Talent.Security.Http;
@@ -57,6 +58,7 @@ public static class SecurityModule
             _ => ActivatorUtilities.CreateInstance<TalentManagedRoleSource>(sp),
         });
         services.AddScoped<IEmployeeResolver, AccountEmployeeResolver>();
+        services.AddScoped<IUserDirectory, AccountUserDirectory>();
 
         services.TryAddScoped<IScopeMemberSource, EmptyScopeMemberSource>();
         services.AddScoped<DataScopeService>();
@@ -143,7 +145,7 @@ public static class SecurityModule
         var seed = scope.ServiceProvider.GetRequiredService<IOptions<SecurityOptions>>().Value;
         if (seed.Mode == AuthenticationMode.Fake)
         {
-            await SeedUsersAsync(db, seed.Seed, cancellationToken);
+            await SeedUsersAsync(db, seed.Seed, scope.ServiceProvider.GetService<IEmployeeReader>(), cancellationToken);
         }
     }
 
@@ -171,13 +173,14 @@ public static class SecurityModule
         configuration.GetSection("Authentication").Bind(options);
     }
 
-    private static async Task SeedUsersAsync(SecurityDbContext db, List<SeedUser> users, CancellationToken cancellationToken)
+    private static async Task SeedUsersAsync(
+        SecurityDbContext db, List<SeedUser> users, IEmployeeReader? employees, CancellationToken cancellationToken)
     {
         foreach (var user in users.Where(u => !string.IsNullOrWhiteSpace(u.Subject)))
         {
             if (!await db.Accounts.AnyAsync(a => a.Subject == user.Subject, cancellationToken))
             {
-                db.Accounts.Add(new UserAccount(user.Subject, user.EmployeeId));
+                db.Accounts.Add(new UserAccount(user.Subject, await SeedEmployeeIdAsync(user, employees, cancellationToken)));
             }
 
             foreach (var role in user.Roles.Where(r => !string.IsNullOrWhiteSpace(r)).Distinct())
@@ -190,5 +193,23 @@ public static class SecurityModule
         }
 
         await db.SaveChangesAsync(cancellationToken);
+    }
+
+    private static async Task<Guid> SeedEmployeeIdAsync(SeedUser user, IEmployeeReader? employees, CancellationToken cancellationToken)
+    {
+        if (user.EmployeeId is { } id)
+        {
+            return id;
+        }
+
+        if (string.IsNullOrWhiteSpace(user.EmployeeNumber) || employees is null)
+        {
+            throw new InvalidOperationException($"Seed user '{user.Subject}' needs an EmployeeId or an EmployeeNumber.");
+        }
+
+        var employee = await employees.FindByEmployeeNumberAsync(user.EmployeeNumber, cancellationToken)
+                       ?? throw new InvalidOperationException(
+                           $"Seed user '{user.Subject}': employee {user.EmployeeNumber} is not in the synced data. Run the sync first.");
+        return employee.Id;
     }
 }

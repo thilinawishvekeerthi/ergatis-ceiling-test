@@ -80,13 +80,18 @@ public static class IntegrationModule
         services.AddSingleton<ISourceAdapter<EmployeeSource>, MockEmployeeAdapter>();
     }
 
-    /// <summary>Applies the Integration migrations and, when configured, registers the nightly Hangfire job.</summary>
+    /// <summary>Applies the Integration migrations, runs a first sync when configured, and registers the nightly Hangfire job.</summary>
     public static async Task InitializeIntegrationAsync(this IServiceProvider services, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(services);
         await using var scope = services.CreateAsyncScope();
         var sync = scope.ServiceProvider.GetRequiredService<IOptions<SyncOptions>>().Value;
         await scope.ServiceProvider.GetRequiredService<IntegrationDbContext>().Database.MigrateAsync(cancellationToken);
+
+        if (sync.RunOnStartup)
+        {
+            await scope.ServiceProvider.GetRequiredService<ISyncService>().RunDeltaAsync(cancellationToken);
+        }
 
         if (sync.Scheduler == SyncScheduler.Hangfire)
         {
