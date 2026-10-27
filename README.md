@@ -22,6 +22,18 @@ dotnet format Talent.sln --verify-no-changes
 | `src/Modules/Config` | Versioned config (ADR-02) and the N x M grid engine (ADR-03) |
 | `tests/` | Unit, host and architecture (module boundary) tests |
 
+## Java backend
+
+`backend/` holds a second backend: Java 21 / Spring Boot 3.5, built with Maven.
+`Dockerfile` builds it together with `frontend/` into one image.
+
+```bash
+mvn -f backend/pom.xml package
+docker compose up --build   # PostgreSQL 16 + the app on http://localhost:8080
+```
+
+`docker-compose.yml` runs with mock source systems and dev sign-in. For a client environment, see the comments in that file.
+
 ## Status
 
 Done: Config module domain (version lifecycle, grid placement and override), module boundary tests, host skeleton.
