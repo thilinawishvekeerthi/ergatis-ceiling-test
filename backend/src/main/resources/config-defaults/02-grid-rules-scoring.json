@@ -1,0 +1,196 @@
+[
+ {
+  "type": "GRID",
+  "code": "NINE_BOX",
+  "name": "Nine-box grid",
+  "description": "Assumption 4: Performance (latest finalised appraisal) \u00d7 Potential (talent assessment), 3 \u00d7 3",
+  "payload": {
+   "xScale": "PERFORMANCE",
+   "xLabel": "Performance",
+   "yScale": "POTENTIAL",
+   "yLabel": "Potential",
+   "columns": [
+    {
+     "label": "Low",
+     "min": 1,
+     "max": 2.75
+    },
+    {
+     "label": "Moderate",
+     "min": 2.75,
+     "max": 3.75
+    },
+    {
+     "label": "High",
+     "min": 3.75,
+     "max": 5
+    }
+   ],
+   "rows": [
+    {
+     "label": "Low",
+     "min": 0.5,
+     "max": 1.5
+    },
+    {
+     "label": "Moderate",
+     "min": 1.5,
+     "max": 2.5
+    },
+    {
+     "label": "High",
+     "min": 2.5,
+     "max": 3.5
+    }
+   ],
+   "cells": [
+    {
+     "row": 2,
+     "col": 0,
+     "code": "ROUGH_DIAMOND",
+     "label": "Rough Diamond",
+     "colour": "#ffe082",
+     "reportingBand": "DEVELOP"
+    },
+    {
+     "row": 2,
+     "col": 1,
+     "code": "HIGH_POTENTIAL",
+     "label": "High Potential",
+     "colour": "#aed581",
+     "reportingBand": "HIGH_POTENTIAL"
+    },
+    {
+     "row": 2,
+     "col": 2,
+     "code": "FUTURE_LEADER",
+     "label": "Future Leader",
+     "colour": "#43a047",
+     "reportingBand": "TOP_TALENT"
+    },
+    {
+     "row": 1,
+     "col": 0,
+     "code": "DILEMMA",
+     "label": "Inconsistent Player",
+     "colour": "#ffcc80",
+     "reportingBand": "DEVELOP"
+    },
+    {
+     "row": 1,
+     "col": 1,
+     "code": "CORE",
+     "label": "Core Employee",
+     "colour": "#fff59d",
+     "reportingBand": "CORE"
+    },
+    {
+     "row": 1,
+     "col": 2,
+     "code": "HIGH_PERFORMER",
+     "label": "High Performer",
+     "colour": "#9ccc65",
+     "reportingBand": "HIGH_POTENTIAL"
+    },
+    {
+     "row": 0,
+     "col": 0,
+     "code": "UNDERPERFORMER",
+     "label": "Underperformer",
+     "colour": "#ef9a9a",
+     "reportingBand": "RISK"
+    },
+    {
+     "row": 0,
+     "col": 1,
+     "code": "EFFECTIVE",
+     "label": "Effective Employee",
+     "colour": "#fff9c4",
+     "reportingBand": "CORE"
+    },
+    {
+     "row": 0,
+     "col": 2,
+     "code": "TRUSTED_PRO",
+     "label": "Trusted Professional",
+     "colour": "#c5e1a5",
+     "reportingBand": "CORE"
+    }
+   ],
+   "mode": "CALCULATED_WITH_OVERRIDE"
+  }
+ },
+ {
+  "type": "ELIGIBILITY_RULE",
+  "code": "LEADERSHIP_CANDIDATES",
+  "name": "Leadership candidate criteria",
+  "description": "Default suggestion rule (B2). HR Admin then adds or removes people with a reason.",
+  "payload": {
+   "description": "Last 2 finalised appraisals at least 3.5, grade G5 or above, 2+ years of service, active permanent staff",
+   "expression": "last_n_appraisals(2).min_score >= 3.5 AND grade IN (G5, M1, M2, M3) AND service_years >= 2 AND employment_category = PERMANENT"
+  }
+ },
+ {
+  "type": "PROFILE_MATCH_WEIGHTS",
+  "code": "DEFAULT",
+  "name": "Profile match-up weights",
+  "description": "% match = weighted qualification + experience + competency (ADR-06)",
+  "payload": {
+   "defaults": {
+    "qualification": 0.3,
+    "experience": 0.3,
+    "competency": 0.4
+   },
+   "perJobFamily": {}
+  }
+ },
+ {
+  "type": "BENCH_STRENGTH",
+  "code": "DEFAULT",
+  "name": "Successor bench strength",
+  "description": "Count of successors ready now or within 1\u20132 years",
+  "payload": {
+   "method": "COUNT",
+   "countedReadiness": [
+    "READY_NOW",
+    "READY_1_2Y"
+   ],
+   "readinessWeights": {
+    "READY_NOW": 1.0,
+    "READY_1_2Y": 0.6,
+    "READY_3PLUS": 0.3
+   },
+   "bands": [
+    {
+     "min": 0,
+     "label": "None",
+     "colour": "#d32f2f"
+    },
+    {
+     "min": 1,
+     "label": "Weak",
+     "colour": "#f57c00"
+    },
+    {
+     "min": 2,
+     "label": "Adequate",
+     "colour": "#fbc02d"
+    },
+    {
+     "min": 3,
+     "label": "Strong",
+     "colour": "#2e7d32"
+    }
+   ]
+  }
+ },
+ {
+  "type": "IDP_PROGRESS",
+  "code": "DEFAULT",
+  "name": "IDP progress %",
+  "description": "Equal weight per action step",
+  "payload": {
+   "method": "EQUAL"
+  }
+ }
+]

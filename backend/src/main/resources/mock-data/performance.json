@@ -1,0 +1,1886 @@
+{
+ "COMPETENCY": [
+  {
+   "id": "C-LEAD",
+   "code": "LEAD",
+   "name": "Leadership",
+   "category": "Leadership",
+   "description": "Sets direction and inspires others"
+  },
+  {
+   "id": "C-STRAT",
+   "code": "STRAT",
+   "name": "Strategic Thinking",
+   "category": "Leadership",
+   "description": "Sees the big picture and plans ahead"
+  },
+  {
+   "id": "C-PEOPLE",
+   "code": "PEOPLE",
+   "name": "Developing People",
+   "category": "Leadership",
+   "description": "Coaches and grows team members"
+  },
+  {
+   "id": "C-COMM",
+   "code": "COMM",
+   "name": "Communication",
+   "category": "Core",
+   "description": "Communicates clearly in speech and writing"
+  },
+  {
+   "id": "C-DELIV",
+   "code": "DELIV",
+   "name": "Delivering Results",
+   "category": "Core",
+   "description": "Plans work and delivers on commitments"
+  },
+  {
+   "id": "C-CUST",
+   "code": "CUST",
+   "name": "Customer Focus",
+   "category": "Core",
+   "description": "Understands and serves customer needs"
+  },
+  {
+   "id": "C-TECH",
+   "code": "TECH",
+   "name": "Technical Expertise",
+   "category": "Functional",
+   "description": "Depth of knowledge in own field"
+  },
+  {
+   "id": "C-FINAN",
+   "code": "FINAN",
+   "name": "Financial Acumen",
+   "category": "Functional",
+   "description": "Understands budgets, costs and financial results"
+  }
+ ],
+ "APPRAISAL": [
+  {
+   "id": "APR-E0001-2023",
+   "employeeRef": "E0001",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.53,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.2,
+    "STRAT": 3.1,
+    "PEOPLE": 3.9,
+    "COMM": 3.8,
+    "DELIV": 4.2,
+    "CUST": 2.9,
+    "TECH": 3.4,
+    "FINAN": 2.8
+   }
+  },
+  {
+   "id": "APR-E0001-2024",
+   "employeeRef": "E0001",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.83,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.8,
+    "STRAT": 3.1,
+    "PEOPLE": 3.3,
+    "COMM": 4.1,
+    "DELIV": 3.9,
+    "CUST": 3.4,
+    "TECH": 4.0,
+    "FINAN": 4.3
+   }
+  },
+  {
+   "id": "APR-E0001-2025",
+   "employeeRef": "E0001",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.71,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.2,
+    "STRAT": 4.0,
+    "PEOPLE": 3.5,
+    "COMM": 3.2,
+    "DELIV": 4.4,
+    "CUST": 3.4,
+    "TECH": 3.1,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0002-2023",
+   "employeeRef": "E0002",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.57,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 4.9,
+    "PEOPLE": 4.6,
+    "COMM": 5.0,
+    "DELIV": 4.4,
+    "CUST": 4.7,
+    "TECH": 5.0,
+    "FINAN": 4.8
+   }
+  },
+  {
+   "id": "APR-E0002-2024",
+   "employeeRef": "E0002",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.93,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 5.0,
+    "PEOPLE": 4.2,
+    "COMM": 4.5,
+    "DELIV": 4.6,
+    "CUST": 4.3,
+    "TECH": 4.5,
+    "FINAN": 4.3
+   }
+  },
+  {
+   "id": "APR-E0002-2025",
+   "employeeRef": "E0002",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.44,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.7,
+    "STRAT": 4.2,
+    "PEOPLE": 4.2,
+    "COMM": 4.0,
+    "DELIV": 4.1,
+    "CUST": 5.0,
+    "TECH": 4.7,
+    "FINAN": 4.6
+   }
+  },
+  {
+   "id": "APR-E0003-2023",
+   "employeeRef": "E0003",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.21,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.7,
+    "STRAT": 3.0,
+    "PEOPLE": 4.0,
+    "COMM": 3.4,
+    "DELIV": 3.3,
+    "CUST": 3.5,
+    "TECH": 3.8,
+    "FINAN": 3.7
+   }
+  },
+  {
+   "id": "APR-E0003-2024",
+   "employeeRef": "E0003",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 2.81,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.1,
+    "STRAT": 2.5,
+    "PEOPLE": 2.4,
+    "COMM": 2.3,
+    "DELIV": 3.5,
+    "CUST": 3.4,
+    "TECH": 2.5,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0003-2025",
+   "employeeRef": "E0003",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.07,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.7,
+    "STRAT": 3.0,
+    "PEOPLE": 2.7,
+    "COMM": 2.7,
+    "DELIV": 3.2,
+    "CUST": 2.7,
+    "TECH": 3.2,
+    "FINAN": 3.7
+   }
+  },
+  {
+   "id": "APR-E0004-2023",
+   "employeeRef": "E0004",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.2,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.0,
+    "STRAT": 3.2,
+    "PEOPLE": 2.5,
+    "COMM": 2.5,
+    "DELIV": 2.6,
+    "CUST": 3.4,
+    "TECH": 3.7,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0004-2024",
+   "employeeRef": "E0004",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.14,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.0,
+    "STRAT": 3.9,
+    "PEOPLE": 3.2,
+    "COMM": 3.9,
+    "DELIV": 3.7,
+    "CUST": 2.4,
+    "TECH": 3.5,
+    "FINAN": 3.4
+   }
+  },
+  {
+   "id": "APR-E0004-2025",
+   "employeeRef": "E0004",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.72,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 3.9,
+    "PEOPLE": 3.1,
+    "COMM": 3.6,
+    "DELIV": 3.6,
+    "CUST": 4.4,
+    "TECH": 4.3,
+    "FINAN": 3.3
+   }
+  },
+  {
+   "id": "APR-E0005-2023",
+   "employeeRef": "E0005",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.38,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.0,
+    "STRAT": 4.0,
+    "PEOPLE": 3.1,
+    "COMM": 3.6,
+    "DELIV": 3.6,
+    "CUST": 2.8,
+    "TECH": 3.8,
+    "FINAN": 3.4
+   }
+  },
+  {
+   "id": "APR-E0005-2024",
+   "employeeRef": "E0005",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.08,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.1,
+    "STRAT": 3.3,
+    "PEOPLE": 3.8,
+    "COMM": 3.3,
+    "DELIV": 4.8,
+    "CUST": 4.7,
+    "TECH": 4.6,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0005-2025",
+   "employeeRef": "E0005",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.46,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.1,
+    "STRAT": 4.2,
+    "PEOPLE": 2.8,
+    "COMM": 3.4,
+    "DELIV": 2.8,
+    "CUST": 3.9,
+    "TECH": 3.9,
+    "FINAN": 2.9
+   }
+  },
+  {
+   "id": "APR-E0006-2023",
+   "employeeRef": "E0006",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.7,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 4.3,
+    "PEOPLE": 3.6,
+    "COMM": 3.2,
+    "DELIV": 3.8,
+    "CUST": 4.1,
+    "TECH": 3.2,
+    "FINAN": 3.4
+   }
+  },
+  {
+   "id": "APR-E0006-2024",
+   "employeeRef": "E0006",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.24,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.5,
+    "STRAT": 4.1,
+    "PEOPLE": 4.3,
+    "COMM": 3.6,
+    "DELIV": 3.8,
+    "CUST": 4.0,
+    "TECH": 4.4,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0006-2025",
+   "employeeRef": "E0006",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.57,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.9,
+    "STRAT": 3.8,
+    "PEOPLE": 3.1,
+    "COMM": 4.2,
+    "DELIV": 4.1,
+    "CUST": 2.9,
+    "TECH": 3.2,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0007-2023",
+   "employeeRef": "E0007",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.7,
+   "ratingBand": "Below",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.4,
+    "STRAT": 2.8,
+    "PEOPLE": 2.7,
+    "COMM": 3.2,
+    "DELIV": 3.2,
+    "CUST": 2.2,
+    "TECH": 2.1,
+    "FINAN": 2.6
+   }
+  },
+  {
+   "id": "APR-E0007-2024",
+   "employeeRef": "E0007",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.09,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.0,
+    "STRAT": 3.5,
+    "PEOPLE": 3.4,
+    "COMM": 3.9,
+    "DELIV": 2.4,
+    "CUST": 2.9,
+    "TECH": 2.8,
+    "FINAN": 3.7
+   }
+  },
+  {
+   "id": "APR-E0007-2025",
+   "employeeRef": "E0007",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.02,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.5,
+    "STRAT": 2.9,
+    "PEOPLE": 2.9,
+    "COMM": 2.7,
+    "DELIV": 2.6,
+    "CUST": 3.7,
+    "TECH": 2.9,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0008-2023",
+   "employeeRef": "E0008",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.36,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.2,
+    "STRAT": 3.9,
+    "PEOPLE": 4.1,
+    "COMM": 4.0,
+    "DELIV": 3.9,
+    "CUST": 2.8,
+    "TECH": 3.3,
+    "FINAN": 2.9
+   }
+  },
+  {
+   "id": "APR-E0008-2024",
+   "employeeRef": "E0008",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.81,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.1,
+    "STRAT": 3.6,
+    "PEOPLE": 4.6,
+    "COMM": 3.4,
+    "DELIV": 4.3,
+    "CUST": 3.7,
+    "TECH": 3.7,
+    "FINAN": 4.5
+   }
+  },
+  {
+   "id": "APR-E0008-2025",
+   "employeeRef": "E0008",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.51,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.6,
+    "STRAT": 4.9,
+    "PEOPLE": 4.0,
+    "COMM": 4.2,
+    "DELIV": 5.0,
+    "CUST": 4.6,
+    "TECH": 4.6,
+    "FINAN": 4.9
+   }
+  },
+  {
+   "id": "APR-E0009-2023",
+   "employeeRef": "E0009",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.81,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.8,
+    "STRAT": 3.4,
+    "PEOPLE": 2.3,
+    "COMM": 3.5,
+    "DELIV": 2.1,
+    "CUST": 2.3,
+    "TECH": 3.0,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0009-2024",
+   "employeeRef": "E0009",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 2.56,
+   "ratingBand": "Below",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.0,
+    "STRAT": 3.2,
+    "PEOPLE": 2.2,
+    "COMM": 2.7,
+    "DELIV": 2.8,
+    "CUST": 2.4,
+    "TECH": 2.7,
+    "FINAN": 2.6
+   }
+  },
+  {
+   "id": "APR-E0009-2025",
+   "employeeRef": "E0009",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.36,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.9,
+    "STRAT": 3.7,
+    "PEOPLE": 2.9,
+    "COMM": 3.2,
+    "DELIV": 3.6,
+    "CUST": 3.0,
+    "TECH": 3.1,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0010-2023",
+   "employeeRef": "E0010",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.72,
+   "ratingBand": "Below",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.5,
+    "STRAT": 3.5,
+    "PEOPLE": 2.0,
+    "COMM": 2.3,
+    "DELIV": 2.3,
+    "CUST": 3.4,
+    "TECH": 3.3,
+    "FINAN": 3.3
+   }
+  },
+  {
+   "id": "APR-E0010-2024",
+   "employeeRef": "E0010",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 2.73,
+   "ratingBand": "Below",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.2,
+    "STRAT": 3.3,
+    "PEOPLE": 3.1,
+    "COMM": 2.9,
+    "DELIV": 3.5,
+    "CUST": 3.0,
+    "TECH": 1.9,
+    "FINAN": 3.2
+   }
+  },
+  {
+   "id": "APR-E0010-2025",
+   "employeeRef": "E0010",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 2.76,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.0,
+    "STRAT": 3.5,
+    "PEOPLE": 2.2,
+    "COMM": 2.1,
+    "DELIV": 2.1,
+    "CUST": 2.8,
+    "TECH": 2.4,
+    "FINAN": 2.9
+   }
+  },
+  {
+   "id": "APR-E0011-2023",
+   "employeeRef": "E0011",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.88,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.1,
+    "STRAT": 3.5,
+    "PEOPLE": 3.9,
+    "COMM": 4.5,
+    "DELIV": 4.4,
+    "CUST": 3.2,
+    "TECH": 3.8,
+    "FINAN": 3.5
+   }
+  },
+  {
+   "id": "APR-E0011-2024",
+   "employeeRef": "E0011",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.78,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.2,
+    "STRAT": 4.0,
+    "PEOPLE": 3.4,
+    "COMM": 4.2,
+    "DELIV": 3.9,
+    "CUST": 3.7,
+    "TECH": 3.0,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0011-2025",
+   "employeeRef": "E0011",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.76,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 4.8,
+    "PEOPLE": 5.0,
+    "COMM": 4.9,
+    "DELIV": 4.2,
+    "CUST": 4.2,
+    "TECH": 4.5,
+    "FINAN": 5.0
+   }
+  },
+  {
+   "id": "APR-E0012-2023",
+   "employeeRef": "E0012",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.71,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 4.2,
+    "PEOPLE": 4.3,
+    "COMM": 4.1,
+    "DELIV": 5.0,
+    "CUST": 5.0,
+    "TECH": 4.6,
+    "FINAN": 4.9
+   }
+  },
+  {
+   "id": "APR-E0012-2024",
+   "employeeRef": "E0012",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.11,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.8,
+    "STRAT": 4.7,
+    "PEOPLE": 4.9,
+    "COMM": 4.6,
+    "DELIV": 4.7,
+    "CUST": 3.3,
+    "TECH": 4.5,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0012-2025",
+   "employeeRef": "E0012",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.98,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 5.0,
+    "PEOPLE": 5.0,
+    "COMM": 4.6,
+    "DELIV": 5.0,
+    "CUST": 4.4,
+    "TECH": 5.0,
+    "FINAN": 5.0
+   }
+  },
+  {
+   "id": "APR-E0013-2023",
+   "employeeRef": "E0013",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.41,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 3.1,
+    "PEOPLE": 3.9,
+    "COMM": 3.0,
+    "DELIV": 2.6,
+    "CUST": 2.9,
+    "TECH": 3.1,
+    "FINAN": 4.0
+   }
+  },
+  {
+   "id": "APR-E0013-2024",
+   "employeeRef": "E0013",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.66,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 3.9,
+    "PEOPLE": 3.5,
+    "COMM": 4.4,
+    "DELIV": 3.7,
+    "CUST": 4.4,
+    "TECH": 3.0,
+    "FINAN": 4.4
+   }
+  },
+  {
+   "id": "APR-E0013-2025",
+   "employeeRef": "E0013",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 2.97,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.7,
+    "STRAT": 2.6,
+    "PEOPLE": 2.3,
+    "COMM": 2.9,
+    "DELIV": 3.3,
+    "CUST": 2.7,
+    "TECH": 3.1,
+    "FINAN": 3.0
+   }
+  },
+  {
+   "id": "APR-E0014-2023",
+   "employeeRef": "E0014",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.52,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.1,
+    "STRAT": 3.9,
+    "PEOPLE": 2.7,
+    "COMM": 4.2,
+    "DELIV": 3.6,
+    "CUST": 3.9,
+    "TECH": 3.9,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0014-2024",
+   "employeeRef": "E0014",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.41,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.7,
+    "STRAT": 3.7,
+    "PEOPLE": 3.1,
+    "COMM": 3.1,
+    "DELIV": 4.0,
+    "CUST": 3.8,
+    "TECH": 3.1,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0014-2025",
+   "employeeRef": "E0014",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.56,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.4,
+    "STRAT": 3.2,
+    "PEOPLE": 3.0,
+    "COMM": 3.4,
+    "DELIV": 4.3,
+    "CUST": 3.8,
+    "TECH": 4.2,
+    "FINAN": 3.7
+   }
+  },
+  {
+   "id": "APR-E0015-2023",
+   "employeeRef": "E0015",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.31,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.5,
+    "STRAT": 3.0,
+    "PEOPLE": 3.2,
+    "COMM": 3.4,
+    "DELIV": 3.6,
+    "CUST": 3.3,
+    "TECH": 3.2,
+    "FINAN": 2.9
+   }
+  },
+  {
+   "id": "APR-E0015-2024",
+   "employeeRef": "E0015",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.34,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.0,
+    "STRAT": 3.8,
+    "PEOPLE": 2.8,
+    "COMM": 2.7,
+    "DELIV": 3.4,
+    "CUST": 3.6,
+    "TECH": 3.1,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0015-2025",
+   "employeeRef": "E0015",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.71,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.0,
+    "STRAT": 3.3,
+    "PEOPLE": 3.2,
+    "COMM": 2.9,
+    "DELIV": 3.3,
+    "CUST": 3.7,
+    "TECH": 4.3,
+    "FINAN": 3.0
+   }
+  },
+  {
+   "id": "APR-E0016-2023",
+   "employeeRef": "E0016",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.64,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.2,
+    "STRAT": 4.0,
+    "PEOPLE": 3.6,
+    "COMM": 3.2,
+    "DELIV": 3.9,
+    "CUST": 2.8,
+    "TECH": 4.0,
+    "FINAN": 4.1
+   }
+  },
+  {
+   "id": "APR-E0016-2024",
+   "employeeRef": "E0016",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.22,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.1,
+    "STRAT": 2.7,
+    "PEOPLE": 4.0,
+    "COMM": 3.2,
+    "DELIV": 2.5,
+    "CUST": 2.8,
+    "TECH": 3.8,
+    "FINAN": 3.2
+   }
+  },
+  {
+   "id": "APR-E0016-2025",
+   "employeeRef": "E0016",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.01,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.3,
+    "STRAT": 4.8,
+    "PEOPLE": 4.2,
+    "COMM": 4.7,
+    "DELIV": 4.6,
+    "CUST": 4.2,
+    "TECH": 4.4,
+    "FINAN": 4.0
+   }
+  },
+  {
+   "id": "APR-E0017-2023",
+   "employeeRef": "E0017",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.48,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 4.9,
+    "PEOPLE": 4.4,
+    "COMM": 4.1,
+    "DELIV": 4.1,
+    "CUST": 4.7,
+    "TECH": 4.9,
+    "FINAN": 4.5
+   }
+  },
+  {
+   "id": "APR-E0017-2024",
+   "employeeRef": "E0017",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.65,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.3,
+    "STRAT": 4.0,
+    "PEOPLE": 4.3,
+    "COMM": 4.3,
+    "DELIV": 4.4,
+    "CUST": 4.7,
+    "TECH": 4.1,
+    "FINAN": 4.2
+   }
+  },
+  {
+   "id": "APR-E0017-2025",
+   "employeeRef": "E0017",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.82,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 4.1,
+    "PEOPLE": 4.7,
+    "COMM": 4.9,
+    "DELIV": 4.7,
+    "CUST": 4.4,
+    "TECH": 4.7,
+    "FINAN": 5.0
+   }
+  },
+  {
+   "id": "APR-E0018-2023",
+   "employeeRef": "E0018",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.08,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.7,
+    "STRAT": 4.5,
+    "PEOPLE": 3.9,
+    "COMM": 3.3,
+    "DELIV": 3.8,
+    "CUST": 4.5,
+    "TECH": 4.6,
+    "FINAN": 4.8
+   }
+  },
+  {
+   "id": "APR-E0018-2024",
+   "employeeRef": "E0018",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.9,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.3,
+    "STRAT": 4.0,
+    "PEOPLE": 4.1,
+    "COMM": 3.5,
+    "DELIV": 3.5,
+    "CUST": 3.8,
+    "TECH": 3.1,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0018-2025",
+   "employeeRef": "E0018",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.26,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.1,
+    "STRAT": 3.7,
+    "PEOPLE": 4.2,
+    "COMM": 3.7,
+    "DELIV": 4.5,
+    "CUST": 3.5,
+    "TECH": 4.1,
+    "FINAN": 4.4
+   }
+  },
+  {
+   "id": "APR-E0019-2023",
+   "employeeRef": "E0019",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.8,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.2,
+    "STRAT": 2.7,
+    "PEOPLE": 2.1,
+    "COMM": 2.6,
+    "DELIV": 2.3,
+    "CUST": 2.5,
+    "TECH": 3.2,
+    "FINAN": 2.6
+   }
+  },
+  {
+   "id": "APR-E0019-2024",
+   "employeeRef": "E0019",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.01,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.5,
+    "STRAT": 2.6,
+    "PEOPLE": 2.3,
+    "COMM": 2.2,
+    "DELIV": 3.1,
+    "CUST": 3.8,
+    "TECH": 2.8,
+    "FINAN": 3.3
+   }
+  },
+  {
+   "id": "APR-E0019-2025",
+   "employeeRef": "E0019",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.14,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.4,
+    "STRAT": 3.5,
+    "PEOPLE": 3.9,
+    "COMM": 2.7,
+    "DELIV": 2.4,
+    "CUST": 2.6,
+    "TECH": 2.5,
+    "FINAN": 3.4
+   }
+  },
+  {
+   "id": "APR-E0020-2023",
+   "employeeRef": "E0020",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.56,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.9,
+    "STRAT": 4.0,
+    "PEOPLE": 3.0,
+    "COMM": 3.7,
+    "DELIV": 4.0,
+    "CUST": 2.9,
+    "TECH": 4.1,
+    "FINAN": 4.3
+   }
+  },
+  {
+   "id": "APR-E0020-2024",
+   "employeeRef": "E0020",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.55,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.8,
+    "STRAT": 3.2,
+    "PEOPLE": 3.8,
+    "COMM": 4.3,
+    "DELIV": 3.4,
+    "CUST": 3.9,
+    "TECH": 2.9,
+    "FINAN": 3.9
+   }
+  },
+  {
+   "id": "APR-E0020-2025",
+   "employeeRef": "E0020",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.17,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.5,
+    "STRAT": 4.6,
+    "PEOPLE": 4.7,
+    "COMM": 4.3,
+    "DELIV": 3.6,
+    "CUST": 4.9,
+    "TECH": 4.6,
+    "FINAN": 3.9
+   }
+  },
+  {
+   "id": "APR-E0021-2023",
+   "employeeRef": "E0021",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.41,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.4,
+    "STRAT": 3.2,
+    "PEOPLE": 4.0,
+    "COMM": 3.9,
+    "DELIV": 2.8,
+    "CUST": 4.1,
+    "TECH": 3.6,
+    "FINAN": 3.9
+   }
+  },
+  {
+   "id": "APR-E0021-2024",
+   "employeeRef": "E0021",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.85,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.7,
+    "STRAT": 4.2,
+    "PEOPLE": 4.6,
+    "COMM": 3.5,
+    "DELIV": 4.3,
+    "CUST": 3.9,
+    "TECH": 3.8,
+    "FINAN": 3.7
+   }
+  },
+  {
+   "id": "APR-E0021-2025",
+   "employeeRef": "E0021",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.97,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.6,
+    "STRAT": 4.5,
+    "PEOPLE": 4.5,
+    "COMM": 3.3,
+    "DELIV": 4.6,
+    "CUST": 3.6,
+    "TECH": 3.9,
+    "FINAN": 4.1
+   }
+  },
+  {
+   "id": "APR-E0022-2023",
+   "employeeRef": "E0022",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.96,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.5,
+    "STRAT": 2.5,
+    "PEOPLE": 2.5,
+    "COMM": 3.4,
+    "DELIV": 2.7,
+    "CUST": 3.6,
+    "TECH": 3.3,
+    "FINAN": 2.6
+   }
+  },
+  {
+   "id": "APR-E0022-2024",
+   "employeeRef": "E0022",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.04,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.8,
+    "STRAT": 2.4,
+    "PEOPLE": 3.4,
+    "COMM": 3.0,
+    "DELIV": 3.5,
+    "CUST": 3.3,
+    "TECH": 3.3,
+    "FINAN": 3.0
+   }
+  },
+  {
+   "id": "APR-E0022-2025",
+   "employeeRef": "E0022",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.93,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 3.5,
+    "PEOPLE": 4.2,
+    "COMM": 3.6,
+    "DELIV": 4.1,
+    "CUST": 3.9,
+    "TECH": 4.0,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0023-2023",
+   "employeeRef": "E0023",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.07,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.4,
+    "STRAT": 3.7,
+    "PEOPLE": 3.7,
+    "COMM": 3.5,
+    "DELIV": 3.6,
+    "CUST": 3.5,
+    "TECH": 4.1,
+    "FINAN": 4.5
+   }
+  },
+  {
+   "id": "APR-E0023-2024",
+   "employeeRef": "E0023",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.03,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.6,
+    "STRAT": 4.0,
+    "PEOPLE": 4.4,
+    "COMM": 4.8,
+    "DELIV": 4.1,
+    "CUST": 3.7,
+    "TECH": 3.4,
+    "FINAN": 3.5
+   }
+  },
+  {
+   "id": "APR-E0023-2025",
+   "employeeRef": "E0023",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.17,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.7,
+    "STRAT": 3.4,
+    "PEOPLE": 4.2,
+    "COMM": 3.8,
+    "DELIV": 4.9,
+    "CUST": 4.3,
+    "TECH": 4.5,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0024-2023",
+   "employeeRef": "E0024",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.5,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 4.6,
+    "PEOPLE": 4.5,
+    "COMM": 4.4,
+    "DELIV": 4.0,
+    "CUST": 3.8,
+    "TECH": 5.0,
+    "FINAN": 4.5
+   }
+  },
+  {
+   "id": "APR-E0024-2024",
+   "employeeRef": "E0024",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.93,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.8,
+    "STRAT": 4.2,
+    "PEOPLE": 5.0,
+    "COMM": 4.2,
+    "DELIV": 4.4,
+    "CUST": 5.0,
+    "TECH": 4.6,
+    "FINAN": 5.0
+   }
+  },
+  {
+   "id": "APR-E0024-2025",
+   "employeeRef": "E0024",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.33,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.8,
+    "STRAT": 4.5,
+    "PEOPLE": 4.8,
+    "COMM": 3.9,
+    "DELIV": 4.4,
+    "CUST": 4.3,
+    "TECH": 4.2,
+    "FINAN": 4.9
+   }
+  },
+  {
+   "id": "APR-E0025-2023",
+   "employeeRef": "E0025",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.58,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.8,
+    "STRAT": 4.8,
+    "PEOPLE": 5.0,
+    "COMM": 5.0,
+    "DELIV": 4.1,
+    "CUST": 4.1,
+    "TECH": 4.8,
+    "FINAN": 4.0
+   }
+  },
+  {
+   "id": "APR-E0025-2024",
+   "employeeRef": "E0025",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.55,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.9,
+    "STRAT": 3.8,
+    "PEOPLE": 4.5,
+    "COMM": 4.7,
+    "DELIV": 4.2,
+    "CUST": 4.1,
+    "TECH": 4.9,
+    "FINAN": 4.9
+   }
+  },
+  {
+   "id": "APR-E0025-2025",
+   "employeeRef": "E0025",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 4.93,
+   "ratingBand": "Outstanding",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 5.0,
+    "PEOPLE": 5.0,
+    "COMM": 5.0,
+    "DELIV": 5.0,
+    "CUST": 5.0,
+    "TECH": 4.8,
+    "FINAN": 5.0
+   }
+  },
+  {
+   "id": "APR-E0026-2023",
+   "employeeRef": "E0026",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 4.43,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 5.0,
+    "STRAT": 3.7,
+    "PEOPLE": 3.9,
+    "COMM": 4.1,
+    "DELIV": 4.8,
+    "CUST": 4.5,
+    "TECH": 4.1,
+    "FINAN": 3.8
+   }
+  },
+  {
+   "id": "APR-E0026-2024",
+   "employeeRef": "E0026",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 4.31,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.6,
+    "STRAT": 5.0,
+    "PEOPLE": 4.3,
+    "COMM": 4.3,
+    "DELIV": 3.6,
+    "CUST": 3.6,
+    "TECH": 4.2,
+    "FINAN": 4.0
+   }
+  },
+  {
+   "id": "APR-E0026-2025",
+   "employeeRef": "E0026",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.98,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 4.7,
+    "PEOPLE": 4.5,
+    "COMM": 4.1,
+    "DELIV": 4.7,
+    "CUST": 4.8,
+    "TECH": 4.3,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0027-2023",
+   "employeeRef": "E0027",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.94,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.9,
+    "STRAT": 3.2,
+    "PEOPLE": 3.6,
+    "COMM": 2.4,
+    "DELIV": 3.1,
+    "CUST": 3.2,
+    "TECH": 2.9,
+    "FINAN": 2.3
+   }
+  },
+  {
+   "id": "APR-E0027-2024",
+   "employeeRef": "E0027",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 2.64,
+   "ratingBand": "Below",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.4,
+    "STRAT": 2.9,
+    "PEOPLE": 3.2,
+    "COMM": 2.4,
+    "DELIV": 2.9,
+    "CUST": 2.3,
+    "TECH": 3.4,
+    "FINAN": 3.1
+   }
+  },
+  {
+   "id": "APR-E0027-2025",
+   "employeeRef": "E0027",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 2.94,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.9,
+    "STRAT": 2.6,
+    "PEOPLE": 2.7,
+    "COMM": 3.7,
+    "DELIV": 2.8,
+    "CUST": 3.0,
+    "TECH": 3.7,
+    "FINAN": 3.2
+   }
+  },
+  {
+   "id": "APR-E0028-2023",
+   "employeeRef": "E0028",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.71,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.2,
+    "STRAT": 3.5,
+    "PEOPLE": 4.1,
+    "COMM": 3.9,
+    "DELIV": 4.1,
+    "CUST": 3.2,
+    "TECH": 3.8,
+    "FINAN": 4.4
+   }
+  },
+  {
+   "id": "APR-E0028-2024",
+   "employeeRef": "E0028",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.83,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.1,
+    "STRAT": 3.2,
+    "PEOPLE": 4.6,
+    "COMM": 4.0,
+    "DELIV": 3.4,
+    "CUST": 3.3,
+    "TECH": 3.9,
+    "FINAN": 3.9
+   }
+  },
+  {
+   "id": "APR-E0028-2025",
+   "employeeRef": "E0028",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.59,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.4,
+    "STRAT": 4.3,
+    "PEOPLE": 3.5,
+    "COMM": 3.0,
+    "DELIV": 4.1,
+    "CUST": 3.6,
+    "TECH": 3.9,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0029-2023",
+   "employeeRef": "E0029",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.54,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.3,
+    "STRAT": 3.1,
+    "PEOPLE": 3.6,
+    "COMM": 3.4,
+    "DELIV": 4.2,
+    "CUST": 3.6,
+    "TECH": 4.1,
+    "FINAN": 4.1
+   }
+  },
+  {
+   "id": "APR-E0029-2024",
+   "employeeRef": "E0029",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.08,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.5,
+    "STRAT": 2.9,
+    "PEOPLE": 3.8,
+    "COMM": 3.1,
+    "DELIV": 3.6,
+    "CUST": 2.7,
+    "TECH": 2.8,
+    "FINAN": 3.2
+   }
+  },
+  {
+   "id": "APR-E0029-2025",
+   "employeeRef": "E0029",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.9,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.9,
+    "STRAT": 3.3,
+    "PEOPLE": 4.0,
+    "COMM": 3.7,
+    "DELIV": 4.0,
+    "CUST": 4.0,
+    "TECH": 3.8,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0030-2023",
+   "employeeRef": "E0030",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.21,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.3,
+    "STRAT": 2.8,
+    "PEOPLE": 3.7,
+    "COMM": 2.5,
+    "DELIV": 3.6,
+    "CUST": 3.5,
+    "TECH": 3.7,
+    "FINAN": 3.0
+   }
+  },
+  {
+   "id": "APR-E0030-2024",
+   "employeeRef": "E0030",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.28,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.8,
+    "STRAT": 4.0,
+    "PEOPLE": 3.3,
+    "COMM": 2.5,
+    "DELIV": 3.3,
+    "CUST": 3.4,
+    "TECH": 3.9,
+    "FINAN": 3.9
+   }
+  },
+  {
+   "id": "APR-E0030-2025",
+   "employeeRef": "E0030",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.16,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.2,
+    "STRAT": 3.1,
+    "PEOPLE": 3.5,
+    "COMM": 3.0,
+    "DELIV": 3.4,
+    "CUST": 2.6,
+    "TECH": 3.1,
+    "FINAN": 3.9
+   }
+  },
+  {
+   "id": "APR-E0031-2023",
+   "employeeRef": "E0031",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 3.54,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.8,
+    "STRAT": 4.1,
+    "PEOPLE": 4.1,
+    "COMM": 4.1,
+    "DELIV": 3.3,
+    "CUST": 3.2,
+    "TECH": 3.9,
+    "FINAN": 4.0
+   }
+  },
+  {
+   "id": "APR-E0031-2024",
+   "employeeRef": "E0031",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 3.82,
+   "ratingBand": "Exceeds",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.1,
+    "STRAT": 3.1,
+    "PEOPLE": 4.0,
+    "COMM": 4.5,
+    "DELIV": 4.6,
+    "CUST": 4.2,
+    "TECH": 3.7,
+    "FINAN": 3.2
+   }
+  },
+  {
+   "id": "APR-E0031-2025",
+   "employeeRef": "E0031",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.68,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 4.3,
+    "STRAT": 3.6,
+    "PEOPLE": 4.0,
+    "COMM": 4.3,
+    "DELIV": 3.0,
+    "CUST": 4.2,
+    "TECH": 3.3,
+    "FINAN": 3.5
+   }
+  },
+  {
+   "id": "APR-E0032-2023",
+   "employeeRef": "E0032",
+   "cycleCode": "FY2023",
+   "periodEnd": "2023-12-31",
+   "finalScore": 2.95,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 3.1,
+    "STRAT": 3.4,
+    "PEOPLE": 2.4,
+    "COMM": 2.3,
+    "DELIV": 3.5,
+    "CUST": 3.1,
+    "TECH": 2.5,
+    "FINAN": 3.6
+   }
+  },
+  {
+   "id": "APR-E0032-2024",
+   "employeeRef": "E0032",
+   "cycleCode": "FY2024",
+   "periodEnd": "2024-12-31",
+   "finalScore": 2.66,
+   "ratingBand": "Below",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.6,
+    "STRAT": 2.3,
+    "PEOPLE": 2.3,
+    "COMM": 1.9,
+    "DELIV": 3.1,
+    "CUST": 3.3,
+    "TECH": 2.9,
+    "FINAN": 2.1
+   }
+  },
+  {
+   "id": "APR-E0032-2025",
+   "employeeRef": "E0032",
+   "cycleCode": "FY2025",
+   "periodEnd": "2025-12-31",
+   "finalScore": 3.06,
+   "ratingBand": "Meets",
+   "finalised": true,
+   "competencyScores": {
+    "LEAD": 2.8,
+    "STRAT": 3.2,
+    "PEOPLE": 3.3,
+    "COMM": 2.9,
+    "DELIV": 2.7,
+    "CUST": 3.6,
+    "TECH": 2.6,
+    "FINAN": 2.9
+   }
+  }
+ ]
+}

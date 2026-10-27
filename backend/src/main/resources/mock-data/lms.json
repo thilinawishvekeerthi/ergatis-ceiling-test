@@ -1,0 +1,832 @@
+{
+ "COURSE": [
+  {
+   "id": "LMS-101",
+   "title": "Leading High-Performing Teams",
+   "url": "https://lms.ceylon.example/course/LMS-101",
+   "provider": "Ceylon Academy",
+   "durationHours": 16,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "LEAD"
+    },
+    {
+     "type": "ROLE",
+     "code": "FIN-HOD"
+    },
+    {
+     "type": "ROLE",
+     "code": "IT-HOD"
+    }
+   ]
+  },
+  {
+   "id": "LMS-102",
+   "title": "Strategic Planning Essentials",
+   "url": "https://lms.ceylon.example/course/LMS-102",
+   "provider": "Ceylon Academy",
+   "durationHours": 12,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "STRAT"
+    },
+    {
+     "type": "ROLE",
+     "code": "OPS-HOD"
+    },
+    {
+     "type": "ROLE",
+     "code": "SAL-HOD"
+    }
+   ]
+  },
+  {
+   "id": "LMS-103",
+   "title": "Coaching for Managers",
+   "url": "https://lms.ceylon.example/course/LMS-103",
+   "provider": "Ceylon Academy",
+   "durationHours": 8,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "PEOPLE"
+    },
+    {
+     "type": "ROLE",
+     "code": "HR-MGR"
+    },
+    {
+     "type": "ROLE",
+     "code": "IT-MGR"
+    }
+   ]
+  },
+  {
+   "id": "LMS-104",
+   "title": "Business Writing",
+   "url": "https://lms.ceylon.example/course/LMS-104",
+   "provider": "Ceylon Academy",
+   "durationHours": 6,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "COMM"
+    }
+   ]
+  },
+  {
+   "id": "LMS-105",
+   "title": "Finance for Non-Finance Managers",
+   "url": "https://lms.ceylon.example/course/LMS-105",
+   "provider": "Ceylon Academy",
+   "durationHours": 10,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "FINAN"
+    },
+    {
+     "type": "ROLE",
+     "code": "OPS-MGR"
+    },
+    {
+     "type": "ROLE",
+     "code": "SAL-MGR"
+    }
+   ]
+  },
+  {
+   "id": "LMS-106",
+   "title": "Payroll Compliance in Sri Lanka",
+   "url": "https://lms.ceylon.example/course/LMS-106",
+   "provider": "Ceylon Academy",
+   "durationHours": 8,
+   "mappings": [
+    {
+     "type": "ROLE",
+     "code": "HR-PAYO"
+    },
+    {
+     "type": "COMPETENCY",
+     "code": "TECH"
+    }
+   ]
+  },
+  {
+   "id": "LMS-107",
+   "title": "Cloud Architecture Fundamentals",
+   "url": "https://lms.ceylon.example/course/LMS-107",
+   "provider": "Ceylon Academy",
+   "durationHours": 20,
+   "mappings": [
+    {
+     "type": "ROLE",
+     "code": "IT-TL"
+    },
+    {
+     "type": "ROLE",
+     "code": "IT-MGR"
+    },
+    {
+     "type": "COMPETENCY",
+     "code": "TECH"
+    }
+   ]
+  },
+  {
+   "id": "LMS-108",
+   "title": "Customer Experience Design",
+   "url": "https://lms.ceylon.example/course/LMS-108",
+   "provider": "Ceylon Academy",
+   "durationHours": 6,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "CUST"
+    },
+    {
+     "type": "ROLE",
+     "code": "SAL-MGR"
+    }
+   ]
+  },
+  {
+   "id": "LMS-109",
+   "title": "Project Delivery Excellence",
+   "url": "https://lms.ceylon.example/course/LMS-109",
+   "provider": "Ceylon Academy",
+   "durationHours": 12,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "DELIV"
+    }
+   ]
+  },
+  {
+   "id": "LMS-110",
+   "title": "Executive Presence",
+   "url": "https://lms.ceylon.example/course/LMS-110",
+   "provider": "Ceylon Academy",
+   "durationHours": 6,
+   "mappings": [
+    {
+     "type": "COMPETENCY",
+     "code": "LEAD"
+    },
+    {
+     "type": "COMPETENCY",
+     "code": "COMM"
+    },
+    {
+     "type": "ROLE",
+     "code": "HR-HOD"
+    }
+   ]
+  }
+ ],
+ "ENROLMENT": [
+  {
+   "id": "EN-0001",
+   "employeeRef": "E0001",
+   "courseRef": "LMS-108",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 76.3
+  },
+  {
+   "id": "EN-0002",
+   "employeeRef": "E0001",
+   "courseRef": "LMS-109",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 64.3
+  },
+  {
+   "id": "EN-0003",
+   "employeeRef": "E0002",
+   "courseRef": "LMS-109",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 67,
+   "score": null
+  },
+  {
+   "id": "EN-0004",
+   "employeeRef": "E0002",
+   "courseRef": "LMS-104",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0005",
+   "employeeRef": "E0003",
+   "courseRef": "LMS-107",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 61,
+   "score": null
+  },
+  {
+   "id": "EN-0006",
+   "employeeRef": "E0003",
+   "courseRef": "LMS-106",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 22,
+   "score": null
+  },
+  {
+   "id": "EN-0007",
+   "employeeRef": "E0004",
+   "courseRef": "LMS-106",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 42,
+   "score": null
+  },
+  {
+   "id": "EN-0008",
+   "employeeRef": "E0004",
+   "courseRef": "LMS-107",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 29,
+   "score": null
+  },
+  {
+   "id": "EN-0009",
+   "employeeRef": "E0005",
+   "courseRef": "LMS-108",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0010",
+   "employeeRef": "E0005",
+   "courseRef": "LMS-102",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0011",
+   "employeeRef": "E0006",
+   "courseRef": "LMS-102",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0012",
+   "employeeRef": "E0006",
+   "courseRef": "LMS-107",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 88.1
+  },
+  {
+   "id": "EN-0013",
+   "employeeRef": "E0007",
+   "courseRef": "LMS-103",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0014",
+   "employeeRef": "E0007",
+   "courseRef": "LMS-109",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 96.4
+  },
+  {
+   "id": "EN-0015",
+   "employeeRef": "E0008",
+   "courseRef": "LMS-109",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 64.6
+  },
+  {
+   "id": "EN-0016",
+   "employeeRef": "E0008",
+   "courseRef": "LMS-106",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 64,
+   "score": null
+  },
+  {
+   "id": "EN-0017",
+   "employeeRef": "E0009",
+   "courseRef": "LMS-101",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 71.9
+  },
+  {
+   "id": "EN-0018",
+   "employeeRef": "E0009",
+   "courseRef": "LMS-105",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0019",
+   "employeeRef": "E0010",
+   "courseRef": "LMS-110",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0020",
+   "employeeRef": "E0010",
+   "courseRef": "LMS-109",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0021",
+   "employeeRef": "E0011",
+   "courseRef": "LMS-108",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0022",
+   "employeeRef": "E0011",
+   "courseRef": "LMS-104",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 81,
+   "score": null
+  },
+  {
+   "id": "EN-0023",
+   "employeeRef": "E0012",
+   "courseRef": "LMS-106",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 83,
+   "score": null
+  },
+  {
+   "id": "EN-0024",
+   "employeeRef": "E0012",
+   "courseRef": "LMS-102",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0025",
+   "employeeRef": "E0013",
+   "courseRef": "LMS-107",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 83.3
+  },
+  {
+   "id": "EN-0026",
+   "employeeRef": "E0013",
+   "courseRef": "LMS-109",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 81.2
+  },
+  {
+   "id": "EN-0027",
+   "employeeRef": "E0014",
+   "courseRef": "LMS-110",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0028",
+   "employeeRef": "E0014",
+   "courseRef": "LMS-105",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0029",
+   "employeeRef": "E0015",
+   "courseRef": "LMS-105",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 54,
+   "score": null
+  },
+  {
+   "id": "EN-0030",
+   "employeeRef": "E0015",
+   "courseRef": "LMS-110",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0031",
+   "employeeRef": "E0016",
+   "courseRef": "LMS-103",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 85.0
+  },
+  {
+   "id": "EN-0032",
+   "employeeRef": "E0016",
+   "courseRef": "LMS-110",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0033",
+   "employeeRef": "E0017",
+   "courseRef": "LMS-103",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0034",
+   "employeeRef": "E0017",
+   "courseRef": "LMS-101",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 80.2
+  },
+  {
+   "id": "EN-0035",
+   "employeeRef": "E0018",
+   "courseRef": "LMS-107",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 53,
+   "score": null
+  },
+  {
+   "id": "EN-0036",
+   "employeeRef": "E0018",
+   "courseRef": "LMS-110",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0037",
+   "employeeRef": "E0019",
+   "courseRef": "LMS-106",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 72.3
+  },
+  {
+   "id": "EN-0038",
+   "employeeRef": "E0019",
+   "courseRef": "LMS-105",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 82.7
+  },
+  {
+   "id": "EN-0039",
+   "employeeRef": "E0020",
+   "courseRef": "LMS-101",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0040",
+   "employeeRef": "E0020",
+   "courseRef": "LMS-103",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 61.9
+  },
+  {
+   "id": "EN-0041",
+   "employeeRef": "E0021",
+   "courseRef": "LMS-102",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 64,
+   "score": null
+  },
+  {
+   "id": "EN-0042",
+   "employeeRef": "E0021",
+   "courseRef": "LMS-105",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 87,
+   "score": null
+  },
+  {
+   "id": "EN-0043",
+   "employeeRef": "E0022",
+   "courseRef": "LMS-108",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 37,
+   "score": null
+  },
+  {
+   "id": "EN-0044",
+   "employeeRef": "E0022",
+   "courseRef": "LMS-107",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 64.3
+  },
+  {
+   "id": "EN-0045",
+   "employeeRef": "E0023",
+   "courseRef": "LMS-107",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 85,
+   "score": null
+  },
+  {
+   "id": "EN-0046",
+   "employeeRef": "E0023",
+   "courseRef": "LMS-102",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 77,
+   "score": null
+  },
+  {
+   "id": "EN-0047",
+   "employeeRef": "E0024",
+   "courseRef": "LMS-105",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0048",
+   "employeeRef": "E0024",
+   "courseRef": "LMS-101",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 86,
+   "score": null
+  },
+  {
+   "id": "EN-0049",
+   "employeeRef": "E0025",
+   "courseRef": "LMS-101",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0050",
+   "employeeRef": "E0025",
+   "courseRef": "LMS-110",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 37,
+   "score": null
+  },
+  {
+   "id": "EN-0051",
+   "employeeRef": "E0026",
+   "courseRef": "LMS-103",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 51,
+   "score": null
+  },
+  {
+   "id": "EN-0052",
+   "employeeRef": "E0026",
+   "courseRef": "LMS-105",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0053",
+   "employeeRef": "E0027",
+   "courseRef": "LMS-101",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 76.4
+  },
+  {
+   "id": "EN-0054",
+   "employeeRef": "E0027",
+   "courseRef": "LMS-108",
+   "status": "ASSIGNED",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 0,
+   "score": null
+  },
+  {
+   "id": "EN-0055",
+   "employeeRef": "E0028",
+   "courseRef": "LMS-107",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 68.7
+  },
+  {
+   "id": "EN-0056",
+   "employeeRef": "E0028",
+   "courseRef": "LMS-109",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 91.7
+  },
+  {
+   "id": "EN-0057",
+   "employeeRef": "E0029",
+   "courseRef": "LMS-106",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 15,
+   "score": null
+  },
+  {
+   "id": "EN-0058",
+   "employeeRef": "E0029",
+   "courseRef": "LMS-102",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 12,
+   "score": null
+  },
+  {
+   "id": "EN-0059",
+   "employeeRef": "E0030",
+   "courseRef": "LMS-108",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 83,
+   "score": null
+  },
+  {
+   "id": "EN-0060",
+   "employeeRef": "E0030",
+   "courseRef": "LMS-102",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 83,
+   "score": null
+  },
+  {
+   "id": "EN-0061",
+   "employeeRef": "E0031",
+   "courseRef": "LMS-107",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 24,
+   "score": null
+  },
+  {
+   "id": "EN-0062",
+   "employeeRef": "E0031",
+   "courseRef": "LMS-110",
+   "status": "ONGOING",
+   "assignedOn": "2026-03-01",
+   "completedOn": null,
+   "progressPercent": 12,
+   "score": null
+  },
+  {
+   "id": "EN-0063",
+   "employeeRef": "E0032",
+   "courseRef": "LMS-106",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 77.5
+  },
+  {
+   "id": "EN-0064",
+   "employeeRef": "E0032",
+   "courseRef": "LMS-103",
+   "status": "COMPLETED",
+   "assignedOn": "2026-03-01",
+   "completedOn": "2026-06-15",
+   "progressPercent": 100,
+   "score": 95.0
+  }
+ ]
+}

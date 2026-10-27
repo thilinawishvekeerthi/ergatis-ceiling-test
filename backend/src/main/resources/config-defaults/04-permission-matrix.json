@@ -1,0 +1,542 @@
+[
+ {
+  "type": "PERMISSION_MATRIX",
+  "code": "DEFAULT",
+  "name": "Permission matrix",
+  "description": "Gap analysis \u00a75.4 defaults (B5). Change values here, not in code.",
+  "payload": {
+   "description": "Deny by default. Employees never see TALENT_CONFIDENTIAL fields.",
+   "grants": [
+    {
+     "role": "EMPLOYEE",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "SELF",
+     "confidential": false
+    },
+    {
+     "role": "EMPLOYEE",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "SELF",
+     "confidential": false
+    },
+    {
+     "role": "EMPLOYEE",
+     "object": "IDP",
+     "actions": [
+      "VIEW",
+      "ACKNOWLEDGE",
+      "COMMENT"
+     ],
+     "scope": "SELF",
+     "confidential": false
+    },
+    {
+     "role": "SUPERVISOR",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "DIRECT_REPORTS",
+     "confidential": false
+    },
+    {
+     "role": "SUPERVISOR",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW",
+      "ACKNOWLEDGE"
+     ],
+     "scope": "DIRECT_REPORTS",
+     "confidential": false
+    },
+    {
+     "role": "SUPERVISOR",
+     "object": "IDP",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "DIRECT_REPORTS",
+     "confidential": false
+    },
+    {
+     "role": "HOD",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "DEPT_TREE",
+     "confidential": false
+    },
+    {
+     "role": "HOD",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "DEPT_TREE",
+     "confidential": false
+    },
+    {
+     "role": "HOD",
+     "object": "IDP",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "DEPT_TREE",
+     "confidential": false
+    },
+    {
+     "role": "HOD",
+     "object": "REPORT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "DEPT_TREE",
+     "confidential": false
+    },
+    {
+     "role": "REVIEWER",
+     "object": "ASSESSMENT",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "REVIEWER",
+     "object": "NINE_BOX",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "REVIEWER",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "REVIEWER",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "APPROVER",
+     "object": "ASSESSMENT",
+     "actions": [
+      "VIEW",
+      "APPROVE"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "APPROVER",
+     "object": "NINE_BOX",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "APPROVER",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "ASSESSMENT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "NINE_BOX",
+     "actions": [
+      "VIEW",
+      "CALIBRATE",
+      "COMMENT"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "BOARD",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "TALENT_POOL",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "CRITICAL_POSITION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "SUCCESSION_PLAN",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_HEAD",
+     "object": "REPORT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_MEMBER",
+     "object": "ASSESSMENT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_MEMBER",
+     "object": "NINE_BOX",
+     "actions": [
+      "VIEW",
+      "COMMENT"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": true
+    },
+    {
+     "role": "BOARD_MEMBER",
+     "object": "BOARD",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_MEMBER",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_MEMBER",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "CYCLE_ASSIGNED",
+     "confidential": false
+    },
+    {
+     "role": "BOARD_MEMBER",
+     "object": "REPORT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "CONFIG",
+     "actions": [
+      "VIEW",
+      "EDIT",
+      "APPROVE"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "MASTER_DATA",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "CYCLE",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "ASSESSMENT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "NINE_BOX",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "BOARD",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "TALENT_POOL",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "CRITICAL_POSITION",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "SUCCESSION_PLAN",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "IDP",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "REPORT",
+     "actions": [
+      "VIEW",
+      "EXPORT"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "AUDIT",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_ADMIN",
+     "object": "SYNC",
+     "actions": [
+      "VIEW",
+      "EDIT"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "CONFIG",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "MASTER_DATA",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "EMPLOYEE",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "CAREER_ASPIRATION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "IDP",
+     "actions": [
+      "VIEW",
+      "APPROVE"
+     ],
+     "scope": "ALL",
+     "confidential": false
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "CRITICAL_POSITION",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "SUCCESSION_PLAN",
+     "actions": [
+      "VIEW",
+      "APPROVE"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "TALENT_POOL",
+     "actions": [
+      "VIEW"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    },
+    {
+     "role": "HR_APPROVER",
+     "object": "REPORT",
+     "actions": [
+      "VIEW",
+      "EXPORT"
+     ],
+     "scope": "ALL",
+     "confidential": true
+    }
+   ]
+  }
+ }
+]
