@@ -13,6 +13,9 @@ internal static class ConfigEndpoints
         group.MapGet("/versions/{versionId:guid}", async (Guid versionId, ConfigApiService api, CancellationToken ct) =>
             Results.Ok(await api.GetVersionAsync(versionId, ct)));
 
+        group.MapGet("/{type}", async (string type, ConfigApiService api, CancellationToken ct) =>
+            Results.Ok(await api.ListAsync(type, ct)));
+
         group.MapGet("/{type}/{code}/latest", async (string type, string code, ConfigApiService api, CancellationToken ct) =>
             Results.Ok(await api.GetLatestAsync(type, code, ct)));
 

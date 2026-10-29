@@ -38,6 +38,32 @@ internal sealed class ConfigApiService(
         return masker.Mask(ConfigVersionResponse.From(found.Value.Definition, found.Value.Version), grant);
     }
 
+    /// <summary>Lists the newest version (draft, published or locked) of every definition of one type.</summary>
+    public async Task<IReadOnlyList<ConfigListItem>> ListAsync(string type, CancellationToken cancellationToken)
+    {
+        if (!Enum.TryParse<ConfigType>(type, ignoreCase: true, out var configType) || !Enum.IsDefined(configType))
+        {
+            throw Invalid("type", "Unknown config type.");
+        }
+
+        var grant = await guard.RequireAsync(Resource(configType), PermissionAction.View, null, cancellationToken);
+
+        var rows = await (from d in db.Definitions
+                          where d.Type == configType
+                          join v in db.Versions on d.Id equals v.DefinitionId
+                          select new { Definition = d, Version = v })
+            .ToListAsync(cancellationToken);
+
+        return rows
+            .GroupBy(r => r.Definition.Id)
+            .Select(g => g.MaxBy(r => r.Version.VersionNo)!)
+            .OrderBy(r => r.Definition.Code, StringComparer.Ordinal)
+            .Select(r => masker.Mask(
+                new ConfigListItem(r.Version.Id, r.Definition.Id, r.Definition.Code, r.Definition.Name, r.Version.VersionNo, r.Version.Status.ToString()),
+                grant))
+            .ToList();
+    }
+
     public async Task<ConfigVersionResponse> GetLatestAsync(string type, string code, CancellationToken cancellationToken)
     {
         var route = Validate(type, code);
