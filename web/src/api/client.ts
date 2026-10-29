@@ -1,5 +1,5 @@
 import { ApiError } from './errors';
-import type { ConfigSummary, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
+import type { ConfigSummary, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
 
 export interface ApiClientOptions {
   baseUrl?: string;
@@ -63,17 +63,36 @@ export function createApiClient(options: ApiClientOptions = {}) {
     return (await response.json()) as T;
   }
 
+  const configRoot = '/api/v1/config';
+
+  /** What GET /versions/{id} and the publish/payload calls return. The payload is the scale or grid body. */
+  interface VersionResponse<P> {
+    id: string;
+    code: string;
+    versionNo: number;
+    status: ConfigVersionStatus;
+    payload: P;
+  }
+
+  /** The id used by the web is the version id. The version response has no display name, so the code stands in. */
+  function summary<P>(v: VersionResponse<P>): ConfigSummary {
+    return { id: v.id, name: v.code, versionNo: v.versionNo, status: v.status };
+  }
+
+  const toScale = (v: VersionResponse<{ levels: ScaleLevel[] }>): ScaleDetail => ({ ...summary(v), levels: v.payload.levels });
+  const toGrid = (v: VersionResponse<GridDefinition>): GridDetail => ({ ...summary(v), grid: v.payload });
+
   return {
-    listScales: () => request<ConfigSummary[]>('GET', '/api/config/scales'),
-    getScale: (id: string) => request<ScaleDetail>('GET', `/api/config/scales/${id}`),
-    saveScaleDraft: (id: string, levels: ScaleLevel[]) =>
-      request<ScaleDetail>('PUT', `/api/config/scales/${id}/draft`, { levels }),
-    publishScale: (id: string) => request<ScaleDetail>('POST', `/api/config/scales/${id}/publish`),
-    listGrids: () => request<ConfigSummary[]>('GET', '/api/config/grids'),
-    getGrid: (id: string) => request<GridDetail>('GET', `/api/config/grids/${id}`),
-    saveGridDraft: (id: string, grid: GridDefinition) =>
-      request<GridDetail>('PUT', `/api/config/grids/${id}/draft`, { ...grid }),
-    publishGrid: (id: string) => request<GridDetail>('POST', `/api/config/grids/${id}/publish`),
+    listScales: () => request<ConfigSummary[]>('GET', `${configRoot}/Scale`),
+    getScale: async (id: string) => toScale(await request('GET', `${configRoot}/versions/${id}`)),
+    saveScaleDraft: async (id: string, levels: ScaleLevel[]) =>
+      toScale(await request('PUT', `${configRoot}/versions/${id}/payload`, { payload: { levels } })),
+    publishScale: async (id: string) => toScale(await request('POST', `${configRoot}/versions/${id}/publish`)),
+    listGrids: () => request<ConfigSummary[]>('GET', `${configRoot}/Grid`),
+    getGrid: async (id: string) => toGrid(await request('GET', `${configRoot}/versions/${id}`)),
+    saveGridDraft: async (id: string, grid: GridDefinition) =>
+      toGrid(await request('PUT', `${configRoot}/versions/${id}/payload`, { payload: { ...grid } })),
+    publishGrid: async (id: string) => toGrid(await request('POST', `${configRoot}/versions/${id}/publish`)),
   };
 }
 
