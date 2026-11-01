@@ -21,13 +21,14 @@ dotnet format Talent.sln --verify-no-changes
 | `src/Talent.Shared` | Shared kernel (kept small) |
 | `src/Modules/Config` | Versioned config (ADR-02) and the N x M grid engine (ADR-03) |
 | `src/Modules/Assessment` | Review cycles, ratings, nine-box placement and calibration (`/api/v1/assessment`) |
+| `src/Modules/Career` | Job catalogue, career paths, requirement gaps and % match (`/api/v1/career`) |
 | `src/Modules/Security`, `Integration`, `Workflow` | Login and permissions, synced HR data, workflow engine |
-| `web/` | React + TypeScript app (config admin, manager assessments, cycle and grid screens) |
+| `web/` | React + TypeScript app (config admin, manager assessments, cycle and grid screens, employee Career Centre) |
 | `tests/` | Unit, host and architecture (module boundary) tests |
 
 ## Status
 
-Done: Config, Security, Integration, Workflow and Assessment modules with PostgreSQL / EF Core and integration tests, module boundary tests, host, and the web screens for config and assessment.
-Not yet: the remaining modules (for example Career and Notification), HTTP endpoints for Integration and Workflow, and real (non-mock) HR source adapters.
+Done: Config, Security, Integration, Workflow, Assessment and Career modules with PostgreSQL / EF Core and integration tests, module boundary tests, host, and the web screens for config and assessment.
+Not yet: the remaining modules (for example Notification), HTTP endpoints for Integration and Workflow, and real (non-mock) HR source adapters.
 
-Existing installs keep their current permission matrix. To give roles access to Assessment, publish a new matrix version with the `assessment:*` grants from `DefaultPermissionMatrix` (new installs get them automatically).
+Existing installs keep their current permission matrix. To give roles access to Assessment, publish a new matrix version with the `assessment:*` and `career:*` grants from `DefaultPermissionMatrix` (new installs get them automatically).
