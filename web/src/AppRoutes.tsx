@@ -8,7 +8,8 @@ import { Landing } from './portals/DevRoleSwitcher';
 import { AdminCycles } from './features/assessment/AdminCycles';
 import { AdminBoard, ManagerBoard } from './features/assessment/BoardPages';
 import { ManagerAssessments } from './features/assessment/ManagerAssessments';
-import { CareerCentre, MyIdp, TeamIdps } from './portals/Pages';
+import { CareerCentre } from './features/career/CareerCentre';
+import { MyIdp, TeamIdps } from './portals/Pages';
 import { PortalLayout } from './portals/PortalLayout';
 
 export function AppRoutes() {

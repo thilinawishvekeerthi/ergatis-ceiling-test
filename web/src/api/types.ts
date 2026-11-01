@@ -138,6 +138,43 @@ export interface Board {
   people: BoardPerson[];
 }
 
+export interface CareerJobSummary {
+  id: string;
+  code: string;
+  title: string;
+  level: number;
+}
+
+export interface CareerCompetency {
+  competencyCode: string;
+  level: number;
+}
+
+/** One requirement of a target job against the employee's level. gap is 0 when it is met. */
+export interface RequirementProgress {
+  competencyCode: string;
+  requiredLevel: number;
+  currentLevel: number;
+  weight: number;
+  met: boolean;
+  gap: number;
+}
+
+/** steps is the fewest career moves to the job, or null when the employee has no current job. */
+export interface Opportunity {
+  job: CareerJobSummary;
+  steps: number | null;
+  matchPercent: number;
+  requirements: RequirementProgress[];
+}
+
+export interface CareerCentreData {
+  employeeId: string;
+  currentJob: CareerJobSummary | null;
+  competencies: CareerCompetency[];
+  opportunities: Opportunity[];
+}
+
 export type Role = 'employee' | 'manager' | 'hr-admin';
 
 export interface Session {

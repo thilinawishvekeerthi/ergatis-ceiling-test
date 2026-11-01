@@ -1,5 +1,5 @@
 import { ApiError } from './errors';
-import type { Board, ConfigSummary, Cycle, RatingInput, Review, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
+import type { Board, CareerCentreData, ConfigSummary, Cycle, RatingInput, Review, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
 
 export interface ApiClientOptions {
   baseUrl?: string;
@@ -94,6 +94,8 @@ export function createApiClient(options: ApiClientOptions = {}) {
     saveGridDraft: async (id: string, grid: GridDefinition) =>
       toGrid(await request('PUT', `${configRoot}/versions/${id}/payload`, { payload: { ...grid } })),
     publishGrid: async (id: string) => toGrid(await request('POST', `${configRoot}/versions/${id}/publish`)),
+
+    getMyCareerCentre: () => request<CareerCentreData>('GET', '/api/v1/career/me/centre'),
 
     listCycles: () => request<Cycle[]>('GET', `${assessmentRoot}/cycles`),
     openCycle: (id: string) => request<Cycle>('POST', `${assessmentRoot}/cycles/${id}/open`),
