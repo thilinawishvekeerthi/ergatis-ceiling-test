@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Talent.Shared\Talent.Shared.csproj" />
+  </ItemGroup>
+</Project>

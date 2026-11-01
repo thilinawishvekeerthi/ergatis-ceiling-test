@@ -16,5 +16,8 @@
     <ProjectReference Include="..\Modules\Security\Talent.Security\Talent.Security.csproj" />
     <ProjectReference Include="..\Modules\Integration\Talent.Integration\Talent.Integration.csproj" />
     <ProjectReference Include="..\Modules\Workflow\Talent.Workflow\Talent.Workflow.csproj" />
+    <ProjectReference Include="..\Modules\Assessment\Talent.Assessment\Talent.Assessment.csproj" />
+    <ProjectReference Include="..\Modules\Career\Talent.Career\Talent.Career.csproj" />
+    <ProjectReference Include="..\Modules\Notification\Talent.Notification\Talent.Notification.csproj" />
   </ItemGroup>
 </Project>

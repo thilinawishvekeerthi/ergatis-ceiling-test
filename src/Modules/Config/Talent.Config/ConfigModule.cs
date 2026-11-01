@@ -34,6 +34,7 @@ public static class ConfigModule
         services.AddScoped<IValidator<ConfigRoute>, ConfigRouteValidator>();
         services.AddScoped<IValidator<CreateDraftRequest>, CreateDraftRequestValidator>();
         services.AddScoped<IValidator<UpdatePayloadRequest>, UpdatePayloadRequestValidator>();
+        services.AddScoped<IGridService, GridService>();
         services.AddScoped<ConfigVersionReader>();
         services.AddScoped<IConfigVersionReader>(sp => sp.GetRequiredService<ConfigVersionReader>());
         services.AddScoped<IConfigVersionLocker>(sp => sp.GetRequiredService<ConfigVersionReader>());
