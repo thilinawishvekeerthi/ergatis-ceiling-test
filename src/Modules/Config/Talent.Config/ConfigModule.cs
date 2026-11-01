@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Talent.Config.Api;
 using Talent.Config.Contracts;
 using Talent.Config.Defaults;
+using Talent.Config.Grids;
 using Talent.Config.Persistence;
 using Talent.Shared;
 using Talent.Shared.Events;
@@ -34,6 +35,7 @@ public static class ConfigModule
         services.AddScoped<IValidator<ConfigRoute>, ConfigRouteValidator>();
         services.AddScoped<IValidator<CreateDraftRequest>, CreateDraftRequestValidator>();
         services.AddScoped<IValidator<UpdatePayloadRequest>, UpdatePayloadRequestValidator>();
+        services.AddScoped<IGridService, GridService>();
         services.AddScoped<ConfigVersionReader>();
         services.AddScoped<IConfigVersionReader>(sp => sp.GetRequiredService<ConfigVersionReader>());
         services.AddScoped<IConfigVersionLocker>(sp => sp.GetRequiredService<ConfigVersionReader>());
