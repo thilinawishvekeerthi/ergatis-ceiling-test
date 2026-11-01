@@ -28,6 +28,12 @@ internal static class DefaultPermissionMatrix
           {"role":"MANAGER","resource":"career:Job","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
           {"role":"MANAGER","resource":"career:Path","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
           {"role":"TALENT_COMMITTEE","resource":"career:*","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
-          {"role":"HR_ADMIN","resource":"career:*","actions":["View","Edit"],"scope":"All","fieldClass":"Internal","talentConfidential":true}]}
+          {"role":"HR_ADMIN","resource":"career:*","actions":["View","Edit"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
+          {"role":"EMPLOYEE","resource":"notification:Inbox","actions":["View"],"scope":"Self","fieldClass":"Internal","talentConfidential":false},
+          {"role":"MANAGER","resource":"notification:Inbox","actions":["View"],"scope":"Self","fieldClass":"Internal","talentConfidential":false},
+          {"role":"TALENT_COMMITTEE","resource":"notification:Inbox","actions":["View"],"scope":"Self","fieldClass":"Internal","talentConfidential":false},
+          {"role":"HR_ADMIN","resource":"notification:Inbox","actions":["View"],"scope":"Self","fieldClass":"Internal","talentConfidential":false},
+          {"role":"HR_ADMIN","resource":"notification:Template","actions":["View","Edit"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
+          {"role":"HR_ADMIN","resource":"notification:Delivery","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false}]}
         """;
 }

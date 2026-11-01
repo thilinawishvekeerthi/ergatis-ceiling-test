@@ -49,6 +49,7 @@ internal sealed class EmailMessage
     public string? Error { get; private set; }
     public DateTimeOffset CreatedAt { get; private set; }
     public DateTimeOffset? SentAt { get; private set; }
+    public DateTimeOffset? LastAttemptAt { get; private set; }
 
     public static EmailMessage Create(Guid recipientId, string? toAddress, string eventKey, Guid sourceId, string subject, string body, DateTimeOffset now)
     {
@@ -64,22 +65,28 @@ internal sealed class EmailMessage
     {
         RequirePending();
         Attempts++;
+        LastAttemptAt = now;
         Status = EmailStatus.Sent;
         SentAt = now;
         Error = null;
     }
 
     /// <summary>The message stays Pending (so it is tried again) until it has failed <see cref="MaxAttempts"/> times, then it is Failed for good.</summary>
-    public void MarkAttemptFailed(string error)
+    public void MarkAttemptFailed(string error, DateTimeOffset now)
     {
         RequirePending();
         Attempts++;
+        LastAttemptAt = now;
         Error = error.Length <= 500 ? error : error[..500];
         if (Attempts >= MaxAttempts)
         {
             Status = EmailStatus.Failed;
         }
     }
+
+    /// <summary>A failed email waits longer after each failure: 1 minute after the first, 2 after the second, and so on.</summary>
+    public bool IsDue(DateTimeOffset now) =>
+        Status == EmailStatus.Pending && (LastAttemptAt is null || now - LastAttemptAt >= TimeSpan.FromMinutes(Attempts));
 
     private void RequirePending()
     {

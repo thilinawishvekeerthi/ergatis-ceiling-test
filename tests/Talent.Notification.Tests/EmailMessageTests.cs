@@ -47,12 +47,12 @@ public sealed class EmailMessageTests
 
         for (var i = 1; i < EmailMessage.MaxAttempts; i++)
         {
-            mail.MarkAttemptFailed("smtp down");
+            mail.MarkAttemptFailed("smtp down", Now);
             mail.Status.ShouldBe(EmailStatus.Pending);
             mail.Attempts.ShouldBe(i);
         }
 
-        mail.MarkAttemptFailed("smtp down");
+        mail.MarkAttemptFailed("smtp down", Now);
 
         (mail.Status, mail.Attempts, mail.Error).ShouldBe((EmailStatus.Failed, EmailMessage.MaxAttempts, "smtp down"));
     }
@@ -61,7 +61,7 @@ public sealed class EmailMessageTests
     public void MarkSent_AfterEarlierFailures_ClearsTheError()
     {
         var mail = New();
-        mail.MarkAttemptFailed("timeout");
+        mail.MarkAttemptFailed("timeout", Now);
 
         mail.MarkSent(Now);
 
@@ -69,11 +69,35 @@ public sealed class EmailMessageTests
     }
 
     [Fact]
+    public void IsDue_WaitsLongerAfterEachFailure()
+    {
+        var mail = New();
+        mail.IsDue(Now).ShouldBeTrue();
+
+        mail.MarkAttemptFailed("down", Now);
+        mail.IsDue(Now.AddSeconds(59)).ShouldBeFalse();
+        mail.IsDue(Now.AddMinutes(1)).ShouldBeTrue();
+
+        mail.MarkAttemptFailed("down", Now.AddMinutes(1));
+        mail.IsDue(Now.AddMinutes(2).AddSeconds(59)).ShouldBeFalse();
+        mail.IsDue(Now.AddMinutes(3)).ShouldBeTrue();
+    }
+
+    [Fact]
+    public void IsDue_IsFalseOnceSentSkippedOrFailed()
+    {
+        var sent = New();
+        sent.MarkSent(Now);
+        sent.IsDue(Now.AddDays(1)).ShouldBeFalse();
+        New(null).IsDue(Now.AddDays(1)).ShouldBeFalse();
+    }
+
+    [Fact]
     public void ErrorText_IsCapped()
     {
         var mail = New();
 
-        mail.MarkAttemptFailed(new string('x', 2000));
+        mail.MarkAttemptFailed(new string('x', 2000), Now);
 
         mail.Error!.Length.ShouldBe(500);
     }
@@ -84,7 +108,7 @@ public sealed class EmailMessageTests
         var sent = New();
         sent.MarkSent(Now);
         Should.Throw<InvalidNotificationException>(() => sent.MarkSent(Now));
-        Should.Throw<InvalidNotificationException>(() => sent.MarkAttemptFailed("x"));
+        Should.Throw<InvalidNotificationException>(() => sent.MarkAttemptFailed("x", Now));
         Should.Throw<InvalidNotificationException>(() => New(null).MarkSent(Now));
     }
 
