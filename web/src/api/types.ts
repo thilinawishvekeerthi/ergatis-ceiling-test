@@ -175,6 +175,22 @@ export interface CareerCentreData {
   opportunities: Opportunity[];
 }
 
+export interface AppNotification {
+  id: string;
+  eventKey: string;
+  title: string;
+  body: string;
+  /** A path inside the app, or null. */
+  linkUrl: string | null;
+  createdAt: string;
+  isRead: boolean;
+}
+
+export interface Inbox {
+  unreadCount: number;
+  items: AppNotification[];
+}
+
 export type Role = 'employee' | 'manager' | 'hr-admin';
 
 export interface Session {

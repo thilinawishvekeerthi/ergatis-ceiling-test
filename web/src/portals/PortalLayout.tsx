@@ -2,6 +2,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import type { Role } from '../api/types';
 import { labels } from '../labels';
+import { NotificationBell } from '../features/notifications/NotificationBell';
 import { RequireRole } from '../session/RequireRole';
 import { useSession } from '../session/context';
 
@@ -23,7 +24,8 @@ export function PortalLayout({ role, links }: { role: Role; links: PortalLink[] 
             ))}
           </nav>
           <Box sx={{ flexGrow: 1 }} />
-          <Typography variant="body2">{labels.switchRole} {session.displayName}</Typography>
+          <NotificationBell />
+          <Typography variant="body2" sx={{ ml: 2 }}>{labels.switchRole} {session.displayName}</Typography>
         </Toolbar>
       </AppBar>
       <Box component="main" sx={{ p: 3 }}><Outlet /></Box>

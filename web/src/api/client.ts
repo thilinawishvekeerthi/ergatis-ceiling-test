@@ -1,5 +1,5 @@
 import { ApiError } from './errors';
-import type { Board, CareerCentreData, ConfigSummary, Cycle, RatingInput, Review, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
+import type { Board, AppNotification, CareerCentreData, Inbox, ConfigSummary, Cycle, RatingInput, Review, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
 
 export interface ApiClientOptions {
   baseUrl?: string;
@@ -65,6 +65,7 @@ export function createApiClient(options: ApiClientOptions = {}) {
 
   const configRoot = '/api/v1/config';
   const assessmentRoot = '/api/v1/assessment';
+  const notificationRoot = '/api/v1/notifications';
 
   /** What GET /versions/{id} and the publish/payload calls return. The payload is the scale or grid body. */
   interface VersionResponse<P> {
@@ -94,6 +95,11 @@ export function createApiClient(options: ApiClientOptions = {}) {
     saveGridDraft: async (id: string, grid: GridDefinition) =>
       toGrid(await request('PUT', `${configRoot}/versions/${id}/payload`, { payload: { ...grid } })),
     publishGrid: async (id: string) => toGrid(await request('POST', `${configRoot}/versions/${id}/publish`)),
+
+    getUnreadCount: async () => (await request<{ count: number }>('GET', `${notificationRoot}/me/unread-count`)).count,
+    getInbox: (take = 10) => request<Inbox>('GET', `${notificationRoot}/me?take=${take}`),
+    markNotificationRead: (id: string) => request<AppNotification>('POST', `${notificationRoot}/me/${id}/read`),
+    markAllNotificationsRead: () => request<{ count: number }>('POST', `${notificationRoot}/me/read-all`),
 
     getMyCareerCentre: () => request<CareerCentreData>('GET', '/api/v1/career/me/centre'),
 

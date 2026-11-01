@@ -17,6 +17,14 @@ export const labels = {
   emptyScales: 'No rating scales yet.',
   emptyGrids: 'No grids yet.',
   switchRole: 'Signed in as',
+  notifications: {
+    title: 'Notifications',
+    bell: (unread: number) => (unread === 0 ? 'Notifications' : `Notifications, ${unread} unread`),
+    empty: 'No notifications yet.',
+    markAllRead: 'Mark all as read',
+    loadFailed: 'Could not load your notifications.',
+    unread: 'Unread',
+  },
   career: {
     currentJob: 'Your current job',
     noCurrentJob: 'No current job is set on your profile yet, so every open job is shown.',
