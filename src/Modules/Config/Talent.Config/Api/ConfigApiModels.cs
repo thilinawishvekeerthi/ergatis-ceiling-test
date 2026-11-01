@@ -28,6 +28,15 @@ internal sealed record ConfigVersionResponse(
         JsonDocument.Parse(version.PayloadJson).RootElement.Clone(), version.Checksum, version.PublishedBy, version.PublishedAt);
 }
 
+/// <summary>One row of the list for a config type: the newest version of each definition, whatever its status.</summary>
+internal sealed record ConfigListItem(
+    [property: FieldClassification(FieldClass.Public)] Guid Id,
+    [property: FieldClassification(FieldClass.Public)] Guid DefinitionId,
+    [property: FieldClassification(FieldClass.Public)] string Code,
+    [property: FieldClassification(FieldClass.Public)] string Name,
+    [property: FieldClassification(FieldClass.Public)] int VersionNo,
+    [property: FieldClassification(FieldClass.Public)] string Status);
+
 /// <summary>Create a draft. For a new definition both fields are required. For an existing one, an empty payload copies the newest version.</summary>
 internal sealed record CreateDraftRequest(string? Name, JsonElement? Payload);
 

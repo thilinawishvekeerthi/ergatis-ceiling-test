@@ -18,7 +18,7 @@ public sealed class ConfigApiSecurityTests(SecurityHostFixture host) : IClassFix
     /// <summary>One entry per endpoint. The call is made against a version that exists, so only security can stop it.</summary>
     public static TheoryData<string> Endpoints =>
     [
-        "get-version", "get-latest", "create-draft", "new-version", "update-payload", "publish", "lock",
+        "get-version", "get-latest", "list", "create-draft", "new-version", "update-payload", "publish", "lock",
     ];
 
     private static async Task<HttpResponseMessage> CallAsync(HttpClient client, string endpoint, string code, Guid versionId, string? type = null)
@@ -28,6 +28,7 @@ public sealed class ConfigApiSecurityTests(SecurityHostFixture host) : IClassFix
         {
             "get-version" => await client.GetAsync($"/api/v1/config/versions/{versionId}", Ct),
             "get-latest" => await client.GetAsync($"/api/v1/config/{type}/{code}/latest", Ct),
+            "list" => await client.GetAsync($"/api/v1/config/{type}", Ct),
             "create-draft" => await client.PostAsJsonAsync($"/api/v1/config/{type}/{NewCode()}/drafts", new { name = "x", payload = Payload }, Ct),
             "new-version" => await client.PostAsync($"/api/v1/config/{type}/{code}/versions", null, Ct),
             "update-payload" => await client.PutAsJsonAsync($"/api/v1/config/versions/{versionId}/payload", new { payload = Payload }, Ct),
@@ -93,6 +94,7 @@ public sealed class ConfigApiSecurityTests(SecurityHostFixture host) : IClassFix
     [Theory]
     [InlineData("get-version")]
     [InlineData("get-latest")]
+    [InlineData("list")]
     public async Task ReadEndpoint_WhenRoleHasNoRightOnThatType_Returns403(string endpoint)
     {
         using var admin = await host.LoginAsync(Admin);
@@ -231,6 +233,34 @@ public sealed class ConfigApiSecurityTests(SecurityHostFixture host) : IClassFix
         {
             (await host.CountAuditAsync(action, Admin)).ShouldBeGreaterThan(0, action);
         }
+    }
+
+    [Fact]
+    public async Task List_AsAdmin_ReturnsNewestVersionPerDefinition()
+    {
+        using var admin = await host.LoginAsync(Admin);
+        var (code, draftId) = await CreateScaleDraftAsync(admin);
+        (await admin.PostAsync($"/api/v1/config/versions/{draftId}/publish", null, Ct)).EnsureSuccessStatusCode();
+        var next = await ReadAsync(await admin.PostAsync($"/api/v1/config/Scale/{code}/versions", null, Ct));
+
+        var response = await admin.GetAsync("/api/v1/config/Scale", Ct);
+
+        response.StatusCode.ShouldBe(HttpStatusCode.OK);
+        var rows = (await ReadAsync(response)).EnumerateArray().Where(r => r.GetProperty("code").GetString() == code).ToList();
+        rows.Count.ShouldBe(1);
+        rows[0].GetProperty("id").GetGuid().ShouldBe(next.GetProperty("id").GetGuid());
+        rows[0].GetProperty("versionNo").GetInt32().ShouldBe(2);
+        rows[0].GetProperty("status").GetString().ShouldBe("Draft");
+    }
+
+    [Fact]
+    public async Task List_WithUnknownType_Returns400()
+    {
+        using var admin = await host.LoginAsync(Admin);
+
+        var response = await admin.GetAsync("/api/v1/config/Nope", Ct);
+
+        response.StatusCode.ShouldBe(HttpStatusCode.BadRequest);
     }
 
     // ---- errors are ProblemDetails ----

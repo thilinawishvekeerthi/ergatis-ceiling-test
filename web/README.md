@@ -19,7 +19,7 @@ npm run build
 
 ## Layout
 
-- `src/api` hand-written typed client (`client.ts`), types, TanStack hooks. All HTTP goes through the client; the config endpoints under `/api/config/*` are an **assumed contract** (the backend maps none yet) to be reconciled with the OpenAPI document.
+- `src/api` hand-written typed client (`client.ts`), types, TanStack hooks. All HTTP goes through the client; the config calls use the real `/api/v1/config` routes (list by type, get/save/publish by version id). Types stay hand-written until the OpenAPI document exists.
 - `src/session` fake session provider. Swap for one that reads the BFF user; nothing else changes. Hiding screens is not security.
 - `src/components` `NineBox` (generic N x M grid, driven by a grid definition, keyboard operable) and `ScoreBreakdown`.
 - `src/features/config` scales and grids admin screens.
