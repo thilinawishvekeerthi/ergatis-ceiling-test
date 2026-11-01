@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Talent.Config.Api;
 using Talent.Config.Contracts;
 using Talent.Config.Defaults;
-using Talent.Config.Grids;
 using Talent.Config.Persistence;
 using Talent.Shared;
 using Talent.Shared.Events;

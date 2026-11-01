@@ -1,5 +1,6 @@
 using System.Reflection;
 using NetArchTest.Rules;
+using Talent.Assessment.Cycles;
 using Talent.Config.Versions;
 using Talent.Integration;
 using Talent.Security;
@@ -10,7 +11,7 @@ namespace Talent.ArchitectureTests;
 
 public sealed class ModuleBoundaryTests
 {
-    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly, typeof(SecurityModule).Assembly, typeof(IntegrationModule).Assembly, typeof(WorkflowInstance).Assembly];
+    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly, typeof(SecurityModule).Assembly, typeof(IntegrationModule).Assembly, typeof(WorkflowInstance).Assembly, typeof(ReviewCycle).Assembly];
 
     [Fact]
     public void Modules_ReferenceOnlyContractsOfOtherModules()
@@ -138,5 +139,31 @@ public sealed class ModuleBoundaryTests
             .GetResult();
 
         result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void AssessmentDomain_DoesNotDependOnEntityFramework()
+    {
+        var result = Types.InAssembly(typeof(ReviewCycle).Assembly)
+            .That().ResideInNamespaceStartingWith("Talent.Assessment.Cycles")
+            .Or().ResideInNamespaceStartingWith("Talent.Assessment.Reviews")
+            .ShouldNot().HaveDependencyOn("Microsoft.EntityFrameworkCore")
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void AssessmentImplementation_IsInternal()
+    {
+        var result = Types.InAssembly(typeof(ReviewCycle).Assembly)
+            .That().AreClasses()
+            .And().DoNotHaveNameEndingWith("Module")
+            .And().DoNotResideInNamespaceContaining("Migrations")
+            .And().AreNotNested()
+            .Should().NotBePublic()
+            .GetResult();
+
+        (result.FailingTypeNames ?? []).ShouldBeEmpty();
     }
 }

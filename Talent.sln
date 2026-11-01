@@ -77,6 +77,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent.Assessment", "src\Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent.Assessment.Tests", "tests\Talent.Assessment.Tests\Talent.Assessment.Tests.csproj", "{941D0D8D-5C3F-4063-A909-5CB66C62AD33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talent.Assessment.IntegrationTests", "tests\Talent.Assessment.IntegrationTests\Talent.Assessment.IntegrationTests.csproj", "{9AAD5BCE-0F14-4290-9EDA-098716091B01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -387,6 +389,18 @@ Global
 		{941D0D8D-5C3F-4063-A909-5CB66C62AD33}.Release|x64.Build.0 = Release|Any CPU
 		{941D0D8D-5C3F-4063-A909-5CB66C62AD33}.Release|x86.ActiveCfg = Release|Any CPU
 		{941D0D8D-5C3F-4063-A909-5CB66C62AD33}.Release|x86.Build.0 = Release|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Debug|x64.Build.0 = Debug|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Debug|x86.Build.0 = Debug|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Release|x64.ActiveCfg = Release|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Release|x64.Build.0 = Release|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Release|x86.ActiveCfg = Release|Any CPU
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -426,5 +440,6 @@ Global
 		{814F65EE-4CD3-4E24-BA4E-D7FBF2D7734B} = {A8399AFD-EBA6-A110-5434-29D98F273FF1}
 		{2170335F-11E9-4DF0-B3D8-446CB3E32FDF} = {A8399AFD-EBA6-A110-5434-29D98F273FF1}
 		{941D0D8D-5C3F-4063-A909-5CB66C62AD33} = {A8399AFD-EBA6-A110-5434-29D98F273FF1}
+		{9AAD5BCE-0F14-4290-9EDA-098716091B01} = {A8399AFD-EBA6-A110-5434-29D98F273FF1}
 	EndGlobalSection
 EndGlobal

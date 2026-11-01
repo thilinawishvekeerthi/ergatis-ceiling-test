@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Talent.Config.Contracts;
+using Talent.Config.Grids;
 using Talent.Config.Persistence;
 using Talent.Config.Versions;
 
-namespace Talent.Config.Grids;
+namespace Talent.Config;
 
 internal sealed class GridService(ConfigDbContext db) : IGridService
 {

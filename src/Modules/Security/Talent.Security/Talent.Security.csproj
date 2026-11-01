@@ -22,6 +22,7 @@
   <ItemGroup>
     <InternalsVisibleTo Include="Talent.Security.Tests" />
     <InternalsVisibleTo Include="Talent.Security.IntegrationTests" />
+    <InternalsVisibleTo Include="Talent.Assessment.IntegrationTests" />
     <InternalsVisibleTo Include="Talent.ArchitectureTests" />
   </ItemGroup>
 </Project>

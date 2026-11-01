@@ -1,6 +1,5 @@
 using Talent.Config.Contracts;
 using Talent.Config.Defaults;
-using Talent.Config.Grids;
 using Talent.Config.Versions;
 
 namespace Talent.Config.IntegrationTests;
