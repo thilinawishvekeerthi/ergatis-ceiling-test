@@ -27,6 +27,14 @@ internal sealed class AccessGuard(ISecurityUser user, PermissionMatrixProvider m
         return grant;
     }
 
+    public async Task<AccessGrant> RequireGrantAsync(string resource, PermissionAction action, CancellationToken cancellationToken)
+    {
+        RequireEmployee();
+        var matrix = await matrices.GetAsync(cancellationToken);
+        return matrix.Evaluate(user.Roles, resource, action)
+               ?? throw new ForbiddenException("You do not have permission to do this.");
+    }
+
     public async Task RequireAnyAsync(string resourcePrefix, PermissionAction action, CancellationToken cancellationToken)
     {
         RequireEmployee();

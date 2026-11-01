@@ -10,6 +10,12 @@ public interface IAccessGuard
     /// <param name="subjectEmployeeId">The employee the record is about. Null for organisation-wide objects, which need scope All.</param>
     Task<AccessGrant> RequireAsync(string resource, PermissionAction action, Guid? subjectEmployeeId, CancellationToken cancellationToken);
 
+    /// <summary>
+    /// For lists: passes when the caller's role allows <paramref name="action"/> on <paramref name="resource"/> at any scope (403 otherwise)
+    /// and returns the grant. The caller then filters rows with <see cref="IDataScopeService"/>, so the scope runs in SQL.
+    /// </summary>
+    Task<AccessGrant> RequireGrantAsync(string resource, PermissionAction action, CancellationToken cancellationToken);
+
     /// <summary>Passes when the caller may do <paramref name="action"/> on at least one object whose name starts with <paramref name="resourcePrefix"/>.</summary>
     Task RequireAnyAsync(string resourcePrefix, PermissionAction action, CancellationToken cancellationToken);
 }

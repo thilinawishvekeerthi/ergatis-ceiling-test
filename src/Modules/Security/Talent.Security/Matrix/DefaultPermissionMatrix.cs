@@ -14,6 +14,13 @@ internal static class DefaultPermissionMatrix
           {"role":"MANAGER","resource":"config:Scale","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
           {"role":"MANAGER","resource":"config:Grid","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
           {"role":"TALENT_COMMITTEE","resource":"config:*","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
-          {"role":"HR_ADMIN","resource":"config:*","actions":["View","Edit","Approve"],"scope":"All","fieldClass":"Internal","talentConfidential":true}]}
+          {"role":"HR_ADMIN","resource":"config:*","actions":["View","Edit","Approve"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
+          {"role":"EMPLOYEE","resource":"assessment:Cycle","actions":["View"],"scope":"All","fieldClass":"Public","talentConfidential":false},
+          {"role":"EMPLOYEE","resource":"assessment:Review","actions":["View"],"scope":"Self","fieldClass":"Internal","talentConfidential":false},
+          {"role":"MANAGER","resource":"assessment:Cycle","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
+          {"role":"MANAGER","resource":"assessment:Review","actions":["View","Edit"],"scope":"CycleAssigned","fieldClass":"Internal","talentConfidential":true},
+          {"role":"MANAGER","resource":"assessment:Board","actions":["View"],"scope":"CycleAssigned","fieldClass":"Internal","talentConfidential":true},
+          {"role":"TALENT_COMMITTEE","resource":"assessment:*","actions":["View","Calibrate"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
+          {"role":"HR_ADMIN","resource":"assessment:*","actions":["View","Edit","Approve","Calibrate"],"scope":"All","fieldClass":"Internal","talentConfidential":true}]}
         """;
 }
