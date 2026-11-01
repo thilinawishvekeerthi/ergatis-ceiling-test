@@ -19,5 +19,6 @@
     <ProjectReference Include="..\..\src\Modules\Workflow\Talent.Workflow\Talent.Workflow.csproj" />
     <ProjectReference Include="..\..\src\Modules\Assessment\Talent.Assessment\Talent.Assessment.csproj" />
     <ProjectReference Include="..\..\src\Modules\Career\Talent.Career\Talent.Career.csproj" />
+    <ProjectReference Include="..\..\src\Modules\Notification\Talent.Notification\Talent.Notification.csproj" />
   </ItemGroup>
 </Project>
