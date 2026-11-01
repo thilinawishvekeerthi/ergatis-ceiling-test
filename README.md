@@ -20,9 +20,14 @@ dotnet format Talent.sln --verify-no-changes
 | `src/Talent.Host` | ASP.NET Core app: health checks, ProblemDetails, wires modules |
 | `src/Talent.Shared` | Shared kernel (kept small) |
 | `src/Modules/Config` | Versioned config (ADR-02) and the N x M grid engine (ADR-03) |
+| `src/Modules/Assessment` | Review cycles, ratings, nine-box placement and calibration (`/api/v1/assessment`) |
+| `src/Modules/Security`, `Integration`, `Workflow` | Login and permissions, synced HR data, workflow engine |
+| `web/` | React + TypeScript app (config admin, manager assessments, cycle and grid screens) |
 | `tests/` | Unit, host and architecture (module boundary) tests |
 
 ## Status
 
-Done: Config module domain (version lifecycle, grid placement and override), module boundary tests, host skeleton.
-Not yet: PostgreSQL / EF Core and Testcontainers tests (Docker was not available), other 7 modules, login, workflow engine, React app.
+Done: Config, Security, Integration, Workflow and Assessment modules with PostgreSQL / EF Core and integration tests, module boundary tests, host, and the web screens for config and assessment.
+Not yet: the remaining modules (for example Career and Notification), HTTP endpoints for Integration and Workflow, and real (non-mock) HR source adapters.
+
+Existing installs keep their current permission matrix. To give roles access to Assessment, publish a new matrix version with the `assessment:*` grants from `DefaultPermissionMatrix` (new installs get them automatically).
