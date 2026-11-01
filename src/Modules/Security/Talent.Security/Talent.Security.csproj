@@ -24,6 +24,7 @@
     <InternalsVisibleTo Include="Talent.Security.IntegrationTests" />
     <InternalsVisibleTo Include="Talent.Assessment.IntegrationTests" />
     <InternalsVisibleTo Include="Talent.Career.IntegrationTests" />
+    <InternalsVisibleTo Include="Talent.Notification.IntegrationTests" />
     <InternalsVisibleTo Include="Talent.ArchitectureTests" />
   </ItemGroup>
 </Project>

@@ -7,13 +7,13 @@ using Talent.Security.Contracts;
 namespace Talent.Notification.Api;
 
 internal sealed record NotificationResponse(
-    [property: FieldClassification(FieldClass.Internal)] Guid Id,
-    [property: FieldClassification(FieldClass.Internal)] string EventKey,
-    [property: FieldClassification(FieldClass.Internal)] string Title,
-    [property: FieldClassification(FieldClass.Internal)] string Body,
-    [property: FieldClassification(FieldClass.Internal)] string? LinkUrl,
-    [property: FieldClassification(FieldClass.Internal)] DateTimeOffset CreatedAt,
-    [property: FieldClassification(FieldClass.Internal)] bool IsRead)
+    [property: FieldClassification(FieldClass.Public)] Guid Id,
+    [property: FieldClassification(FieldClass.Public)] string EventKey,
+    [property: FieldClassification(FieldClass.Public)] string Title,
+    [property: FieldClassification(FieldClass.Public)] string Body,
+    [property: FieldClassification(FieldClass.Public)] string? LinkUrl,
+    [property: FieldClassification(FieldClass.Public)] DateTimeOffset CreatedAt,
+    [property: FieldClassification(FieldClass.Public)] bool IsRead)
 {
     public static NotificationResponse From(InAppNotification n) => new(n.Id, n.EventKey, n.Title, n.Body, n.LinkUrl, n.CreatedAt, n.IsRead);
 }
