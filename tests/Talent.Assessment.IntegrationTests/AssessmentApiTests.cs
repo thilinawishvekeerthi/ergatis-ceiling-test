@@ -106,6 +106,18 @@ public sealed class AssessmentApiTests(AssessmentHostFixture host) : IClassFixtu
     }
 
     [Fact]
+    public async Task OpenCycle_PutsTheAssignedReviewersInTheOutboxEvent()
+    {
+        using var admin = await host.LoginAsync(Admin);
+        var (cycle, _) = await OpenCycleWithReviewAsync(admin);
+
+        var payload = host.OutboxPayloads("ReviewCycleOpened").Single(p => p.Contains(cycle.ToString(), StringComparison.OrdinalIgnoreCase));
+
+        payload.ShouldContain(host.Employees[Manager].ToString(), Case.Insensitive);
+        payload.ShouldNotContain(host.Employees[Employee].ToString(), Case.Insensitive);
+    }
+
+    [Fact]
     public async Task CycleLifecycle_RejectsOutOfOrderMoves()
     {
         using var admin = await host.LoginAsync(Admin);

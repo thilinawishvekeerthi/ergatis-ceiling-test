@@ -49,7 +49,8 @@ internal sealed class AssessmentService(
     public async Task<ReviewCycle> OpenCycleAsync(Guid cycleId, CancellationToken cancellationToken)
     {
         var cycle = await GetCycleAsync(cycleId, cancellationToken);
-        cycle.Open(clock.GetUtcNow());
+        var reviewers = await db.Reviews.Where(r => r.CycleId == cycleId).Select(r => r.ReviewerId).Distinct().ToListAsync(cancellationToken);
+        cycle.Open(clock.GetUtcNow(), reviewers);
         foreach (var versionId in new[] { cycle.PerformanceScaleVersionId, cycle.PotentialScaleVersionId, cycle.GridVersionId })
         {
             await locker.LockAsync(versionId, cancellationToken);

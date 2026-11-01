@@ -81,6 +81,14 @@ public sealed class AssessmentHostFixture : IAsyncLifetime
         return db.Set<AuditEntry>().Count(a => a.Action == action && a.ActorId == actor && a.Confidential == confidential);
     }
 
+    /// <summary>The payloads of outbox messages of one event type, to prove what other modules will receive.</summary>
+    public List<string> OutboxPayloads(string eventTypeName)
+    {
+        using var scope = Factory.Services.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<TalentSharedDbContext>();
+        return [.. db.OutboxMessages.Where(m => m.EventType.Contains(eventTypeName)).Select(m => m.Payload)];
+    }
+
     private async Task AddUserAsync(string subject, string role)
     {
         using var scope = Factory.Services.CreateScope();

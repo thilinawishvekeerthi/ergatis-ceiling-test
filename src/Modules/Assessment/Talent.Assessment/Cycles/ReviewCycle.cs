@@ -56,12 +56,13 @@ internal sealed class ReviewCycle : IHasDomainEvents
         return new ReviewCycle(name.Trim(), start, end, performanceScale, potentialScale, grid);
     }
 
-    public void Open(DateTimeOffset now)
+    /// <param name="reviewerIds">Everyone assigned to rate in this cycle. They go into the event so Notification can tell them.</param>
+    public void Open(DateTimeOffset now, IEnumerable<Guid>? reviewerIds = null)
     {
         Require("open", CycleStatus.Draft);
         Status = CycleStatus.Open;
         OpenedAt = now;
-        _events.Add(new ReviewCycleOpened(now, Id, Name));
+        _events.Add(new ReviewCycleOpened(now, Id, Name, [.. (reviewerIds ?? []).Distinct()]));
     }
 
     public void StartCalibration()

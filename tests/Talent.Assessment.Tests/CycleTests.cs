@@ -50,6 +50,22 @@ public sealed class CycleTests
     }
 
     [Fact]
+    public void Open_PutsEachReviewerInTheEventOnce()
+    {
+        var a = Guid.NewGuid();
+        var b = Guid.NewGuid();
+        var cycle = NewCycle();
+
+        cycle.Open(Now, [a, b, a]);
+
+        cycle.DomainEvents.OfType<ReviewCycleOpened>().Single().ReviewerIds.ShouldBe([a, b], ignoreOrder: true);
+    }
+
+    [Fact]
+    public void Open_WithoutReviewers_RaisesAnEventWithNone() =>
+        NewCycle().Also(c => c.Open(Now)).DomainEvents.OfType<ReviewCycleOpened>().Single().ReviewerIds.ShouldBeEmpty();
+
+    [Fact]
     public void Open_WhenAlreadyOpen_Throws()
     {
         var cycle = NewCycle();
@@ -104,5 +120,14 @@ public sealed class CycleTests
         Should.NotThrow(cycle.RequireOpenForAssignment);
         cycle.StartCalibration();
         Should.Throw<InvalidCycleTransitionException>(cycle.RequireOpenForAssignment);
+    }
+}
+
+internal static class CycleTestExtensions
+{
+    public static T Also<T>(this T value, Action<T> action)
+    {
+        action(value);
+        return value;
     }
 }
