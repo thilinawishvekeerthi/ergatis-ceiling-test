@@ -69,6 +69,75 @@ export interface ScoreBreakdownData {
   components: ScoreComponent[];
 }
 
+export type CycleStatus = 'Draft' | 'Open' | 'Calibration' | 'Closed';
+export type ReviewStatus = 'Pending' | 'Rated';
+
+export interface Cycle {
+  id: string;
+  name: string;
+  periodStart: string;
+  periodEnd: string;
+  status: CycleStatus;
+  performanceScaleVersionId: string;
+  potentialScaleVersionId: string;
+  gridVersionId: string;
+  openedAt: string | null;
+  closedAt: string | null;
+  /** Null when the caller may not see counts. */
+  reviewCount: number | null;
+  ratedCount: number | null;
+}
+
+/** Potential and the grid cell are null when the caller may not see them (an employee on their own review). */
+export interface Review {
+  id: string;
+  cycleId: string;
+  employeeId: string;
+  employeeName: string | null;
+  reviewerId: string;
+  status: ReviewStatus;
+  performanceLevel: number | null;
+  performanceLabel: string | null;
+  potentialLevel: number | null;
+  comment: string | null;
+  ratedAt: string | null;
+  proposedColumn: number | null;
+  proposedRow: number | null;
+  finalColumn: number | null;
+  finalRow: number | null;
+  calibratedBy: string | null;
+  calibrationReason: string | null;
+}
+
+export interface RatingInput {
+  performanceLevel: number;
+  potentialLevel: number;
+  comment?: string;
+  /** Only for grids that are placed by hand. */
+  column?: number;
+  row?: number;
+}
+
+export interface BoardPerson {
+  reviewId: string;
+  employeeId: string;
+  name: string | null;
+  column: number;
+  row: number;
+  calibrated: boolean;
+  proposedColumn: number | null;
+  proposedRow: number | null;
+}
+
+export interface Board {
+  cycleId: string;
+  cycleName: string;
+  cycleStatus: CycleStatus;
+  mode: PlacementMode;
+  layout: { versionId: string; mode: PlacementMode; columns: number; rows: number; cells: GridCellDefinition[] };
+  people: BoardPerson[];
+}
+
 export type Role = 'employee' | 'manager' | 'hr-admin';
 
 export interface Session {

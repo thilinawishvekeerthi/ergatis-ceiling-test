@@ -12,5 +12,4 @@ export function Placeholder({ title }: { title: string }) {
 
 export const CareerCentre = () => <Placeholder title={labels.nav.career} />;
 export const MyIdp = () => <Placeholder title={labels.nav.idp} />;
-export const Assessments = () => <Placeholder title={labels.nav.assessments} />;
 export const TeamIdps = () => <Placeholder title={labels.nav.teamIdps} />;

@@ -1,5 +1,5 @@
 import { ApiError } from './errors';
-import type { ConfigSummary, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
+import type { Board, ConfigSummary, Cycle, RatingInput, Review, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
 
 export interface ApiClientOptions {
   baseUrl?: string;
@@ -64,6 +64,7 @@ export function createApiClient(options: ApiClientOptions = {}) {
   }
 
   const configRoot = '/api/v1/config';
+  const assessmentRoot = '/api/v1/assessment';
 
   /** What GET /versions/{id} and the publish/payload calls return. The payload is the scale or grid body. */
   interface VersionResponse<P> {
@@ -93,6 +94,17 @@ export function createApiClient(options: ApiClientOptions = {}) {
     saveGridDraft: async (id: string, grid: GridDefinition) =>
       toGrid(await request('PUT', `${configRoot}/versions/${id}/payload`, { payload: { ...grid } })),
     publishGrid: async (id: string) => toGrid(await request('POST', `${configRoot}/versions/${id}/publish`)),
+
+    listCycles: () => request<Cycle[]>('GET', `${assessmentRoot}/cycles`),
+    openCycle: (id: string) => request<Cycle>('POST', `${assessmentRoot}/cycles/${id}/open`),
+    startCalibration: (id: string) => request<Cycle>('POST', `${assessmentRoot}/cycles/${id}/calibration`),
+    closeCycle: (id: string) => request<Cycle>('POST', `${assessmentRoot}/cycles/${id}/close`),
+    listReviews: (cycleId: string) => request<Review[]>('GET', `${assessmentRoot}/cycles/${cycleId}/reviews`),
+    getBoard: (cycleId: string) => request<Board>('GET', `${assessmentRoot}/cycles/${cycleId}/board`),
+    rate: (reviewId: string, rating: RatingInput) =>
+      request<Review>('PUT', `${assessmentRoot}/reviews/${reviewId}/rating`, { ...rating }),
+    calibrate: (reviewId: string, to: { column: number; row: number }, reason: string) =>
+      request<Review>('POST', `${assessmentRoot}/reviews/${reviewId}/calibrate`, { ...to, reason }),
   };
 }
 
