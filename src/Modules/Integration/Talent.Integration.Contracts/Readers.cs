@@ -19,12 +19,18 @@ public interface IOrgUnitReader
 {
     Task<OrgUnitDto?> GetAsync(Guid orgUnitId, CancellationToken cancellationToken);
 
+    /// <summary>One query for many ids, so list screens avoid a query per row.</summary>
+    Task<IReadOnlyList<OrgUnitDto>> GetManyAsync(IReadOnlyCollection<Guid> orgUnitIds, CancellationToken cancellationToken);
+
     Task<IReadOnlyList<OrgUnitDto>> ListAsync(CancellationToken cancellationToken);
 }
 
 public interface IPositionReader
 {
     Task<PositionDto?> GetAsync(Guid positionId, CancellationToken cancellationToken);
+
+    /// <summary>One query for many ids, so list screens avoid a query per row.</summary>
+    Task<IReadOnlyList<PositionDto>> GetManyAsync(IReadOnlyCollection<Guid> positionIds, CancellationToken cancellationToken);
 
     Task<PagedResult<PositionDto>> ListAsync(Guid? orgUnitId, int page, int pageSize, CancellationToken cancellationToken);
 }

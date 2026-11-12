@@ -16,7 +16,8 @@ export function ApiProvider({
     () =>
       client ??
       createApiClient({
-        onUnauthenticated: () => window.location.assign('/bff/login'),
+        // Development has no identity provider: send the user back to the role picker instead.
+        onUnauthenticated: () => window.location.assign(import.meta.env.DEV ? '/' : '/bff/login'),
         getAntiForgeryToken: createAntiForgeryTokenSource(),
       }),
     [client],

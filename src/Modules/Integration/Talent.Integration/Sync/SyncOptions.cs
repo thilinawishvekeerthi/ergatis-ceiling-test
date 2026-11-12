@@ -24,6 +24,9 @@ internal sealed class SyncOptions : IValidatableObject
     /// <summary>Cron in UTC. 02:00 leaves four hours before the 06:00 deadline.</summary>
     public string Cron { get; set; } = "0 2 * * *";
 
+    /// <summary>Runs one delta sync at startup when no employees are synced yet, so a fresh dev database has data on boot.</summary>
+    public bool SyncOnStartupWhenEmpty { get; set; }
+
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
         if (Scheduler == SyncScheduler.Hangfire && string.IsNullOrWhiteSpace(Cron))

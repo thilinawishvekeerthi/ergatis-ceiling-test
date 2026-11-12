@@ -1,12 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useApi } from './context';
-import type { GridDefinition, ScaleLevel } from './types';
+import type { EvaluateInput, GridDefinition, ScaleLevel } from './types';
 
 export const keys = {
   scales: ['config', 'scales'] as const,
   scale: (id: string) => ['config', 'scales', id] as const,
   grids: ['config', 'grids'] as const,
   grid: (id: string) => ['config', 'grids', id] as const,
+  nineBoxGrid: ['nine-box', 'grid'] as const,
+  nineBoxEmployees: ['nine-box', 'employees'] as const,
+  evaluations: (employeeId: string) => ['nine-box', 'evaluations', employeeId] as const,
 };
 
 export function useScales() {
@@ -49,6 +52,37 @@ export function useSaveGrid(id: string) {
     onSuccess: (data) => {
       qc.setQueryData(keys.grid(id), data);
       void qc.invalidateQueries({ queryKey: keys.grids });
+    },
+  });
+}
+
+export function useNineBoxGrid() {
+  const api = useApi();
+  return useQuery({ queryKey: keys.nineBoxGrid, queryFn: () => api.getNineBoxGrid() });
+}
+
+export function useNineBoxEmployees() {
+  const api = useApi();
+  return useQuery({ queryKey: keys.nineBoxEmployees, queryFn: () => api.listNineBoxEmployees() });
+}
+
+export function useEvaluations(employeeId: string | undefined) {
+  const api = useApi();
+  return useQuery({
+    queryKey: keys.evaluations(employeeId ?? ''),
+    queryFn: () => api.listEvaluations(employeeId!),
+    enabled: employeeId !== undefined,
+  });
+}
+
+export function useEvaluate() {
+  const api = useApi();
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (input: EvaluateInput) => api.evaluate(input),
+    onSuccess: (_, input) => {
+      void qc.invalidateQueries({ queryKey: keys.nineBoxEmployees });
+      void qc.invalidateQueries({ queryKey: keys.evaluations(input.employeeId) });
     },
   });
 }

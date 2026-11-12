@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { labels } from './labels';
 import { GridEditor } from './features/config/GridEditor';
 import { GridsList } from './features/config/GridsList';
+import { NineBoxPage } from './features/ninebox/NineBoxPage';
 import { ScaleEditor } from './features/config/ScaleEditor';
 import { ScalesList } from './features/config/ScalesList';
 import { Landing } from './portals/DevRoleSwitcher';
@@ -20,8 +21,9 @@ export function AppRoutes() {
         <Route index element={<Assessments />} />
         <Route path="idps" element={<TeamIdps />} />
       </Route>
-      <Route path="/admin" element={<PortalLayout role="hr-admin" links={[{ to: '/admin/scales', label: labels.nav.scales }, { to: '/admin/grids', label: labels.nav.grids }]} />}>
-        <Route index element={<Navigate to="scales" replace />} />
+      <Route path="/admin" element={<PortalLayout role="hr-admin" links={[{ to: '/admin/nine-box', label: labels.nav.nineBox }, { to: '/admin/scales', label: labels.nav.scales }, { to: '/admin/grids', label: labels.nav.grids }]} />}>
+        <Route index element={<Navigate to="nine-box" replace />} />
+        <Route path="nine-box" element={<NineBoxPage />} />
         <Route path="scales" element={<ScalesList />} />
         <Route path="scales/:id" element={<ScaleEditor />} />
         <Route path="grids" element={<GridsList />} />

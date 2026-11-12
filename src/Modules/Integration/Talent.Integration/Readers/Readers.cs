@@ -53,6 +53,14 @@ internal sealed class OrgUnitReader(IntegrationDbContext db) : IOrgUnitReader
             .Select(o => new OrgUnitDto(o.Id, o.Code, o.Name, o.ParentId, o.IsActive))
             .SingleOrDefaultAsync(cancellationToken);
 
+    public async Task<IReadOnlyList<OrgUnitDto>> GetManyAsync(IReadOnlyCollection<Guid> orgUnitIds, CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNull(orgUnitIds);
+        return await db.OrgUnits.AsNoTracking().Where(o => orgUnitIds.Contains(o.Id)).OrderBy(o => o.Code)
+            .Select(o => new OrgUnitDto(o.Id, o.Code, o.Name, o.ParentId, o.IsActive))
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<IReadOnlyList<OrgUnitDto>> ListAsync(CancellationToken cancellationToken) =>
         await db.OrgUnits.AsNoTracking().OrderBy(o => o.Code)
             .Select(o => new OrgUnitDto(o.Id, o.Code, o.Name, o.ParentId, o.IsActive))
@@ -65,6 +73,14 @@ internal sealed class PositionReader(IntegrationDbContext db) : IPositionReader
         db.Positions.AsNoTracking().Where(p => p.Id == positionId)
             .Select(p => new PositionDto(p.Id, p.Code, p.Title, p.OrgUnitId, p.IsActive))
             .SingleOrDefaultAsync(cancellationToken);
+
+    public async Task<IReadOnlyList<PositionDto>> GetManyAsync(IReadOnlyCollection<Guid> positionIds, CancellationToken cancellationToken)
+    {
+        ArgumentNullException.ThrowIfNull(positionIds);
+        return await db.Positions.AsNoTracking().Where(p => positionIds.Contains(p.Id)).OrderBy(p => p.Code)
+            .Select(p => new PositionDto(p.Id, p.Code, p.Title, p.OrgUnitId, p.IsActive))
+            .ToListAsync(cancellationToken);
+    }
 
     public async Task<PagedResult<PositionDto>> ListAsync(Guid? orgUnitId, int page, int pageSize, CancellationToken cancellationToken)
     {

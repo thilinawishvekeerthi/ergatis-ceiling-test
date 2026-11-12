@@ -35,6 +35,21 @@ public sealed class ScaleDefinitionTests
             """{"levels":[{"level":1,"label":"A","minScore":2,"band":"LOW"},{"level":2,"label":"B","minScore":2,"band":"HIGH"}]}"""));
 
     [Fact]
+    public void Parse_WhenLevelHasRubric_KeepsIt()
+    {
+        var scale = ScaleDefinition.Parse(
+            """{"levels":[{"level":1,"label":"A","minScore":1,"band":"LOW","description":" Misses goals. "},{"level":2,"label":"B","minScore":2,"band":"HIGH"}]}""");
+
+        scale.Levels[0].Description.ShouldBe("Misses goals.");
+        scale.Levels[1].Description.ShouldBeNull();
+    }
+
+    [Fact]
+    public void Parse_WhenRubricTooLong_Throws() =>
+        Should.Throw<InvalidConfigPayloadException>(() => ScaleDefinition.Parse(
+            $$"""{"levels":[{"level":1,"label":"A","minScore":1,"band":"LOW","description":"{{new string('x', 301)}}"},{"level":2,"label":"B","minScore":2,"band":"HIGH"}]}"""));
+
+    [Fact]
     public void Parse_WhenLevelNumbersSkip_Throws() =>
         Should.Throw<InvalidConfigPayloadException>(() => ScaleDefinition.Parse(
             """{"levels":[{"level":1,"label":"A","minScore":1,"band":"LOW"},{"level":3,"label":"B","minScore":2,"band":"HIGH"}]}"""));
