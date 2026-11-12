@@ -1,5 +1,6 @@
 using System.Reflection;
 using NetArchTest.Rules;
+using Talent.Assessment;
 using Talent.Config.Versions;
 using Talent.Integration;
 using Talent.Security;
@@ -10,7 +11,7 @@ namespace Talent.ArchitectureTests;
 
 public sealed class ModuleBoundaryTests
 {
-    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly, typeof(SecurityModule).Assembly, typeof(IntegrationModule).Assembly, typeof(WorkflowInstance).Assembly];
+    private static readonly Assembly[] Modules = [typeof(ConfigVersion).Assembly, typeof(SecurityModule).Assembly, typeof(IntegrationModule).Assembly, typeof(WorkflowInstance).Assembly, typeof(AssessmentModule).Assembly];
 
     [Fact]
     public void Modules_ReferenceOnlyContractsOfOtherModules()
@@ -135,6 +136,32 @@ public sealed class ModuleBoundaryTests
         var result = Types.InAssembly(typeof(WorkflowDefinitionModel).Assembly)
             .That().ResideInNamespace("Talent.Workflow.Definitions")
             .ShouldNot().HaveDependencyOn("Talent.Workflow.Persistence")
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void NineBoxRules_ArePureAndDoNotDependOnPersistenceOrConfigReaders()
+    {
+        // BRD §7: placement logic is an I/O-free function. Only the entity file in this namespace may know about events.
+        var result = Types.InAssembly(typeof(AssessmentModule).Assembly)
+            .That().ResideInNamespace("Talent.Assessment.NineBox")
+            .And().DoNotHaveName("NineBoxConfigProvider")
+            .ShouldNot().HaveDependencyOnAny("Microsoft.EntityFrameworkCore", "Talent.Assessment.Persistence", "Talent.Config.Contracts", "System.Net.Http")
+            .GetResult();
+
+        result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));
+    }
+
+    [Fact]
+    public void AssessmentImplementation_IsInternal()
+    {
+        var result = Types.InAssembly(typeof(AssessmentModule).Assembly)
+            .That().AreClasses()
+            .And().DoNotHaveNameEndingWith("Module")
+            .And().DoNotResideInNamespaceContaining("Migrations")
+            .Should().NotBePublic()
             .GetResult();
 
         result.IsSuccessful.ShouldBeTrue(string.Join(", ", result.FailingTypeNames ?? []));

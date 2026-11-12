@@ -14,6 +14,8 @@ internal static class DefaultPermissionMatrix
           {"role":"MANAGER","resource":"config:Scale","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
           {"role":"MANAGER","resource":"config:Grid","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":false},
           {"role":"TALENT_COMMITTEE","resource":"config:*","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
-          {"role":"HR_ADMIN","resource":"config:*","actions":["View","Edit","Approve"],"scope":"All","fieldClass":"Internal","talentConfidential":true}]}
+          {"role":"HR_ADMIN","resource":"config:*","actions":["View","Edit","Approve"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
+          {"role":"TALENT_COMMITTEE","resource":"assessment:NineBox","actions":["View"],"scope":"All","fieldClass":"Internal","talentConfidential":true},
+          {"role":"HR_ADMIN","resource":"assessment:NineBox","actions":["View","Edit"],"scope":"All","fieldClass":"Internal","talentConfidential":true}]}
         """;
 }

@@ -76,3 +76,60 @@ export interface Session {
   displayName: string;
   roles: Role[];
 }
+
+/** Nine-box evaluation API (/api/v1/assessment/nine-box). Mirrors docs/api/nine-box.openapi.yaml. */
+export interface RubricLevel {
+  level: number;
+  label: string;
+  description?: string | null;
+}
+
+export interface NineBoxCell extends GridCellDefinition {
+  boxNumber: number;
+}
+
+export interface NineBoxGrid {
+  gridVersionId: string;
+  performanceLevels: RubricLevel[];
+  potentialLevels: RubricLevel[];
+  columnBounds: number[];
+  rowBounds: number[];
+  cells: NineBoxCell[];
+}
+
+export interface Evaluation {
+  evaluationId: string;
+  employeeId: string;
+  performance: number;
+  potential: number;
+  boxNumber: number;
+  label: string;
+  talentScore: number;
+  band: string;
+  gridVersionId: string;
+  evaluatedBy: string;
+  evaluatedAt: string;
+}
+
+export interface EmployeePlacement {
+  employeeId: string;
+  employeeNumber: string;
+  name: string;
+  position?: string | null;
+  department?: string | null;
+  /** Null when never evaluated, or masked when the caller may not see talent-confidential data. */
+  latest?: Evaluation | null;
+}
+
+export interface Paged<T> {
+  items: T[];
+  page: number;
+  pageSize: number;
+  totalCount: number;
+}
+
+export interface EvaluateInput {
+  employeeId: string;
+  performance: number;
+  potential: number;
+}

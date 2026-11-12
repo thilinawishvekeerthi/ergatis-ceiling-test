@@ -1,5 +1,17 @@
 import { ApiError } from './errors';
-import type { ConfigSummary, ConfigVersionStatus, GridDefinition, GridDetail, ScaleDetail, ScaleLevel } from './types';
+import type {
+  ConfigSummary,
+  ConfigVersionStatus,
+  EmployeePlacement,
+  EvaluateInput,
+  Evaluation,
+  GridDefinition,
+  GridDetail,
+  NineBoxGrid,
+  Paged,
+  ScaleDetail,
+  ScaleLevel,
+} from './types';
 
 export interface ApiClientOptions {
   baseUrl?: string;
@@ -51,19 +63,22 @@ export function createApiClient(options: ApiClientOptions = {}) {
     if (!response.ok) {
       if (response.status === 401) options.onUnauthenticated?.();
       let detail = response.statusText;
+      let fieldErrors: Record<string, string[]> | undefined;
       try {
-        const problem = (await response.json()) as { detail?: string; title?: string };
+        const problem = (await response.json()) as { detail?: string; title?: string; errors?: Record<string, string[]> };
         detail = problem.detail ?? problem.title ?? detail;
+        fieldErrors = problem.errors;
       } catch {
         /* body was not ProblemDetails */
       }
-      throw new ApiError(response.status, detail);
+      throw new ApiError(response.status, detail, fieldErrors);
     }
     if (response.status === 204) return undefined as T;
     return (await response.json()) as T;
   }
 
   const configRoot = '/api/v1/config';
+  const nineBoxRoot = '/api/v1/assessment/nine-box';
 
   /** What GET /versions/{id} and the publish/payload calls return. The payload is the scale or grid body. */
   interface VersionResponse<P> {
@@ -93,6 +108,11 @@ export function createApiClient(options: ApiClientOptions = {}) {
     saveGridDraft: async (id: string, grid: GridDefinition) =>
       toGrid(await request('PUT', `${configRoot}/versions/${id}/payload`, { payload: { ...grid } })),
     publishGrid: async (id: string) => toGrid(await request('POST', `${configRoot}/versions/${id}/publish`)),
+    getNineBoxGrid: () => request<NineBoxGrid>('GET', `${nineBoxRoot}/grid`),
+    listNineBoxEmployees: (page = 1, pageSize = 100) =>
+      request<Paged<EmployeePlacement>>('GET', `${nineBoxRoot}/employees?page=${page}&pageSize=${pageSize}`),
+    listEvaluations: (employeeId: string) => request<Paged<Evaluation>>('GET', `${nineBoxRoot}/employees/${employeeId}/evaluations`),
+    evaluate: (input: EvaluateInput) => request<Evaluation>('POST', `${nineBoxRoot}/evaluations`, { ...input }),
   };
 }
 

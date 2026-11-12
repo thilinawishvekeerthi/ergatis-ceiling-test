@@ -86,7 +86,13 @@ public static class IntegrationModule
         ArgumentNullException.ThrowIfNull(services);
         await using var scope = services.CreateAsyncScope();
         var sync = scope.ServiceProvider.GetRequiredService<IOptions<SyncOptions>>().Value;
-        await scope.ServiceProvider.GetRequiredService<IntegrationDbContext>().Database.MigrateAsync(cancellationToken);
+        var db = scope.ServiceProvider.GetRequiredService<IntegrationDbContext>();
+        await db.Database.MigrateAsync(cancellationToken);
+
+        if (sync.SyncOnStartupWhenEmpty && !await db.Employees.AnyAsync(cancellationToken))
+        {
+            await scope.ServiceProvider.GetRequiredService<ISyncService>().RunDeltaAsync(cancellationToken);
+        }
 
         if (sync.Scheduler == SyncScheduler.Hangfire)
         {

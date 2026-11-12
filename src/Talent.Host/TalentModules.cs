@@ -1,3 +1,4 @@
+using Talent.Assessment;
 using Talent.Config;
 using Talent.Security;
 using Talent.Integration;
@@ -10,10 +11,10 @@ internal static class TalentModules
 {
     /// <summary>Registers every module. The same call can load Talent inside another host later.</summary>
     public static IServiceCollection AddTalentModules(this IServiceCollection services, IConfiguration configuration) =>
-        services.AddTalentShared(configuration).AddConfigModule(configuration).AddSecurityModule(configuration).AddIntegrationModule(configuration).AddWorkflowModule(configuration);
+        services.AddTalentShared(configuration).AddConfigModule(configuration).AddSecurityModule(configuration).AddIntegrationModule(configuration).AddWorkflowModule(configuration).AddAssessmentModule(configuration);
 
     public static IEndpointRouteBuilder MapTalentEndpoints(this IEndpointRouteBuilder app) =>
-        app.MapSecurityEndpoints().MapConfigEndpoints().MapIntegrationEndpoints().MapWorkflowEndpoints();
+        app.MapSecurityEndpoints().MapConfigEndpoints().MapIntegrationEndpoints().MapWorkflowEndpoints().MapAssessmentEndpoints();
 }
 
 internal static class TalentStartup
@@ -31,5 +32,6 @@ internal static class TalentStartup
         await app.Services.InitializeSecurityAsync(app.Lifetime.ApplicationStopping);
         await app.Services.InitializeIntegrationAsync(app.Lifetime.ApplicationStopping);
         await app.Services.InitializeWorkflowAsync(app.Lifetime.ApplicationStopping);
+        await app.Services.InitializeAssessmentAsync(app.Lifetime.ApplicationStopping);
     }
 }
