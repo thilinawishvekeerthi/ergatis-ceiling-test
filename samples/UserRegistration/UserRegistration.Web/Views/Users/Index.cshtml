@@ -1,0 +1,58 @@
+@model List<UserRegistration.Web.Models.User>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="d-flex justify-content-between align-items-center my-4">
+    <h1 class="h3 mb-0">Registered users <span class="badge text-bg-secondary">@Model.Count</span></h1>
+    <button type="button" class="btn btn-primary" data-modal-url="@Url.Action("Register")" data-modal-title="Create an account">
+        Register new user
+    </button>
+</div>
+
+<div id="toast-area" class="alert alert-success d-none" role="status"></div>
+
+@if (Model.Count == 0)
+{
+    <p class="text-muted">No users yet. Click "Register new user" to add the first one.</p>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr><th>#</th><th>Name</th><th>Email</th><th>Registered (UTC)</th><th></th></tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model)
+            {
+                <tr>
+                    <td>@u.Id</td>
+                    <td>@u.FullName</td>
+                    <td>@u.Email</td>
+                    <td>@u.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td class="text-end">
+                        <button type="button" class="btn btn-sm btn-outline-danger"
+                                data-modal-url="@Url.Action("Delete", new { id = u.Id })" data-modal-title="Delete user">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<div class="modal fade" id="app-modal" tabindex="-1" aria-labelledby="app-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="app-modal-title"></h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="app-modal-body"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/users.js" asp-append-version="true"></script>
+}
