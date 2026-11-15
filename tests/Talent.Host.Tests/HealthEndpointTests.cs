@@ -21,6 +21,18 @@ public sealed class HealthEndpointTests(HostFixture host) : IClassFixture<HostFi
     }
 
     [Fact]
+    public async Task Health_WhenCalledAnonymously_ReturnsStatusOkJson()
+    {
+        using var client = host.Factory.CreateClient();
+
+        var response = await client.GetAsync(new Uri("/health", UriKind.Relative), Ct);
+
+        response.StatusCode.ShouldBe(HttpStatusCode.OK);
+        response.Content.Headers.ContentType?.MediaType.ShouldBe("application/json");
+        (await response.Content.ReadAsStringAsync(Ct)).ShouldBe("""{"status":"ok"}""");
+    }
+
+    [Fact]
     public async Task UnknownRoute_WhenCalled_ReturnsProblemDetailsBody()
     {
         using var client = host.Factory.CreateClient();

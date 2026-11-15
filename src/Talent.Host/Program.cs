@@ -15,6 +15,7 @@ await app.InitializeAsync();
 app.UseExceptionHandler();
 app.UseStatusCodePages();
 app.UseTalentSecurity();
+app.MapGet("/health", () => Results.Json(new { status = "ok" })).AllowAnonymous();
 app.MapHealthChecks("/health/live", new() { Predicate = _ => false }).AllowAnonymous();
 app.MapHealthChecks("/health/ready", new() { Predicate = check => check.Tags.Contains("ready") }).AllowAnonymous();
 app.MapTalentEndpoints();
